@@ -1,0 +1,75 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Pretendard';
+    color: #111;
+    background-color: #fff;
+}
+
+body {
+    display: flex;
+}
+
+aside {
+    width: 240px;
+    height: 100vh;
+    background-color: #f8f9fa;
+    padding: 20px 0px;
+    border-right: 1px solid #dee2e6;
+    flex-shrink: 0;
+}
+
+main {
+    flex-grow: 1; /* 남은 공간을 모두 차지하도록 함 */
+    padding: 30px; /* 메인 콘텐츠 내부 여백 */
+    height: 100vh; /* 메인 영역 높이 (필요 시) */
+    overflow-y: auto; /* 내용이 많아지면 스크롤 생성 */
+}
+
+.meun {
+    list-style: none;
+}
+
+.menu-btn {
+    display: block; /* 링크를 블록 요소로 만들어 너비 100% 차지하고 패딩 적용 가능하게 함 */
+    padding: 20px 20px;
+    text-decoration: none;
+    color: #495057;
+    font-size: 18px;
+    transition: background-color 0.2s ease, color 0.2s ease; /* 부드러운 전환 효과 */
+}
+
+.menu-btn:hover {
+    background-color: #e9ecef;
+    color: #212529;
+}
+
+.menu-btn.active {
+    color: #212925;
+    font-weight: 800;
+}
+
+main h1 {
+    margin-bottom: 16px;
+}
+
+main .section-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+main .button-examples {
+    display: flex;         
+    align-items: flex-end; 
+    gap: 24px;             
+    flex-wrap: wrap;       
+    padding-top: 10px; /* 섹션 제목 아래 여백 */
+    padding-bottom: 10px; /* 섹션 사이 여백 */
+}

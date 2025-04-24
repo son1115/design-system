@@ -1,0 +1,83 @@
+/* 각 버튼 크기 단위 (라벨+버튼) */
+.button-variant {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+}
+
+/* 버튼 라벨 스타일 */
+.button-label {
+    font-size: 12px;      
+    color: #6c757d;       
+    margin-top: 8px;   
+    white-space: nowrap;  
+}
+
+/* --- 기본 버튼 스타일 (.btn 사용) --- */
+.btn {
+    display: inline-flex;   
+    align-items: center;    
+    justify-content: center;
+    padding: 0 16px;        
+    border: 1px solid transparent; 
+    border-radius: 6px;     
+    font-weight: 500;       
+    font-size: 14px;        
+    cursor: pointer;        
+    text-align: center;     
+    white-space: nowrap;    
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
+}
+
+/* Primary 버튼 색상 */
+.btn-primary {
+    background-color: #6fbf73; 
+    color: white;              
+    border-color: #6fbf73;     
+}
+
+.btn-primary:hover {
+    background-color: #5daf63; 
+    border-color: #5daf63;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:active { 
+    background-color: #509a54;
+    border-color: #509a54;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 버튼 크기별 스타일 */
+.btn-xl {
+    height: 64px;
+    padding: 0 28px; 
+    font-size: 16px;
+    border-radius: 8px; /* 큰 버튼은 모서리 반경도 약간 크게 */
+}
+
+.btn-lg {
+    height: 56px;
+    padding: 0 24px;
+    font-size: 15px;
+    border-radius: 7px;
+}
+
+.btn-md {
+    height: 48px;
+    padding: 0 20px;
+    font-size: 14px; /* 기본값과 동일 */
+}
+
+.btn-sm {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 13px;
+}
+
+.btn-xs {
+    height: 36px;
+    padding: 0 12px;
+    font-size: 12px;
+}
