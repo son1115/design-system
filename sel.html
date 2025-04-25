@@ -11,8 +11,8 @@
     <aside>
         <ul class="menu">
             <li><a href="/index.html" class="menu-btn">홈</a></li>
-            <li><a href="btn.html" class="menu-btn active">버튼</a></li>
-            <li><a href="#" class="menu-btn">셀렉션 컨트롤</a></li>
+            <li><a href="/btn.html" class="menu-btn">버튼</a></li>
+            <li><a href="#" class="menu-btn active">셀렉션 컨트롤</a></li>
             <li><a href="#" class="menu-btn">입력 필드</a></li>
             <li><a href="#" class="menu-btn">드롭다운</a></li>
             <li><a href="#" class="menu-btn">탭</a></li>
@@ -26,141 +26,177 @@
     <main>
         <div class="component-header">
             <h1>셀렉션 컨트롤</h1>
-            <p>작업을 수행하는 데 사용되는 클릭 가능한 컴포넌트입니다.</p>
+            <p>사용자가 선택 옵션을 제어할 수 있도록 돕는 컴포넌트입니다.</p>
         </div>
 
-        <h2 class="section-title">Type</h2>
+        <h1 class="section-title">Checkbox</h1>
 
-        <div class="button-examples">
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary">버튼</button>
-                <span class="button-label">Primary</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-secondary">버튼</button>
-                <span class="button-label">Secondary</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-assistive">버튼</button>
-                <span class="button-label">Assistive</span>
+        <div class="component-examples">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="typeCheckbox1"> 
+                <label class="form-check-label" for="typeCheckbox1">체크박스</label>
             </div>
 
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="typeCheckbox2"> 
+                <label class="form-check-label" for="typeCheckbox2">체크박스</label>
+            </div>
         </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="form-check"&gt;
+            &lt;input class="form-check-input" type="checkbox" value="" id="typeCheckbox1"&gt;
+            &lt;label class="form-check-label" for="typeCheckbox1"&gt;
+                체크박스
+            &lt;/label&gt;
+        &lt;/div&gt;
+        
+&lt;div class="form-check"&gt;
+            &lt;input class="form-check-input" type="checkbox" value="" id="typeCheckbox2"&gt;
+            &lt;label class="form-check-label" for="typeCheckbox2"&gt;
+                체크박스
+            &lt;/label&gt;
+        &lt;/div&gt;</code></pre>
+        </div>
+
+        <h2 class="section-title">Checkbox Size</h2>
+        <div class="component-examples"> 
+            <div class="button-variant"> <div class="form-check form-check-lg"> 
+                <input class="form-check-input" type="checkbox" value="" id="checkboxLg">
+                <label class="form-check-label" for="checkboxLg">
+                    체크박스
+                </label>
+            </div>
+            <span class="button-label">Large</span>
+        </div>
+
+            <div class="button-variant">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="checkboxMd">
+                    <label class="form-check-label" for="checkboxMd">
+                        체크박스
+                    </label>
+                </div>
+                <span class="button-label">Medium</span>
+            </div>
+
+        </div><div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="form-check form-check-lg"&gt;
+            &lt;input class="form-check-input" type="checkbox" value="" id="checkboxLg"&gt;
+            &lt;label class="form-check-label" for="checkboxLg"&gt;
+                체크박스
+            &lt;/label&gt;
+        &lt;/div&gt;
+        
+&lt;div class="form-check"&gt;
+            &lt;input class="form-check-input" type="checkbox" value="" id="typeCheckbox"&gt;
+            &lt;label class="form-check-label" for="typeCheckbox"&gt;
+                체크박스
+            &lt;/label&gt;
+        &lt;/div&gt;</code></pre>
+        </div>
+
+        <h2 class="section-title">Checkbox State</h2>
+
+        <div class="component-examples checkbox-states"> 
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="stateCheckboxUnchecked">
+                <label class="form-check-label" for="stateCheckboxUnchecked">
+                    체크박스(Off)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="stateCheckboxChecked" checked>
+                <label class="form-check-label" for="stateCheckboxChecked">
+                    체크박스(On)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="stateCheckboxDisabled" disabled>
+                <label class="form-check-label" for="stateCheckboxDisabled">
+                    체크박스(Disabled Off)
+                </label>
+            </div>
+             <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="stateCheckboxDisabled" checked disabled>
+                <label class="form-check-label" for="stateCheckboxDisabledChecked">
+                    체크박스(Disabled On)
+                </label>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="form-check"&gt;
+            &lt;input class="form-check-input" type="checkbox" id="cbState1"&gt;
+            &lt;label class="form-check-label" for="cbState1"&gt;Unchecked
+            &lt;/label&gt;
+        &lt;/div&gt;
+
+&lt;div class="form-check"&gt;
+            &lt;input class="form-check-input" type="checkbox" id="cbState2" checked&gt;
+            &lt;label class="form-check-label" for="cbState2"&gt;Checked
+            &lt;/label&gt;
+        &lt;/div&gt;
+
+&lt;div class="form-check"&gt;
+            &lt;input class="form-check-input" type="checkbox" id="cbState3" disabled&gt;
+            &lt;label class="form-check-label" for="cbState3"&gt;Disabled Unchecked
+            &lt;/label&gt;
+        &lt;/div&gt;
+
+&lt;div class="form-check"&gt;
+            &lt;input class="form-check-input" type="checkbox" id="cbState4" checked disabled&gt;
+            &lt;label class="form-check-label" for="cbState4"&gt;Disabled checked
+            &lt;/label&gt;
+        &lt;/div&gt;</code></pre>
+        </div>
+        
+        <h1 class="section-title">Radio</h1>
+
+            <div class="component-examples">  <div class="form-check">
+                <input class="form-check-input" type="radio" name="typeRadioGroup" id="typeRadio1" value="option1">
+                <label class="form-check-label" for="typeRadio1">
+                    라디오버튼
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="typeRadioGroup" id="typeRadio2" value="option2">
+                <label class="form-check-label" for="typeRadio2">
+                    라디오버튼
+                </label>
+            </div>
+        </div>
+
         <div class="code-snippet-wrapper full-width-code"> 
             <pre><code class="language-html">&lt;button type="button" class="btn btn-primary"&gt;버튼&lt;/button&gt;
 &lt;button type="button" class="btn btn-secondary"&gt;버튼&lt;/button&gt;
 &lt;button type="button" class="btn btn-assistive"&gt;버튼&lt;/button&gt;</code></pre>
         </div>
 
-        <h2 class="section-title">Size</h2>
+        <h1 class="section-title">Toggle Switch</h1>
 
-        <div class="button-examples">
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary btn-xl">버튼</button>
-                <span class="button-label">XLarge(64)</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary btn-lg">버튼</button>
-                <span class="button-label">Large(56)</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary btn-md">버튼</button>
-                <span class="button-label">Medium(48)</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary btn-sm">버튼</button>
-                <span class="button-label">Small(40)</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary btn-xs">버튼</button>
-                <span class="button-label">XSmall(36)</span>
-            </div>
-        </div>
-        <div class="code-snippet-wrapper full-width-code"> 
-            <pre><code class="language-html">&lt;button type="button" class="btn btn-primary btn-xl"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary btn-lg"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary btn-sm"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary btn-xs"&gt;버튼&lt;/button&gt;</code></pre>
+
+        <div class="form-check form-switch form-switch-custom"> <input class="form-check-input" type="checkbox" role="switch" id="typeSwitchText">
+            <label class="form-switch-label" for="typeSwitchText"> <span class="form-switch-visual"> <span class="form-switch-track"> 
+                    <span class="form-switch-thumb"></span> </span>
+            </label>
+            <span class="form-switch-external-label">토글 스위치</span> 
         </div>
 
-        <h2 class="section-title">State</h2>
-
-        <div class="button-examples">
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary">버튼</button>
-                <span class="button-label">Default</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary hover-state">버튼</button>
-                <span class="button-label">Hover</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary active-state">버튼</button>
-                <span class="button-label">Active</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary" disabled>버튼</button>
-                <span class="button-label">Disabled</span>
-            </div>  
-        </div>
-
-        <div class="button-examples">
-            <div class="button-variant">
-                <button type="button" class="btn btn-secondary">버튼</button>
-                <span class="button-label">Default</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-secondary hover-state">버튼</button>
-                <span class="button-label">Hover</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-secondary active-state">버튼</button>
-                <span class="button-label">Active</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-secondary" disabled>버튼</button>
-                <span class="button-label">Disabled</span>
-            </div>      
-        </div>
-
-        <div class="button-examples">
-            <div class="button-variant">
-                <button type="button" class="btn btn-assistive">버튼</button>
-                <span class="button-label">Default</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-assistive hover-state">버튼</button>
-                <span class="button-label">Hover</span>
-            </div>         
-            <div class="button-variant">
-                <button type="button" class="btn btn-assistive active-state">버튼</button>
-                <span class="button-label">Active</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-assistive" disabled>버튼</button>
-                <span class="button-label">Disabled</span>
-            </div>  
+        <div class="form-check form-switch form-switch-custom"> <input class="form-check-input" type="checkbox" role="switch" id="typeSwitchText">
+                <label class="form-switch-label" for="typeSwitchText"> <span class="form-switch-visual"> <span class="form-switch-track"> 
+                        <span class="form-switch-thumb"></span> </span>
+                </label>
+                <span class="form-switch-external-label">토글 스위치</span> 
         </div>
 
         <div class="code-snippet-wrapper full-width-code"> 
             <pre><code class="language-html">&lt;button type="button" class="btn btn-primary"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary hover-state"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary active-state"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary disabled"&gt;버튼&lt;/button&gt;
-
 &lt;button type="button" class="btn btn-secondary"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-secondary hover-state"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-secondary active-state"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-secondary disabled"&gt;버튼&lt;/button&gt;
-
-&lt;button type="button" class="btn btn-assistive"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-assistive hover-state"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-assistive active-state"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-assistive disabled"&gt;버튼&lt;/button&gt;</code></pre>
-
+&lt;button type="button" class="btn btn-assistive"&gt;버튼&lt;/button&gt;</code></pre>
         </div>
-
+        
     </main>
     <script src="/statics/scripts/script.js"></script> 
 </body>
