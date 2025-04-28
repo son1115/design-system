@@ -24,7 +24,7 @@
     margin-right: 0.5rem; /* input과 라벨 사이 간격 (8px) */
 
     background-color: #fff; /* 기본 배경색 */
-    border: 1px solid #adb5bd; /* 기본 테두리 색상 */
+    border: 1px solid #d6d6d6; /* 기본 테두리 색상 */
 
     /* 부드러운 전환 효과 추가 */
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -142,6 +142,13 @@
     height: 0.625rem; /* 10px */
     border-radius: 50%; /* 원 모양 */
     background-color: white; /* 점 색상 */
+}
+
+/* Large 사이즈 라디오 버튼의 내부 점 크기 조정 */
+.form-check-lg .form-check-input[type="radio"]::after {
+    /* --- Large 사이즈에 원하는 안쪽 원 크기 지정 --- */
+    width: 0.75rem;  /* 예시: 12px (값 조절 가능) */
+    height: 0.75rem; /* 예시: 12px (값 조절 가능) */
 }
 
 /* 체크된 상태 */

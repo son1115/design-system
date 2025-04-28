@@ -144,3 +144,10 @@ main > p { margin-bottom: 16px; color: #495057; }
     color: #555; /* 약간 연한 텍스트 색상 (선택 사항) */
     /* 필요한 다른 스타일 추가 */
 }
+
+/* 라디오 버튼 상태 예시 컨테이너 가로 정렬 */
+.component-examples.radio-states {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}

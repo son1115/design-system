@@ -33,27 +33,27 @@
 
         <div class="component-examples">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="cb1"> 
-                <label class="form-check-label" for="cb1">체크박스</label>
+                <input class="form-check-input" type="checkbox" value="" id="cb-1"> 
+                <label class="form-check-label" for="cb-1">체크박스</label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="cb2"> 
-                <label class="form-check-label" for="cb2">체크박스</label>
+                <input class="form-check-input" type="checkbox" value="" id="cb-2"> 
+                <label class="form-check-label" for="cb-2">체크박스</label>
             </div>
         </div>
 
         <div class="code-snippet-wrapper full-width-code">
             <pre><code class="language-html">&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" value="" id="cb1"&gt;
-    &lt;label class="form-check-label" for="cb1"&gt;
+    &lt;input class="form-check-input" type="checkbox" value="" id="cb-1"&gt;
+    &lt;label class="form-check-label" for="cb-1"&gt;
         체크박스
     &lt;/label&gt;
 &lt;/div&gt;
 
 &lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" value="" id="cb2"&gt;
-    &lt;label class="form-check-label" for="cb2"&gt;
+    &lt;input class="form-check-input" type="checkbox" value="" id="cb-2"&gt;
+    &lt;label class="form-check-label" for="cb-2"&gt;
         체크박스
     &lt;/label&gt;
 &lt;/div&gt;</code></pre>
@@ -154,25 +154,122 @@
         
         <h1 class="section-title">Radio</h1>
 
-            <div class="component-examples">  <div class="form-check">
-                <input class="form-check-input" type="radio" name="typeRadioGroup" id="typeRadio1" value="option1">
-                <label class="form-check-label" for="typeRadio1">
-                    라디오버튼
+            <div class="component-examples">  
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioTypeGroup" id="rd-1" value="option1">
+                    <label class="form-check-label" for="rd-1">
+                    라디오 옵션 1
                 </label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="typeRadioGroup" id="typeRadio2" value="option2">
-                <label class="form-check-label" for="typeRadio2">
-                    라디오버튼
+                <input class="form-check-input" type="radio" name="radioTypeGroup" id="rd-2" value="option2">
+                <label class="form-check-label" for="rd-2">
+                    라디오 옵션 2
                 </label>
             </div>
         </div>
 
         <div class="code-snippet-wrapper full-width-code"> 
-            <pre><code class="language-html">&lt;button type="button" class="btn btn-primary"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-secondary"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-assistive"&gt;버튼&lt;/button&gt;</code></pre>
+            <pre><code class="language-html">&lt;div class="form-check"&gt;
+    &lt;input class="form-check-input" type="radio" name="radioTypeGroup" id="rd-type-1" value="option1" checked&gt;
+    &lt;label class="form-check-label" for="rd-type-1"&gt;
+        라디오 옵션 1
+    &lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="form-check"&gt;
+    &lt;input class="form-check-input" type="radio" name="radioTypeGroup" id="rd-type-2" value="option2"&gt;
+    &lt;label class="form-check-label" for="rd-type-2"&gt;
+        라디오 옵션 2
+    &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h2 class="section-title">Radio Size</h2>
+        <div class="component-examples"> 
+            <div class="button-variant"> 
+                <div class="form-check form-check-lg"> 
+                    <input class="form-check-input" type="radio" name="radioSizeLarge" id="rd-lg" value="lg">
+                    <label class="form-check-label" for="rd-lg">
+                        라디오 버튼
+                    </label>
+                </div>
+                <span class="button-label">Large</span>
+            </div>
+
+            <div class="button-variant">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioSizeMedium" id="rd-md" value="md">
+                    <label class="form-check-label" for="rd-md">
+                        라디오 버튼
+                    </label>
+                </div>
+                <span class="button-label">Medium</span>
+            </div>
+
+        </div><div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="form-check form-check-lg"&gt;
+    &lt;input class="form-check-input" type="radio" name="radioSizeLgGroup" id="rd-size-lg" value="lg" checked&gt;
+    &lt;label class="form-check-label" for="rd-size-lg"&gt;
+        라디오 버튼
+    &lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="form-check"&gt;
+    &lt;input class="form-check-input" type="radio" name="radioSizeMdGroup" id="rd-size-md" value="md"&gt;
+    &lt;label class="form-check-label" for="rd-size-md"&gt;
+        라디오 버튼
+    &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h2 class="section-title">Radio State</h2>
+        <div class="component-examples radio-states"> 
+                <div class="form-check"> 
+                    <input class="form-check-input" type="radio" name="radioStateGroup" id="rd-unchecked-state" value="Unchecked">
+                    <label class="form-check-label" for="rd-unchecked-state">
+                        라디오(Off)
+                    </label>
+                </div>
+
+            <div class="button-variant">
+                <div class="form-check"> 
+                    <input class="form-check-input" type="radio" name="radioStateGroup" id="rd-checked-state" value="checked" checked>
+                    <label class="form-check-label" for="rd-checked-state">
+                        라디오(On)
+                    </label>
+                </div>
+
+            <div class="button-variant">
+                <div class="form-check"> 
+                    <input class="form-check-input" type="radio" name="radioStateGroupDisabled" id="rd-disabled-unchecked" value="disabled-unchecked" disabled>
+                    <label class="form-check-label" for="rd-disabled-unchecked">
+                        라디오(Disabled Off)
+                    </label>
+                </div>
+
+            <div class="button-variant">
+                <div class="form-check"> 
+                    <input class="form-check-input" type="radio" name="radioStateGroupDisabled" id="rd-disabled-checked" value="disabled-checked" checked disabled>
+                    <label class="form-check-label" for="rd-disabled-checked">
+                        라디오(Disabled On)
+                    </label>
+                </div>    
+        </div><div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="form-check form-check-lg"&gt;
+    &lt;input class="form-check-input" type="radio" name="radioSizeLgGroup" id="rd-size-lg" value="lg" checked&gt;
+    &lt;label class="form-check-label" for="rd-size-lg"&gt;
+        라디오 버튼
+    &lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="form-check"&gt;
+    &lt;input class="form-check-input" type="radio" name="radioSizeMdGroup" id="rd-size-md" value="md"&gt;
+    &lt;label class="form-check-label" for="rd-size-md"&gt;
+        라디오 버튼
+    &lt;/label&gt;
+&lt;/div&gt;</code></pre>
         </div>
 
         <h1 class="section-title">Toggle Switch</h1>
