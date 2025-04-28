@@ -33,27 +33,27 @@
 
         <div class="component-examples">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="typeCheckbox1"> 
-                <label class="form-check-label" for="typeCheckbox1">체크박스</label>
+                <input class="form-check-input" type="checkbox" value="" id="cb1"> 
+                <label class="form-check-label" for="cb1">체크박스</label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="typeCheckbox2"> 
-                <label class="form-check-label" for="typeCheckbox2">체크박스</label>
+                <input class="form-check-input" type="checkbox" value="" id="cb2"> 
+                <label class="form-check-label" for="cb2">체크박스</label>
             </div>
         </div>
 
         <div class="code-snippet-wrapper full-width-code">
             <pre><code class="language-html">&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" value="" id="typeCheckbox1"&gt;
-    &lt;label class="form-check-label" for="typeCheckbox1"&gt;
+    &lt;input class="form-check-input" type="checkbox" value="" id="cb1"&gt;
+    &lt;label class="form-check-label" for="cb1"&gt;
         체크박스
     &lt;/label&gt;
 &lt;/div&gt;
 
 &lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" value="" id="typeCheckbox2"&gt;
-    &lt;label class="form-check-label" for="typeCheckbox2"&gt;
+    &lt;input class="form-check-input" type="checkbox" value="" id="cb2"&gt;
+    &lt;label class="form-check-label" for="cb2"&gt;
         체크박스
     &lt;/label&gt;
 &lt;/div&gt;</code></pre>
@@ -61,19 +61,20 @@
 
         <h2 class="section-title">Checkbox Size</h2>
         <div class="component-examples"> 
-            <div class="button-variant"> <div class="form-check form-check-lg"> 
-                <input class="form-check-input" type="checkbox" value="" id="checkboxLg">
-                <label class="form-check-label" for="checkboxLg">
-                    체크박스
-                </label>
+            <div class="button-variant"> 
+                <div class="form-check form-check-lg"> 
+                    <input class="form-check-input" type="checkbox" value="" id="cb-lg">
+                    <label class="form-check-label" for="cb-lg">
+                        체크박스
+                    </label>
+                </div>
+                <span class="button-label">Large</span>
             </div>
-            <span class="button-label">Large</span>
-        </div>
 
             <div class="button-variant">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="checkboxMd">
-                    <label class="form-check-label" for="checkboxMd">
+                    <input class="form-check-input" type="checkbox" value="" id="cb">
+                    <label class="form-check-label" for="cb">
                         체크박스
                     </label>
                 </div>
@@ -82,15 +83,15 @@
 
         </div><div class="code-snippet-wrapper full-width-code">
             <pre><code class="language-html">&lt;div class="form-check form-check-lg"&gt;
-    &lt;input class="form-check-input" type="checkbox" value="" id="checkboxLg"&gt;
-    &lt;label class="form-check-label" for="checkboxLg"&gt;
+    &lt;input class="form-check-input" type="checkbox" value="" id="cb-lg"&gt;
+    &lt;label class="form-check-label" for="cb-lg"&gt;
         체크박스
     &lt;/label&gt;
 &lt;/div&gt;
 
 &lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" value="" id="typeCheckbox"&gt;
-    &lt;label class="form-check-label" for="typeCheckbox"&gt;
+    &lt;input class="form-check-input" type="checkbox" value="" id="cb"&gt;
+    &lt;label class="form-check-label" for="cb"&gt;
         체크박스
     &lt;/label&gt;
 &lt;/div&gt;</code></pre>
@@ -100,26 +101,26 @@
 
         <div class="component-examples checkbox-states"> 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="stateCheckboxUnchecked">
-                <label class="form-check-label" for="stateCheckboxUnchecked">
+                <input class="form-check-input" type="checkbox" value="" id="cb-unchecked-state">
+                <label class="form-check-label" for="cb-unchecked-state">
                     체크박스(Off)
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="stateCheckboxChecked" checked>
-                <label class="form-check-label" for="stateCheckboxChecked">
+                <input class="form-check-input" type="checkbox" value="" id="cb-checked-state" checked>
+                <label class="form-check-label" for="cb-checked-state">
                     체크박스(On)
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="stateCheckboxDisabled" disabled>
-                <label class="form-check-label" for="stateCheckboxDisabled">
+                <input class="form-check-input" type="checkbox" value="" id="cb-disabled-unchecked" disabled>
+                <label class="form-check-label" for="cb-disabled-unchecked">
                     체크박스(Disabled Off)
                 </label>
             </div>
              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="stateCheckboxDisabled" checked disabled>
-                <label class="form-check-label" for="stateCheckboxDisabledChecked">
+                <input class="form-check-input" type="checkbox" value="" id="cb-disabled-checked" checked disabled>
+                <label class="form-check-label" for="cb-disabled-checked">
                     체크박스(Disabled On)
                 </label>
             </div>
@@ -127,26 +128,26 @@
 
         <div class="code-snippet-wrapper full-width-code">
             <pre><code class="language-html">&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" id="cbState1"&gt;
-    &lt;label class="form-check-label" for="cbState1"&gt;Unchecked
+    &lt;input class="form-check-input" type="checkbox" id="cb-unchecked-state"&gt;
+    &lt;label class="form-check-label" for="cb-unchecked-state"&gt;Unchecked
     &lt;/label&gt;
 &lt;/div&gt;
 
 &lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" id="cbState2" checked&gt;
-    &lt;label class="form-check-label" for="cbState2"&gt;Checked
+    &lt;input class="form-check-input" type="checkbox" id="cb-checked-state" checked&gt;
+    &lt;label class="form-check-label" for="cb-checked-state"&gt;Checked
     &lt;/label&gt;
 &lt;/div&gt;
 
 &lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" id="cbState3" disabled&gt;
-    &lt;label class="form-check-label" for="cbState3"&gt;Disabled Unchecked
+    &lt;input class="form-check-input" type="checkbox" id="cb-disabled-unchecked" disabled&gt;
+    &lt;label class="form-check-label" for="cb-disabled-unchecked"&gt;Disabled Unchecked
     &lt;/label&gt;
 &lt;/div&gt;
 
 &lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" id="cbState4" checked disabled&gt;
-    &lt;label class="form-check-label" for="cbState4"&gt;Disabled checked
+    &lt;input class="form-check-input" type="checkbox" id="cb-disabled-checked" checked disabled&gt;
+    &lt;label class="form-check-label" for="cb-disabled-checked"&gt;Disabled checked
     &lt;/label&gt;
 &lt;/div&gt;</code></pre>
 </div>

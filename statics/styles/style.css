@@ -136,3 +136,11 @@ main > p { margin-bottom: 16px; color: #495057; }
     margin-bottom: 1.25rem; /* 아래쪽 마진 */
     align-items: center; /* 수직 중앙 정렬 */
 }
+
+/* 스타일 가이드 노트 여백 및 스타일 */
+.styleguide-note {
+    margin-top: 1.5rem; /* 위쪽 여백 (값은 원하는 만큼 조절하세요. 1.5rem = 24px 가정) */
+    font-size: 0.875rem; /* 기본 폰트보다 약간 작게 (선택 사항) */
+    color: #555; /* 약간 연한 텍스트 색상 (선택 사항) */
+    /* 필요한 다른 스타일 추가 */
+}

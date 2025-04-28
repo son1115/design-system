@@ -53,7 +53,7 @@
 .form-check-input[type="checkbox"]::after {
     content: ""; /* 가상 요소 내용 없음 */
     position: absolute; /* 절대 위치 */
-    display: block;
+    display: none;
     /* 체크마크 위치 */
     left: 6px;
     top: 1px;
@@ -76,6 +76,8 @@
 
 .form-check-input[type="checkbox"]:checked::after {
     border-color: white; /* 체크마크 색상 */
+    display: block;
+    border-color: white;
 }
 
 .form-check-input[type="checkbox"]:disabled {
