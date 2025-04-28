@@ -24,7 +24,7 @@
     margin-right: 0.5rem; /* input과 라벨 사이 간격 (8px) */
 
     background-color: #fff; /* 기본 배경색 */
-    border: 1px solid #d6d6d6; /* 기본 테두리 색상 */
+    border: 1px solid #ccc; /* 기본 테두리 색상 */
 
     /* 부드러운 전환 효과 추가 */
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -45,7 +45,7 @@
     border-radius: 4px; /* 모서리 둥글게 */
     position: relative; /* 체크마크 위치 기준 */
     background-color: #fff;
-    border: 1px solid #d6d6d6;
+    border: 1px solid #ccc;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
@@ -77,17 +77,16 @@
 .form-check-input[type="checkbox"]:checked::after {
     border-color: white; /* 체크마크 색상 */
     display: block;
-    border-color: white;
 }
 
 .form-check-input[type="checkbox"]:disabled {
     cursor: not-allowed;
-    background-color: #d6d6d6;
-    border-color: #d6d6d6;
+    background-color: #ccc;
+    border-color: #ccc;
 }
 
 .form-check-input[type="checkbox"]:disabled::after {
-    border-color: #d6d6d6;
+    border-color: #ccc;
 }
 
 /* Large 사이즈 래퍼 조정 (필요 시) */
@@ -161,171 +160,168 @@
     display: block; /* 체크 시 내부 점 보이기 */
 }
 
-/* === 커스텀 토글 스위치 (텍스트/아이콘 포함) === */
-/* 이 섹션은 이전에 제공된 새로운 스위치 스타일입니다 */
+/* === 새로운 토글 스위치 스타일 (Medium & Large) === */
 
-/* 커스텀 스위치 특정 래퍼 스타일 */
-.form-switch-custom {
-    padding-left: 0;
-    margin-right: 1rem; /* 외부 라벨과의 간격 등 조정 */
-    /* 필요시 .form-check 기본 스타일 조정 */
-    min-height: 1.5rem;
-    display: inline-flex;
-    align-items: center;
+/* Medium 스위치를 포함하는 .form-check 요소 조정 */
+.form-switch { 
+    padding-left: 3rem; 
+    min-height: 1.5rem; 
 }
-
-/* 실제 input 요소는 숨김 (상태 관리용) */
-.form-switch-custom .form-check-input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none; /* 마우스 이벤트 비활성화 */
-    width: 0;
-    height: 0;
-    /* 기존 .form-check-input 스타일 상속 방지 (필요 시) */
-    margin: 0;
-    padding: 0;
-    border: none;
-    background: none;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+/* Medium 스위치의 input 요소 스타일 */
+.form-switch .form-check-input { 
+    width: 2.5rem; 
+    height: 1.5rem; 
+    margin-left: -3rem; 
+    vertical-align: top; 
+    background-color: transparent; 
+    border: none; 
+    border-radius: 1.5rem; 
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    outline: none; 
+    transition: none; 
+    position: relative; 
+    cursor: pointer; 
+    flex-shrink: 0; 
 }
-
-/* 커스텀 스위치의 label 스타일 (input과 연결) */
-.form-switch-custom .form-switch-label {
-    cursor: pointer;
-    line-height: 0; /* 내부 span이 크기 가지도록 */
-}
-
-/* 스위치 전체 시각적 영역 컨테이너 */
-.form-switch-custom .form-switch-visual {
-    display: inline-block; /* 크기 및 위치 기준 */
-    position: relative;
-    width: 3.75rem; /* 60px (텍스트 공간 포함 약간 넓게) */
-    height: 1.5rem;  /* 24px */
-    vertical-align: middle; /* 외부 라벨과 정렬 */
-}
-
-/* 스위치 트랙(배경) */
-.form-switch-custom .form-switch-track {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: #dee2e6; /* OFF 상태 트랙 색상 */
-    border-radius: 1.5rem; /* 알약 모양 */
-    position: relative; /* 내부 텍스트 위치 기준 */
-    overflow: hidden; /* 텍스트 숨김 처리 */
+/* Medium 스위치 트랙 (배경) - input::before */
+.form-switch .form-check-input::before { 
+    content: ""; 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    pointer-events: none; 
+    background-color: #ccc; 
+    border-radius: 1.5rem; 
     transition: background-color 0.15s ease-in-out;
-}
+ }
 
-/* 스위치 손잡이(Thumb) */
-.form-switch-custom .form-switch-thumb {
+/* Medium 스위치 손잡이 (Thumb) - input::after */
+/* 선택자 명확화 및 충돌 방지 */
+div.form-switch > input.form-check-input[type="checkbox"]::after {
+    content: "";
     position: absolute;
-    width: 1.125rem; /* 18px */
-    height: 1.125rem; /* 18px */
-    background-color: white;
-    border-radius: 50%;
+    display: block !important; /* display 강제 */
+    width: 1.25rem; /* 20px */
+    height: 1.25rem; /* 20px */
     top: 50%;
-    left: 3px; /* 초기 위치 (OFF) */
-    transform: translateY(-50%);
-    transition: transform 0.15s ease-in-out, background-image 0.15s ease-in-out;
-    z-index: 1; /* 텍스트보다 위에 오도록 */
-
-    /* OFF 상태 X 아이콘 (회색 #adb5bd) */
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%23adb5bd' d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    left: 2px; /* 0.125rem */
+    transform: translateY(-50%) rotate(0deg) !important; /* transform 초기화 및 강제 */
+    background-color: white;
+    border: none !important; /* 체크박스 border 덮어쓰기 강제 */
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%23CCC%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m2.4%209.6%207.2-7.2M2.4%202.4l7.2%207.2%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 60%;
+    background-size: 50%;
+    transition: transform 0.15s ease-in-out, background-image 0.15s ease-in-out;
+    z-index: 2;
 }
 
-/* 트랙 내부 텍스트 (공통) */
-.form-switch-custom .form-switch-text {
+/* Medium 스위치 체크된 상태 (ON) - 트랙 */
+div.form-switch > input.form-check-input[type="checkbox"]:checked::before {
+    background-color: #00C853;
+}
+
+/* Medium 스위치 체크된 상태 (ON) - 손잡이 */
+/* 선택자 명확화 */
+div.form-switch > input.form-check-input[type="checkbox"]:checked::after {
+    transform: translate(1.0rem, -50%) rotate(0deg) !important; /* 이동 및 transform 초기화 */
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%2300C853%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m2.4%206%202.4%202.4%204.8-4.8%22%2F%3E%3C%2Fsvg%3E");
+    /* 이미 ::after 에서 정의된 다른 속성들은 상속받음 */
+}
+
+/* Medium 스위치 비활성화 상태 */
+/* 선택자 명확화 */
+div.form-switch > input.form-check-input[type="checkbox"]:disabled { cursor: not-allowed; filter: opacity(0.65); }
+div.form-switch > input.form-check-input[type="checkbox"]:disabled::before { background-color: #ccc; }
+div.form-switch > input.form-check-input[type="checkbox"]:disabled::after { background-color: #999; background-image: none; }
+
+/* Large 사이즈 스위치를 포함하는 .form-check 요소 조정 */
+div.form-check-lg.form-switch { /* 선택자 명확화 */
+    padding-left: 3.5rem;
+    min-height: 1.75rem;
+}
+
+/* Large 사이즈 스위치의 input 요소 스타일 */
+div.form-check-lg.form-switch > input.form-check-input[type="checkbox"] { /* 선택자 명확화 */
+    width: 3rem;
+    height: 1.75rem;
+    margin-left: -3.5rem;
+    border-radius: 0.875rem;
+    /* 나머지 필요한 스타일은 기본 .form-switch .form-check-input 에서 상속 또는 여기에 명시 */
+    vertical-align: top;
+    background-color: transparent;
+    border: none;
+    appearance: none; -webkit-appearance: none; -moz-appearance: none;
+    outline: none; transition: none; position: relative; cursor: pointer; flex-shrink: 0;
+}
+
+/* Large 사이즈 트랙 (input::before) */
+div.form-check-lg.form-switch > input.form-check-input[type="checkbox"]::before { /* 선택자 명확화 */
+    content: ""; /* 명시적 추가 (상속 의존 X) */
+    position: absolute; /* 명시적 추가 */
+    left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; /* 명시적 추가 */
+    background-color: #ccc;
+    border-radius: 0.875rem;
+    transition: background-color 0.15s ease-in-out;
+    /* z-index 는 필요시 추가 */
+}
+
+/* Large 사이즈 손잡이 (input::after) */
+div.form-check-lg.form-switch > input.form-check-input[type="checkbox"]::after { /* 선택자 명확화 */
+    content: "";
     position: absolute;
+    display: block !important; /* 충돌 방지 */
+    width: 1.5rem;  /* 24px */
+    height: 1.5rem; /* 24px */
     top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.75rem; /* 12px */
-    font-weight: bold;
-    user-select: none;
-    transition: opacity 0.1s ease-in-out;
+    left: 0.125rem; /* 2px */
+    transform: translateY(-50%) rotate(0deg) !important; /* 충돌 방지 */
+    background-color: white;
+    border: none !important; /* 충돌 방지 */
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%23CCC%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m2.4%209.6%207.2-7.2M2.4%202.4l7.2%207.2%22%2F%3E%3C%2Fsvg%3E"); /* 기본 OFF 아이콘 */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50%; /* 아이콘 크기 동일 유지 */
+    transition: transform 0.15s ease-in-out, background-image 0.15s ease-in-out;
+    z-index: 2;
 }
 
-/* ON 텍스트 ("켜짐") */
-.form-switch-custom .form-switch-text.on {
-    left: 8px;
-    color: white;
-    opacity: 0; /* 기본(OFF) 상태에서는 숨김 */
+/* Large 사이즈 체크 시 트랙 */
+div.form-check-lg.form-switch > input.form-check-input[type="checkbox"]:checked::before { /* 선택자 명확화 */
+    background-color: #00C853;
 }
 
-/* OFF 텍스트 ("꺼짐") */
-.form-switch-custom .form-switch-text.off {
-    right: 8px;
-    color: #495057; /* OFF 상태 텍스트 색상 */
-    opacity: 1; /* 기본(OFF) 상태에서 보임 */
+/* Large 사이즈 체크 시 손잡이 위치 이동 */
+div.form-check-lg.form-switch > input.form-check-input[type="checkbox"]:checked::after { /* 선택자 명확화 */
+    transform: translate(1.25rem, -50%) rotate(0deg) !important; /* 20px 이동 + 충돌 방지 */
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%2300C853%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m2.4%206%202.4%202.4%204.8-4.8%22%2F%3E%3C%2Fsvg%3E"); /* ON 아이콘 */
 }
 
-/* === 체크된 상태 (ON) === */
-
-/* input:checked 바로 뒤의 label 안의 요소들 변경 (~) */
-/* 주의: HTML 구조상 label이 input의 형제(sibling)여야 함 */
-.form-switch-custom .form-check-input:checked + .form-switch-label .form-switch-track {
-    background-color: #00C853; /* ON 상태 트랙 색상 */
-}
-
-.form-switch-custom .form-check-input:checked + .form-switch-label .form-switch-thumb {
-    /* 손잡이 오른쪽으로 이동 */
-    transform: translate(2.25rem, -50%); /* 60px - 18px - 3px*2 = 36px => 2.25rem */
-    /* ON 상태 체크 아이콘 (녹색 #00C853) */
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2300C853' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-}
-
-.form-switch-custom .form-check-input:checked + .form-switch-label .form-switch-text.on {
-    opacity: 1; /* ON 텍스트 보이기 */
-}
-
-.form-switch-custom .form-check-input:checked + .form-switch-label .form-switch-text.off {
-    opacity: 0; /* OFF 텍스트 숨기기 */
-}
-
-/* 외부 라벨 텍스트 스타일 (선택 사항) */
-.form-switch-custom .form-switch-external-label {
-    margin-left: 0.5rem; /* 스위치와의 간격 */
-    vertical-align: middle;
-    font-size: 1rem;
-    line-height: 1.5rem; /* 스위치 높이에 맞춤 */
-     /* .form-check-label 과 유사하게 설정 */
-     cursor: default; /* 외부 라벨은 클릭 대상 아님 */
-     user-select: none;
-}
-
-/* === 비활성화 상태 === */
-/* 비활성화 시 시각적 요소 처리 */
-.form-switch-custom .form-check-input:disabled + .form-switch-label .form-switch-visual {
-    cursor: not-allowed;
-    opacity: 0.65;
-}
-/* 비활성화 시 외부 라벨 처리 */
-.form-switch-custom .form-check-input:disabled ~ .form-switch-external-label {
-     cursor: not-allowed;
-     color: #adb5bd; /* 비활성화 라벨 색상 */
-}
-
-/* 필요하다면 비활성화 시 트랙/손잡이/텍스트/아이콘 색상 등 추가 조정 */
-/* 예: 비활성화 시 손잡이 아이콘 없애기 */
-.form-switch-custom .form-check-input:disabled + .form-switch-label .form-switch-thumb {
-    background-image: none;
-}
+/* Large 스위치 비활성화 상태 */
+/* 선택자 명확화 */
+div.form-check-lg.form-switch > input.form-check-input[type="checkbox"]:disabled { cursor: not-allowed; filter: opacity(0.65); }
+div.form-check-lg.form-switch > input.form-check-input[type="checkbox"]:disabled::before { background-color: #ccc; }
+div.form-check-lg.form-switch > input.form-check-input[type="checkbox"]:disabled::after { background-color: #999; background-image: none; }
 
 /* 여기에 체크박스/라디오의 비활성화 상태 등 추가 필요 */
 /* 예: 체크박스 비활성화 */
 .form-check-input[type="checkbox"]:disabled {
     cursor: not-allowed;
-    background-color: #D6D6D6;
-    border-color: #D6D6D6;
+    background-color: #ccc;
+    border-color: #ccc;
 }
 
 .form-check-input[type="checkbox"]:checked:disabled {
-    background-color: #D6D6D6;
-    border-color: #D6D6D6;
+    background-color: #ccc;
+    border-color: #ccc;
 }
 .form-check-input[type="checkbox"]:checked:disabled::after {
     border-color: #fff;
@@ -333,15 +329,15 @@
 /* 예: 라디오 비활성화 */
 .form-check-input[type="radio"]:disabled {
      cursor: not-allowed;
-     background-color: #f1f3f5;
-     border-color: #dee2e6;
+     background-color: #ccc;
+     border-color: #ccc;
 }
 .form-check-input[type="radio"]:checked:disabled {
-     background-color: #e9ecef;
-     border-color: #dee2e6;
+     background-color: #ccc;
+     border-color: #ccc;
 }
 .form-check-input[type="radio"]:checked:disabled::after {
-     background-color: #adb5bd;
+     background-color: #fff;
 }
 /* 공통 비활성화 라벨 처리 */
 .form-check-input:disabled + .form-check-label {
