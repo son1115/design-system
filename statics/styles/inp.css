@@ -1,0 +1,189 @@
+/* === 입력 필드 스타일 (inp.css 또는 style.css에 추가) === */
+
+/* 입력 필드 예시 컨테이너 레이아웃 조정 */
+.component-examples.input-examples {
+    gap: 2rem 3rem; /* 행/열 간격 조정 (기존 .component-examples 와 동일하거나 다르게 설정 가능) */
+    align-items: flex-start; /* 상단 정렬 (라벨 유무에 따라 높이가 다를 수 있음) */
+}
+
+/* 각 입력 필드(라벨 포함) 묶음 */
+.input-variant {
+    display: flex;
+    flex-direction: column; /* 라벨과 입력 필드를 수직으로 배치 */
+    width: calc(50% - 1.5rem); /* 예시 컨테이너 내에서 약 절반 너비 (gap 고려) */
+    /* 필요에 따라 최소/최대 너비 설정 가능 */
+    /* min-width: 250px; */
+}
+
+/* 폼 라벨 스타일 */
+.form-label {
+    display: inline-block; /* 너비/높이, 마진 적용 가능하도록 */
+    margin-bottom: 0.5rem; /* 라벨 아래 여백 (8px) */
+    font-size: 0.875rem; /* 라벨 폰트 크기 (14px) */
+    color: #555; /* 라벨 색상 */
+    font-weight: 500; /* 라벨 굵기 (선택 사항) */
+}
+
+/* 입력 필드 (input, textarea) 공통 스타일 */
+.form-control {
+    display: block; /* 너비 100% 차지 */
+    width: 100%;
+    height: 56px;
+    padding: 15px 1rem; /* 내부 여백 (12px 16px) */
+    font-size: 1rem; /* 폰트 크기 (16px) */
+    font-weight: 400;
+    color: #000; /* 텍스트 색상 */
+    background-color: #fff; /* 배경색 */
+    background-clip: padding-box;
+    border: 1px solid #ccc; /* 테두리 색상 */
+    appearance: none; /* 브라우저 기본 스타일 제거 */
+    border-radius: 8px; /* 모서리 둥글게 (스크린샷 참고) */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* 부드러운 전환 효과 */
+    box-sizing: border-box;
+}
+
+/* 플레이스홀더 텍스트 스타일 */
+.form-control::placeholder {
+    color: #999; /* 플레이스홀더 색상 */
+    opacity: 1; /* Firefox 에서 기본 투명도 제거 */
+}
+
+/* 포커스 상태 스타일 */
+.form-control:focus {
+    color: #000;
+    background-color: #fff;
+    border-color: #000; /* 포커스 시 테두리 색상 변경 (예시) */
+    outline: 0;
+    /* 필요시 box-shadow 추가 */
+    /* box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); */
+}
+
+/* 비활성화 상태 스타일 (필요시 추가) */
+/*
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: #e9ecef;
+    opacity: 1;
+}
+*/
+
+/* Textarea 특정 스타일 */
+textarea.form-control {
+    min-height: calc(1.5em + 1.5rem + 2px); /* 최소 높이 (padding, border 포함) */
+    resize: vertical; /* 수직 크기 조절만 허용 (선택 사항) */
+}
+
+/* 글자 수 등 보조 텍스트 스타일 */
+.form-text {
+    margin-top: 0.25rem; /* 입력 필드 아래 여백 (4px) */
+    font-size: 0.875em; /* 폰트 크기 (상대 단위) */
+    color: #6c757d; /* 보조 텍스트 색상 */
+}
+
+/* 텍스트 오른쪽 정렬 헬퍼 클래스 */
+.text-end {
+    text-align: right !important; /* 오른쪽 정렬 강제 (필요시) */
+}
+
+/* === 플로팅 라벨 스타일 === */
+
+/* 플로팅 라벨 컨테이너 */
+.form-floating {
+    position: relative; /* 라벨의 absolute positioning 기준 */
+}
+
+/* 플로팅 라벨 내부의 form-control 조정 */
+.form-floating .form-control {
+    /* 라벨이 올라갈 공간 확보 + 기존 패딩 유지 */
+    padding-top: 1.625rem;  /* 위쪽 패딩 늘리기 */
+    padding-bottom: 0.625rem; /* 아래쪽 패딩 줄이기 (선택 사항) */
+    height: calc(3.5rem + 2px); /* input 높이 재조정 (선택 사항) */
+    line-height: 1.25; /* line-height 조정 (선택 사항) */
+}
+
+/* Textarea 높이 조정 (HTML의 style 속성 대신 사용 가능) */
+.form-floating textarea.form-control {
+   min-height: calc(3.5rem + 2px); /* 최소 높이 */
+   /* height: 100px; */ /* 고정 높이 필요 시 */
+}
+
+
+/* 플로팅 라벨 스타일 (초기 상태 - 입력 필드 안) */
+.form-floating > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%; /* 부모 높이만큼 */
+    padding: 1rem 1rem; /* form-control의 패딩과 유사하게 */
+    pointer-events: none; /* 라벨이 클릭 방해하지 않도록 */
+    border: 1px solid transparent; /* 테두리 영역 확보 (border-width와 동일하게) */
+    transform-origin: 0 0;
+    transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out; /* 부드러운 애니메이션 */
+
+    /* 초기 텍스트 스타일 (form-control 과 유사하게) */
+    font-size: 1rem;
+    color: #999; /* 플레이스홀더 색상과 유사하게 */
+    line-height: 1.5; /* form-control 과 동일하게 */
+
+    /* Textarea 라벨 높이 제한 (여러 줄 라벨 방지) */
+    max-height: calc(3.5rem + 2px); /* form-control 높이와 맞춤 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* === 라벨이 위로 올라가는 조건 === */
+
+/* 1. 입력 필드에 포커스가 갔을 때 */
+/* 2. 입력 필드에 값이 있을 때 (placeholder가 보이지 않을 때) */
+.form-floating > .form-control:focus + label,
+.form-floating > .form-control:not(:placeholder-shown) + label {
+    opacity: 1;
+    transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem); /* 위로 이동하고 작아짐 */
+    /* 올라간 후 라벨의 높이 자동 조정 */
+    height: auto;
+    color: #999;
+    /* 필요시 올라간 라벨 배경색 추가 */
+    /* background-color: white; */
+    /* padding: 0.1rem 0.3rem; */
+}
+
+/* Textarea 내부 라벨의 초기 위치 조정 (padding 고려) */
+.form-floating > textarea.form-control + label {
+     padding-top: 1rem; /* textarea 패딩 상단과 맞춤 */
+}
+
+/* Textarea 내부 라벨이 올라갔을 때 위치 미세 조정 */
+.form-floating > textarea.form-control:focus + label,
+.form-floating > textarea.form-control:not(:placeholder-shown) + label {
+    /* transform 값은 input과 동일하게 사용하거나 미세 조정 */
+    transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+
+/* 플레이스홀더는 라벨이 이동한 후 보이도록 처리 */
+/* (라벨이 플레이스홀더 역할을 대신하므로, 실제 플레이스홀더는 숨김 처리) */
+.form-floating > .form-control:focus::placeholder,
+.form-floating > .form-control:not(:placeholder-shown)::placeholder {
+    color: transparent; /* 포커스되거나 값 있으면 플레이스홀더 숨김 */
+}
+
+/* 초기 상태에서는 placeholder 숨김 (라벨이 보이므로) */
+.form-floating > .form-control::placeholder {
+     color: transparent;
+}
+/* 라벨이 올라갔을때만 플레이스홀더가 보이게 하려면 위 CSS 제거 후 아래 사용 */
+/*
+.form-floating > .form-control:focus::placeholder {
+    color: #6c757d;
+}
+.form-floating > .form-control:not(:placeholder-shown)::placeholder {
+     color: transparent;
+}
+*/
+
+/* (기존 .form-label, .form-text, .text-end 등은 필요시 유지 또는 수정) */
+/* 플로팅 구조에서는 .form-label 클래스를 직접 사용하지 않으므로 제거해도 무방 */
+/*
+.form-label { ... }
+*/

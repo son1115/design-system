@@ -204,14 +204,14 @@
 div.form-switch > input.form-check-input[type="checkbox"]::after {
     content: "";
     position: absolute;
-    display: block !important; /* display 강제 */
+    display: block; /* display 강제 */
     width: 1.25rem; /* 20px */
     height: 1.25rem; /* 20px */
     top: 50%;
     left: 2px; /* 0.125rem */
-    transform: translateY(-50%) rotate(0deg) !important; /* transform 초기화 및 강제 */
+    transform: translateY(-50%) rotate(0deg); /* transform 초기화 및 강제 */
     background-color: white;
-    border: none !important; /* 체크박스 border 덮어쓰기 강제 */
+    border: none; /* 체크박스 border 덮어쓰기 강제 */
     border-radius: 50%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%23CCC%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m2.4%209.6%207.2-7.2M2.4%202.4l7.2%207.2%22%2F%3E%3C%2Fsvg%3E");
@@ -230,7 +230,7 @@ div.form-switch > input.form-check-input[type="checkbox"]:checked::before {
 /* Medium 스위치 체크된 상태 (ON) - 손잡이 */
 /* 선택자 명확화 */
 div.form-switch > input.form-check-input[type="checkbox"]:checked::after {
-    transform: translate(1.0rem, -50%) rotate(0deg) !important; /* 이동 및 transform 초기화 */
+    transform: translate(1.0rem, -50%) rotate(0deg); /* 이동 및 transform 초기화 */
     background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%2300C853%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m2.4%206%202.4%202.4%204.8-4.8%22%2F%3E%3C%2Fsvg%3E");
     /* 이미 ::after 에서 정의된 다른 속성들은 상속받음 */
 }
@@ -276,14 +276,14 @@ div.form-check-lg.form-switch > input.form-check-input[type="checkbox"]::before 
 div.form-check-lg.form-switch > input.form-check-input[type="checkbox"]::after { /* 선택자 명확화 */
     content: "";
     position: absolute;
-    display: block !important; /* 충돌 방지 */
+    display: block; /* 충돌 방지 */
     width: 1.5rem;  /* 24px */
     height: 1.5rem; /* 24px */
     top: 50%;
     left: 0.125rem; /* 2px */
-    transform: translateY(-50%) rotate(0deg) !important; /* 충돌 방지 */
+    transform: translateY(-50%) rotate(0deg); /* 충돌 방지 */
     background-color: white;
-    border: none !important; /* 충돌 방지 */
+    border: none; /* 충돌 방지 */
     border-radius: 50%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%23CCC%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m2.4%209.6%207.2-7.2M2.4%202.4l7.2%207.2%22%2F%3E%3C%2Fsvg%3E"); /* 기본 OFF 아이콘 */
@@ -301,7 +301,7 @@ div.form-check-lg.form-switch > input.form-check-input[type="checkbox"]:checked:
 
 /* Large 사이즈 체크 시 손잡이 위치 이동 */
 div.form-check-lg.form-switch > input.form-check-input[type="checkbox"]:checked::after { /* 선택자 명확화 */
-    transform: translate(1.25rem, -50%) rotate(0deg) !important; /* 20px 이동 + 충돌 방지 */
+    transform: translate(1.25rem, -50%) rotate(0deg); /* 20px 이동 + 충돌 방지 */
     background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%2300C853%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m2.4%206%202.4%202.4%204.8-4.8%22%2F%3E%3C%2Fsvg%3E"); /* ON 아이콘 */
 }
 

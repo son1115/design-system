@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/statics/styles/style.css">
-    <link rel="stylesheet" href="/statics/styles/sel.css">
+    <link rel="stylesheet" href="/statics/styles/inp.css">
 </head>
-<body>
+<body class="page-input-fields">
     <aside>
         <ul class="menu">
             <li><a href="/index.html" class="menu-btn">홈</a></li>
@@ -29,383 +29,37 @@
             <p>사용자가 UI 상 텍스트 입력 및 확인 시 활용되는 컴포넌트입니다.</p>
         </div>
 
-        <h1 class="section-title">Checkbox</h1>
+        <h1 class="section-title">Text Fields</h1>
 
-        <div class="component-examples">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="cb-1"> 
-                <label class="form-check-label" for="cb-1">체크박스</label>
+        <div class="component-examples input-examples">
+     
+            <div class="form-floating input-variant">
+                <input type="text" class="form-control" id="tf-floating" placeholder="라벨">
+                <label for="tf-floating">라벨</label>
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Floating text Fields</span>
             </div>
 
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="cb-2"> 
-                <label class="form-check-label" for="cb-2">체크박스</label>
-            </div>
-        </div>
-
-        <div class="code-snippet-wrapper full-width-code">
-            <pre><code class="language-html">&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" value="" id="cb-1"&gt;
-    &lt;label class="form-check-label" for="cb-1"&gt;
-        체크박스
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" value="" id="cb-2"&gt;
-    &lt;label class="form-check-label" for="cb-2"&gt;
-        체크박스
-    &lt;/label&gt;
-&lt;/div&gt;</code></pre>
-        </div>
-
-        <h2 class="section-title">Checkbox Size</h2>
-        <div class="component-examples"> 
-            <div class="button-variant"> 
-                <div class="form-check form-check-lg"> 
-                    <input class="form-check-input" type="checkbox" value="" id="cb-lg">
-                    <label class="form-check-label" for="cb-lg">
-                        체크박스
-                    </label>
-                </div>
-                <span class="button-label">Large</span>
-            </div>
-
-            <div class="button-variant">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="cb">
-                    <label class="form-check-label" for="cb">
-                        체크박스
-                    </label>
-                </div>
-                <span class="button-label">Medium</span>
-            </div>
-
-        </div><div class="code-snippet-wrapper full-width-code">
-            <pre><code class="language-html">&lt;div class="form-check form-check-lg"&gt;
-    &lt;input class="form-check-input" type="checkbox" value="" id="cb-lg"&gt;
-    &lt;label class="form-check-label" for="cb-lg"&gt;
-        체크박스
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" value="" id="cb"&gt;
-    &lt;label class="form-check-label" for="cb"&gt;
-        체크박스
-    &lt;/label&gt;
-&lt;/div&gt;</code></pre>
-        </div>
-
-        <h2 class="section-title">Checkbox State</h2>
-
-        <div class="component-examples checkbox-states"> 
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="cb-unchecked-state">
-                <label class="form-check-label" for="cb-unchecked-state">
-                    체크박스(Off)
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="cb-checked-state" checked>
-                <label class="form-check-label" for="cb-checked-state">
-                    체크박스(On)
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="cb-disabled-unchecked" disabled>
-                <label class="form-check-label" for="cb-disabled-unchecked">
-                    체크박스(Disabled Off)
-                </label>
-            </div>
-             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="cb-disabled-checked" checked disabled>
-                <label class="form-check-label" for="cb-disabled-checked">
-                    체크박스(Disabled On)
-                </label>
+            <div class="input-variant">
+                <input type="text" class="form-control" id="tf" placeholder="플레이스홀더">
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Text Fields</span>
             </div>
         </div>
 
         <div class="code-snippet-wrapper full-width-code">
-            <pre><code class="language-html">&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" id="cb-unchecked-state"&gt;
-    &lt;label class="form-check-label" for="cb-unchecked-state"&gt;
-        체크박스(Off)
-    &lt;/label&gt; 
+            <pre><code class="language-html">&lt;div class="form-floating input-variant"&gt;
+    &lt;input type="text" class="form-control" id="tf-floating" placeholder="라벨"&gt;
+    &lt;label for="tf-floating"&gt;라벨&lt;/label&gt;
 &lt;/div&gt;
 
-&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" id="cb-checked-state" checked&gt;
-    &lt;label class="form-check-label" for="cb-checked-state"&gt;
-        체크박스(On)
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" id="cb-disabled-unchecked" disabled&gt;
-    &lt;label class="form-check-label" for="cb-disabled-unchecked"&gt;
-        체크박스(Disabled Off)
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="checkbox" id="cb-disabled-checked" checked disabled&gt;
-    &lt;label class="form-check-label" for="cb-disabled-checked"&gt;
-        체크박스(Disabled On)
-    &lt;/label&gt;
+&lt;div class="input-variant"&gt;
+    &lt;input type="text" class="form-control" id="tf" placeholder="플레이스홀더"&gt;
 &lt;/div&gt;</code></pre>
 </div>
-        
-        <h1 class="section-title">Radio</h1>
 
-            <div class="component-examples">  
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radioTypeGroup" id="rd-1" value="option1">
-                    <label class="form-check-label" for="rd-1">
-                    라디오 옵션 1
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="radioTypeGroup" id="rd-2" value="option2">
-                <label class="form-check-label" for="rd-2">
-                    라디오 옵션 2
-                </label>
-            </div>
-        </div>
-
-        <div class="code-snippet-wrapper full-width-code"> 
-            <pre><code class="language-html">&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="radio" name="radioTypeGroup" id="rd-1" value="option1" checked&gt;
-    &lt;label class="form-check-label" for="rd-1"&gt;
-        라디오 옵션 1
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="radio" name="radioTypeGroup" id="rd-type-2" value="option2"&gt;
-    &lt;label class="form-check-label" for="rd-type-2"&gt;
-        라디오 옵션 2
-    &lt;/label&gt;
-&lt;/div&gt;</code></pre>
-        </div>
-
-        <h2 class="section-title">Radio Size</h2>
-        <div class="component-examples"> 
-            <div class="button-variant"> 
-                <div class="form-check form-check-lg"> 
-                    <input class="form-check-input" type="radio" name="radioSizeLarge" id="rd-lg" value="lg">
-                    <label class="form-check-label" for="rd-lg">
-                        라디오 버튼
-                    </label>
-                </div>
-                <span class="button-label">Large</span>
-            </div>
-
-            <div class="button-variant">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radioSizeMedium" id="rd-md" value="md">
-                    <label class="form-check-label" for="rd-md">
-                        라디오 버튼
-                    </label>
-                </div>
-                <span class="button-label">Medium</span>
-            </div>
-
-        </div><div class="code-snippet-wrapper full-width-code">
-            <pre><code class="language-html">&lt;div class="form-check form-check-lg"&gt;
-    &lt;input class="form-check-input" type="radio" name="radioSizeLgGroup" id="rd-size-lg" value="lg" checked&gt;
-    &lt;label class="form-check-label" for="rd-size-lg"&gt;
-        라디오 버튼
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="radio" name="radioSizeMdGroup" id="rd-size-md" value="md"&gt;
-    &lt;label class="form-check-label" for="rd-size-md"&gt;
-        라디오 버튼
-    &lt;/label&gt;
-&lt;/div&gt;</code></pre>
-        </div>
-
-        <h2 class="section-title">Radio State</h2>
-        <div class="component-examples radio-states"> 
-                <div class="form-check"> 
-                    <input class="form-check-input" type="radio" name="radioStateGroup" id="rd-unchecked-state" value="Unchecked">
-                    <label class="form-check-label" for="rd-unchecked-state">
-                        라디오(Off)
-                    </label>
-                </div>
-
-                <div class="form-check"> 
-                    <input class="form-check-input" type="radio" name="radioStateGroup" id="rd-checked-state" value="checked" checked>
-                    <label class="form-check-label" for="rd-checked-state">
-                        라디오(On)
-                    </label>
-                </div>
-
-                <div class="form-check"> 
-                    <input class="form-check-input" type="radio" name="radioStateGroupDisabled" id="rd-disabled-unchecked" value="disabled-unchecked" disabled>
-                    <label class="form-check-label" for="rd-disabled-unchecked">
-                        라디오(Disabled Off)
-                    </label>
-                </div>
-
-                <div class="form-check"> 
-                    <input class="form-check-input" type="radio" name="radioStateGroupDisabled" id="rd-disabled-checked" value="disabled-checked" checked disabled>
-                    <label class="form-check-label" for="rd-disabled-checked">
-                        라디오(Disabled On)
-                    </label>
-                </div>    
-        </div><div class="code-snippet-wrapper full-width-code">
-            <pre><code class="language-html">&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="radio" name="radioStateGroup" id="rd-unchecked-state" value="unchecked"&gt;
-    &lt;label class="form-check-label" for="rd-unchecked-state"&gt;
-        라디오(Off)
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="radio" name="radioStateGroup" id="rd-checked-state" value="checked" checked&gt;
-    &lt;label class="form-check-label" for="rd-checked-state"&gt;
-        라디오(On)
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="radio" name="radioStateGroupDisabled" id="rd-disabled-unchecked" value="disabled-unchecked" disabled&gt;
-    &lt;label class="form-check-label" for="rd-disabled-unchecked"&gt;
-        라디오(Disabled Off)
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check"&gt;
-    &lt;input class="form-check-input" type="radio" name="radioStateGroupDisabled" id="rd-disabled-checked" value="disabled-checked" checked disabled&gt;
-    &lt;label class="form-check-label" for="rd-disabled-checked"&gt;
-        라디오(Disabled On)
-    &lt;/label&gt;
-&lt;/div&gt;</code></pre>
-        </div>
-
-        <h1 class="section-title">Toggle Switch</h1>
-
-        <div class="component-examples">
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="ts-1">
-                <label class="form-check-label" for="ts-1">토글 스위치</label>
-            </div>
-
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="ts-2">
-                <label class="form-check-label" for="ts-2">토글 스위치</label>
-            </div>
-        </div>
-
-        <div class="code-snippet-wrapper full-width-code">
-            <pre><code class="language-html">&lt;div class="form-check form-switch"&gt;
-    &lt;input class="form-check-input" type="checkbox" role="switch" id="ts-1"&gt;
-    &lt;label class="form-check-label" for="ts-1"&gt;
-        토글 스위치
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check form-switch"&gt;
-    &lt;input class="form-check-input" type="checkbox" role="switch" id="ts-2"&gt;
-    &lt;label class="form-check-label" for="ts-2"&gt;
-        토글 스위치
-    &lt;/label&gt;
-&lt;/div&gt;</code></pre>
-        </div>
-        
-        <h2 class="section-title">Toggle Switch Size</h2>
-        <div class="component-examples"> 
-            <div class="button-variant">
-                <div class="form-check form-check-lg form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="ts-lg">
-                    <label class="form-check-label" for="ts-lg">토글 스위치</label>
-                </div>
-                <span class="button-label">Large</span>
-            </div>
-
-            <div class="button-variant">
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="ts-md">
-                    <label class="form-check-label" for="ts-md">토글 스위치</label>
-                </div>
-                <span class="button-label">Medium</span>
-            </div>
-        </div>
-
-        <div class="code-snippet-wrapper full-width-code">
-            <pre><code class="language-html">&lt;div class="form-check form-check-lg form-switch"&gt;
-    &lt;input class="form-check-input" type="checkbox" role="switch" id="ts-lg"&gt;
-    &lt;label class="form-check-label" for="ts-lg"&gt;
-        토글 스위치
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check form-switch"&gt;
-    &lt;input class="form-check-input" type="checkbox" role="switch" id="ts-md"&gt;
-    &lt;label class="form-check-label" for="ts-md"&gt;
-        토글 스위치
-    &lt;/label&gt;
-&lt;/div&gt;</code></pre>
-        </div>
-
-        <h2 class="section-title">Toggle Switch State</h2>
        
-        <div class="component-examples switch-states">
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="ts-state-off">
-                <label class="form-check-label" for="ts-state-off">토글 스위치(Off)</label>
-            </div> 
         
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="ts-state-on" checked>
-                <label class="form-check-label" for="ts-state-on">토글 스위치(On)</label>
-            </div>    
-
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="ts-disabled-off" disabled>
-                <label class="form-check-label" for="ts-disabled-off">토글 스위치(Disabled Off)</label>
-            </div>    
-
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="ts-disabled-on" checked disabled>
-                <label class="form-check-label" for="ts-disabled-on">토글 스위치(Disabled On)</label>
-            </div>
-            
-            <div class="code-snippet-wrapper full-width-code">
-                <pre><code class="language-html">&lt;div class="form-check form-switch"&gt;
-    &lt;input class="form-check-input" type="checkbox" role="switch" id="ts-state-off"&gt;
-    &lt;label class="form-check-label" for="ts-state-off"&gt;
-        토글 스위치(Off)
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check form-switch"&gt;
-    &lt;input class="form-check-input" type="checkbox" role="switch" id="ts-state-on" checked&gt;
-    &lt;label class="form-check-label" for="ts-state-on"&gt;
-        토글 스위치(On)
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check form-switch"&gt;
-    &lt;input class="form-check-input" type="checkbox" role="switch" id="ts-disabled-off" disabled&gt;
-    &lt;label class="form-check-label" for="ts-disabled-off"&gt;
-        토글 스위치(Disabled Off)
-    &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;div class="form-check form-switch"&gt;
-    &lt;input class="form-check-input" type="checkbox" role="switch" id="ts-disabled-on" checkbox disabled&gt;
-    &lt;label class="form-check-label" for="ts-disabled-on"&gt;
-        토글 스위치(Disabled On)
-    &lt;/label&gt;
-&lt;/div&gt;</code></pre>
-            </div>
-
     </main>
     <script src="/statics/scripts/script.js"></script> 
 </body>
-</html>
