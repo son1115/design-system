@@ -33,14 +33,14 @@
 
         <div class="component-examples input-examples">
      
-            <div class="form-floating input-variant">
+            <div class="form-floating input-variant input-wrapper">
                 <input type="text" class="form-control" id="tf-floating" placeholder="라벨">
                 <label for="tf-floating">라벨</label>
                 <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
                 <span class="button-label">Floating text Fields</span>
             </div>
 
-            <div class="input-variant">
+            <div class="input-variant input-wrapper">
                 <input type="text" class="form-control" id="tf" placeholder="플레이스홀더">
                 <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
                 <span class="button-label">Text Fields</span>
@@ -48,18 +48,259 @@
         </div>
 
         <div class="code-snippet-wrapper full-width-code">
-            <pre><code class="language-html">&lt;div class="form-floating input-variant"&gt;
+            <pre><code class="language-html">&lt;div class="form-floating input-variant input-wrapper"&gt;
     &lt;input type="text" class="form-control" id="tf-floating" placeholder="라벨"&gt;
     &lt;label for="tf-floating"&gt;라벨&lt;/label&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+    &lt;span class="button-label"&gt;Floating text Fields&lt;/span&gt;
 &lt;/div&gt;
 
-&lt;div class="input-variant"&gt;
+&lt;div class="input-variant input-wrapper"&gt;
     &lt;input type="text" class="form-control" id="tf" placeholder="플레이스홀더"&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+    &lt;span class="button-label"&gt;Text Fields&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 </div>
 
-       
+        <h2 class="section-title">Text Fields Size</h2>
+
+        <div class="component-examples input-examples"> 
+
+            <div class="form-floating input-variant input-wrapper">
+                <input type="text" class="form-control form-control-lg" id="tf-floating-lg" placeholder="라벨">
+                <label for="tf-floating-lg">라벨</label>
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Large</span>
+            </div>
         
+            <div class="form-floating input-variant input-wrapper">
+                <input type="text" class="form-control" id="tf-floating" placeholder="라벨">
+                <label for="tf-floating">라벨</label>
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Medium</span>
+            </div>
+        </div>
+
+        <div class="component-examples input-examples"> 
+            
+            <div class="input-variant input-wrapper">
+                <input type="text" class="form-control form-control-lg" id="tf-lg" placeholder="플레이스홀더">
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Large</span>
+            </div>
+
+            <div class="input-variant input-wrapper">
+                <input type="text" class="form-control" id="tf" placeholder="플레이스홀더">
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Medium</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="form-floating input-examples"&lt;
+    &lt;input type="text" class="form-control form-control-lg" id="tf-floating-lg" placeholder="라벨"&gt;
+    &lt;label for="tf-floating-lg"&gt;라벨&lt;/label&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+    &lt;span class="button-label"&gt;Large&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="form-floating input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control" id="tf-floating" placeholder="라벨"&gt;
+    &lt;label for="tf-floating"&gt;라벨&lt;/label&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+    &lt;span class="button-label"&gt;Medium&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control form-control-lg" id="tf-lg" placeholder="플레이스홀더"&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+    &lt;span class="button-label"&gt;Large&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control" id="tf" placeholder="플레이스홀더"&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+    &lt;span class="button-label"&gt;Medium&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+        <h2 class="section-title">Floating Text Fields State</h2>
+
+        <div class="component-examples input-examples">
+
+            <div class="form-floating input-variant input-wrapper static-state">
+                <input type="text" class="form-control" id="tf-float-default" placeholder="라벨">
+                <label for="tf-float-default">라벨</label>
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Default</span>
+            </div>
+
+            <div class="form-floating input-variant input-wrapper static-state">
+                <input type="text" class="form-control is-focused" id="tf-float-active-placeholder" placeholder="라벨" value="active (focus)">
+                <label for="tf-float-active-placeholder">라벨</label>
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+               <span class="button-label">Active (Focus)</span>
+           </div>
+
+           <div class="form-floating input-variant input-wrapper static-state">
+                <input type="text" class="form-control" id="tf-float-completed" placeholder="라벨" value="completed">
+                <label for="tf-float-completed">라벨</label>
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Completed</span>
+            </div>
+        </div>
+
+        <div class="component-examples input-examples">
+
+            <div class="form-floating input-variant input-wrapper static-state">
+                <input type="text" class="form-control is-success" id="tf-float-success" placeholder="라벨" value="success">
+                <label for="tf-float-success">라벨</label>
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Success</span>
+            </div>
+
+            <div class="form-floating input-variant input-wrapper static-state">
+                <input type="text" class="form-control is-error" id="tf-float-error" placeholder="라벨" value="error">
+                <label for="tf-float-error">라벨</label>
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Error</span>
+            </div>
+
+            <div class="form-floating input-variant input-wrapper">
+                <input type="text" class="form-control" id="tf-float-disabled" placeholder="라벨" disabled>
+                <label for="tf-float-disabled">라벨</label>
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Disabled</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="form-floating input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control" id="tf-float-default" placeholder="라벨"&gt;
+    &lt;label for="tf-float-default"&gt;라벨&lt;/label&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+&lt;/div&gt;
+           
+&lt;div class="form-floating input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control is-focused" id="tf-float-active-placeholder" placeholder="라벨" value="active (focus)"&gt;
+    &lt;label for="tf-float-active-placeholder"&gt;라벨&lt;/label&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="form-floating input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control" id="tf-float-completed" placeholder="라벨" value="completed"&gt;
+    &lt;label for="tf-float-completed"&gt;라벨&lt;/label&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="form-floating input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control is-success" id="tf-float-success" placeholder="라벨" value="success"&gt;
+    &lt;label for="tf-float-success"&gt;라벨&lt;/label&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="form-floating input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control is-error" id="tf-float-error" placeholder="라벨" value="error"&gt;
+    &lt;label for="tf-float-error"&gt;라벨&lt;/label&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="form-floating input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control" id="tf-float-disabled" placeholder="라벨" disabled&gt;
+    &lt;label for="tf-float-disabled"&gt;라벨&lt;/label&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+        <h2 class="section-title">Text Fields State</h2>
+
+        <div class="component-examples input-examples">
+            
+            <div class="input-variant input-wrapper static-state">
+                <input type="text" class="form-control" id="tf-default" placeholder="플레이스홀더">
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Default</span>
+            </div>
+
+            <div class="input-variant input-wrapper static-state">
+                <input type="text" class="form-control is-focused" id="tf-active-placeholder" placeholder="플레이스홀더" value="active (focus)">
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Active (Focus)</span>
+            </div>
+
+            <div class="input-variant input-wrapper static-state">
+                <input type="text" class="form-control" id="tf-completed" placeholder="플레이스홀더" value="completed">
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Completed</span>
+            </div>
+        </div>
+
+        <div class="component-examples input-examples">
+
+            <div class="input-variant input-wrapper static-state">
+                <input type="text" class="form-control is-success" id="tf-success" placeholder="플레이스홀더" value="success">
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Success</span>
+            </div>
+
+            <div class="input-variant input-wrapper static-state">
+                <input type="text" class="form-control is-error" id="tf-error" placeholder="플레이스홀더" value="error">
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Error</span>
+            </div>
+
+            <div class="input-variant input-wrapper">
+                <input type="text" class="form-control" id="tf-disabled" placeholder="플레이스홀더" disabled>
+                <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
+                <span class="button-label">Disabled</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control" id="tf-default" placeholder="플레이스홀더"&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control is-focused" id="tf-active-placeholder" placeholder="플레이스홀더" value="active (focus)"&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control" id="tf-completed" placeholder="플레이스홀더" value="completed"&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control is-success" id="tf-success" placeholder="플레이스홀더" value="success"&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control is-error" id="tf-error" placeholder="플레이스홀더" value="error"&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant input-wrapper"&gt;
+    &lt;input type="text" class="form-control" id="tf-disabled" placeholder="플레이스홀더" disabled&gt;
+    &lt;button type="button" class="btn-clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+        <h1 class="section-title">Text Area</h1>
+
+        <div class="component-examples input-examples">
+            <div class="form-floating input-variant input-wrapper">
+                <textarea class="form-control" id="floating-textarea" placeholder="라벨" rows="4"></textarea>
+                <label for="floating-textarea">라벨</label>
+            </div>
+    
+            <div class="input-variant input-wrapper">
+                <textarea class="form-control" id="textarea" placeholder="플레이스홀더" rows="4"></textarea>
+            </div>
+        </div>
+
     </main>
     <script src="/statics/scripts/script.js"></script> 
 </body>

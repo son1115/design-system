@@ -159,52 +159,11 @@ main > p { margin-bottom: 16px; color: #495057; }
     max-width: 400px;   /* 최대 너비를 400px 로 제한 */
 }
 
-/* 입력 필드와 아이콘을 감싸는 래퍼 */
-.input-wrapper {
-    position: relative; /* 아이콘 위치 지정의 기준점 */
+.static-state,
+.static-state * { /* 모든 하위 요소 포함 */
+    pointer-events: none;
 }
 
-/* 지우기 버튼(아이콘) 기본 스타일 */
-.btn-clear {
-    position: absolute;
-    top: 50%;
-    right: 1rem; /* 오른쪽 여백 (16px) */
-    transform: translateY(-50%); /* 수직 중앙 정렬 */
-    width: 20px; /* 아이콘 크기 (SVG width/height 고려) */
-    height: 20px; /* 아이콘 크기 */
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22%23999%22%20d%3D%22M12%2021a9%209%200%201%200%200-18%209%209%200%200%200%200%2018Z%22%2F%3E%3Cpath%20stroke%3D%22%23fff%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m9%209%206%206M15%209l-6%206%22%2F%3E%3C%2Fsvg%3E");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain; /* 아이콘이 버튼 영역에 맞게 크기 조절됨 */
-    cursor: pointer;
-
-    /* 초기 상태: 숨김 */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out;
-}
-
-/* 입력 내용이 있을 때 아이콘을 보여주는 클래스 (JavaScript로 추가/제거) */
-.btn-clear.is-visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* 입력 필드 오른쪽에 아이콘 공간 확보 */
-.form-control {
-    /* 기존 패딩 유지하면서 오른쪽 패딩 늘리기 */
-    /* 예: 기존 padding: 15px 1rem; -> padding: 15px 2.8rem 15px 1rem; */
-    /* 또는 padding-right 만 추가 */
-    padding-right: 2.8rem; /* 아이콘 너비(20px) + 좌우여백(1rem+0.3rem 정도) */
-}
-
-/* 플로팅 라벨의 오른쪽 패딩도 동일하게 조정 */
-.form-floating .form-control {
-    padding-right: 2.8rem;
-    /* 기존 padding-top, padding-bottom 은 유지 */
-    padding-top: 1.625rem;
-    padding-bottom: 0.625rem;
+.form-control.is-focused {
+    border-color: #000;
 }

@@ -29,7 +29,7 @@
     display: block; /* 너비 100% 차지 */
     width: 100%;
     height: 56px;
-    padding: 15px 1rem; /* 내부 여백 (12px 16px) */
+    padding: 15px 2.8rem 15px 1rem; /* 내부 여백 (12px 16px) */
     font-size: 1rem; /* 폰트 크기 (16px) */
     font-weight: 400;
     color: #000; /* 텍스트 색상 */
@@ -58,21 +58,6 @@
     /* box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); */
 }
 
-/* 비활성화 상태 스타일 (필요시 추가) */
-/*
-.form-control:disabled,
-.form-control[readonly] {
-    background-color: #e9ecef;
-    opacity: 1;
-}
-*/
-
-/* Textarea 특정 스타일 */
-textarea.form-control {
-    min-height: calc(1.5em + 1.5rem + 2px); /* 최소 높이 (padding, border 포함) */
-    resize: vertical; /* 수직 크기 조절만 허용 (선택 사항) */
-}
-
 /* 글자 수 등 보조 텍스트 스타일 */
 .form-text {
     margin-top: 0.25rem; /* 입력 필드 아래 여백 (4px) */
@@ -93,20 +78,24 @@ textarea.form-control {
 }
 
 /* 플로팅 라벨 내부의 form-control 조정 */
-.form-floating .form-control {
+.form-floating input.form-control {
     /* 라벨이 올라갈 공간 확보 + 기존 패딩 유지 */
     padding-top: 1.625rem;  /* 위쪽 패딩 늘리기 */
     padding-bottom: 0.625rem; /* 아래쪽 패딩 줄이기 (선택 사항) */
-    height: calc(3.5rem + 2px); /* input 높이 재조정 (선택 사항) */
     line-height: 1.25; /* line-height 조정 (선택 사항) */
 }
 
-/* Textarea 높이 조정 (HTML의 style 속성 대신 사용 가능) */
-.form-floating textarea.form-control {
-   min-height: calc(3.5rem + 2px); /* 최소 높이 */
-   /* height: 100px; */ /* 고정 높이 필요 시 */
+.form-floating input.form-control-lg {
+    /* 라지 input 에 맞는 값 */
+   padding-top: 1.875rem;    /* 30px */
+   padding-bottom: 0.875rem; /* 14px */
+   /* 라지 input 라인높이 (기본 form-control-lg 에서 line-height 계산값 가져옴) */
+   line-height: calc(64px - (1.875rem + 0.875rem)*16 - 2px); /* 예시 계산 */
+   /* height 는 .form-control-lg 에서 상속 */
+   /* 아이콘 위한 padding-right */
+   padding-right: 2.8rem;
+   padding-left: 1rem;
 }
-
 
 /* 플로팅 라벨 스타일 (초기 상태 - 입력 필드 안) */
 .form-floating > label {
@@ -124,12 +113,6 @@ textarea.form-control {
     font-size: 1rem;
     color: #999; /* 플레이스홀더 색상과 유사하게 */
     line-height: 1.5; /* form-control 과 동일하게 */
-
-    /* Textarea 라벨 높이 제한 (여러 줄 라벨 방지) */
-    max-height: calc(3.5rem + 2px); /* form-control 높이와 맞춤 */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 /* === 라벨이 위로 올라가는 조건 === */
@@ -147,19 +130,6 @@ textarea.form-control {
     /* background-color: white; */
     /* padding: 0.1rem 0.3rem; */
 }
-
-/* Textarea 내부 라벨의 초기 위치 조정 (padding 고려) */
-.form-floating > textarea.form-control + label {
-     padding-top: 1rem; /* textarea 패딩 상단과 맞춤 */
-}
-
-/* Textarea 내부 라벨이 올라갔을 때 위치 미세 조정 */
-.form-floating > textarea.form-control:focus + label,
-.form-floating > textarea.form-control:not(:placeholder-shown) + label {
-    /* transform 값은 input과 동일하게 사용하거나 미세 조정 */
-    transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
-}
-
 
 /* 플레이스홀더는 라벨이 이동한 후 보이도록 처리 */
 /* (라벨이 플레이스홀더 역할을 대신하므로, 실제 플레이스홀더는 숨김 처리) */
@@ -187,3 +157,193 @@ textarea.form-control {
 /*
 .form-label { ... }
 */
+
+/* 입력 필드와 아이콘을 감싸는 래퍼 */
+.input-wrapper {
+    position: relative; /* 아이콘 위치 지정의 기준점 */
+}
+
+/* 지우기 버튼(아이콘) 기본 스타일 */
+.btn-clear {
+    position: absolute;
+    top: 36%;
+    right: 1rem; /* 오른쪽 여백 (16px) */
+    transform: translateY(-50%); /* 수직 중앙 정렬 */
+    width: 20px; /* 아이콘 크기 (SVG width/height 고려) */
+    height: 20px; /* 아이콘 크기 */
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22%23999%22%20d%3D%22M12%2021a9%209%200%201%200%200-18%209%209%200%200%200%200%2018Z%22%2F%3E%3Cpath%20stroke%3D%22%23fff%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22m9%209%206%206M15%209l-6%206%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /* 아이콘이 버튼 영역에 맞게 크기 조절됨 */
+    cursor: pointer;
+
+    /* 초기 상태: 숨김 */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out;
+}
+
+/* 입력 내용이 있을 때 아이콘을 보여주는 클래스 (JavaScript로 추가/제거) */
+.btn-clear.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 입력 필드 오른쪽에 아이콘 공간 확보 */
+.form-control {
+    /* 기존 패딩 유지하면서 오른쪽 패딩 늘리기 */
+    /* 예: 기존 padding: 15px 1rem; -> padding: 15px 2.8rem 15px 1rem; */
+    /* 또는 padding-right 만 추가 */
+    padding-right: 2.8rem; /* 아이콘 너비(20px) + 좌우여백(1rem+0.3rem 정도) */
+}
+
+/* 플로팅 라벨의 오른쪽 패딩도 동일하게 조정 */
+.form-floating .form-control {
+    padding-right: 2.8rem;
+    /* 기존 padding-top, padding-bottom 은 유지 */
+    padding-top: 1.625rem;
+    padding-bottom: 0.625rem;
+}
+
+/* 라지 사이즈 입력 필드 기본 스타일 */
+.form-control-lg {
+    height: 64px; /* 높이 64px */
+    font-size: 1rem; /* 기본 폰트 크기 유지 (원하면 1.125rem 등으로 키울 수 있음) */
+    padding: 19px 2.8rem 19px 1rem;
+}
+
+/* 라지 사이즈 input 수직 정렬 (선택 사항) */
+input.form-control-lg {
+     line-height: calc(64px - 38px - 2px); /* 높이 - 상하패딩 - 상하테두리 */
+}
+
+/* === 라지(lg) 사이즈 플로팅 라벨 스타일 === */
+
+/* 라지 사이즈 플로팅 라벨 내부의 form-control 조정 */
+.form-floating > .form-control-lg {
+    /* 높이는 .form-control-lg 에서 64px 로 설정됨 */
+    /* 라지 사이즈 플로팅 라벨 패딩 (위쪽 더 많이, 아래쪽도 약간 늘림) + 아이콘 공간 */
+    /* 예시 값: 상(1.875rem=30px) 우(아이콘) 하(0.875rem=14px) 좌(1rem) */
+    padding: 1.875rem 2.8rem 0.875rem 1rem;
+}
+
+/* 라지 사이즈 플로팅 라벨 스타일 (초기 상태) */
+.form-floating > .form-control-lg + label {
+    height: 64px; /* 부모 높이(64px) */
+    /* 패딩 값은 기본 .form-control-lg 의 패딩과 맞춤 (상하 19px) */
+    padding: 19px 1rem;
+    line-height: calc(64px - 38px - 2px);
+    /* 폰트 크기, 라인 높이는 기본 라벨 스타일 상속 또는 여기서 재정의 */
+    /* font-size: 1.125rem; */ /* 예시: 폰트 키울 경우 */
+    /* line-height: ... */ /* 예시: 라인 높이 조정 */
+}
+
+/* 라지 사이즈 라벨이 위로 올라가는 조건 */
+.form-floating > .form-control-lg:focus + label,
+.form-floating > .form-control-lg:not(:placeholder-shown) + label {
+    /* transform 값은 기본 플로팅 라벨과 동일하게 사용하거나,
+       폰트 크기/패딩 변경 시 미세 조정 필요할 수 있음 */
+    transform: scale(0.85) translateY(-0.75rem) translateX(0.15rem); /* translateY 조정 테스트 필요 */
+    /* 기타 스타일 (opacity, color 등)은 기본 플로팅 라벨 스타일 상속 */
+}
+
+/* === 입력 필드 상태 스타일 === */
+
+/* Disabled 상태 */
+.form-control:disabled,
+.form-control[disabled] { /* [disabled] 추가하여 명확성 높임 */
+    background-color: #ccc; 
+    border-color: #ccc; 
+    opacity: 1; /* Bootstrap 스타일 참고 (흐릿하게 보이지 않도록) */
+    cursor: not-allowed; /* 비활성화 커서 */
+}
+
+/* Disabled 상태의 플로팅 라벨 */
+.form-floating > .form-control:disabled + label,
+.form-floating > .form-control[disabled] + label {
+    color: #999; 
+}
+/* Disabled 상태에서 placeholder가 보이도록 (선택 사항) */
+.form-floating > .form-control:disabled::placeholder {
+     color: transparent; /* 기본 숨김 유지 시 */
+     /* color: #adb5bd; */ /* 보이게 하려면 */
+}
+
+
+/* Success 상태 */
+.form-control.is-success {
+    border-color: #198754; /* 초록색 테두리 */
+}
+/* Success 상태 + 포커스 */
+.form-control.is-success:focus {
+    border-color: #198754;
+    /* 필요시 box-shadow 변경 */
+    /* box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25); */
+}
+/* Success 상태 플로팅 라벨 (올라갔을 때) - 선택 사항 */
+
+.form-floating > .form-control.is-success:focus + label,
+.form-floating > .form-control.is-success:not(:placeholder-shown) + label {
+    color: #198754;
+}
+
+/* Error 상태 */
+.form-control.is-error {
+    border-color: #dc3545; /* 빨간색 테두리 */
+}
+/* Error 상태 + 포커스 */
+.form-control.is-error:focus {
+    border-color: #dc3545;
+    /* 필요시 box-shadow 변경 */
+    /* box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); */
+}
+/* Error 상태 플로팅 라벨 (올라갔을 때) - 색상 변경 권장 */
+.form-floating > .form-control.is-error:focus + label,
+.form-floating > .form-control.is-error:not(:placeholder-shown) + label {
+    color: #dc3545; /* 라벨 색상도 빨간색으로 */
+}
+
+textarea.form-control {
+    height: auto;         /* 내용에 따라 높이 자동 조절 */
+    min-height: 100px;    /* 최소 높이 지정 (예: 4~5줄 분량) */
+    max-height: 250px;    /* 최대 높이 지정 (이 이상은 스크롤) */
+    resize: vertical;     /* 세로 크기 조절 허용 (또는 none) */
+    /* 기존 패딩, 폰트 등 스타일 유지 */
+    padding: 15px 2.8rem 15px 1rem; /* 아이콘 공간 고려 */
+    line-height: 1.5;
+}
+
+/* 라지 사이즈 Textarea */
+textarea.form-control-lg {
+    height: auto;
+    min-height: 120px;    /* 라지 최소 높이 */
+    max-height: 300px;    /* 라지 최대 높이 */
+    /* 기존 패딩, 폰트 등 스타일 유지 */
+    padding: 19px 2.8rem 19px 1rem; /* 아이콘 공간 고려 */
+    line-height: 1.5;
+}
+
+/* Medium 사이즈 Textarea in Floating Label */
+.form-floating textarea.form-control {
+    /* 기본 textarea.form-control 에서 값 가져옴 */
+    height: auto;
+    min-height: 100px;
+    max-height: 250px;
+    resize: vertical;
+    padding: 1.625rem 2.8rem 0.625px 1rem; /* 기본 textarea 와 동일한 패딩 */
+    line-height: 1.5;             /* 기본 textarea 와 동일한 라인 높이 */
+}
+
+/* Large 사이즈 Textarea in Floating Label */
+.form-floating textarea.form-control-lg {
+    /* 기본 textarea.form-control-lg 에서 값 가져옴 */
+    height: auto;
+    min-height: 120px;
+    max-height: 300px;
+    resize: vertical;
+    padding: 1.875rem 2.8rem 0.875rem 1rem; /* 기본 lg textarea 와 동일한 패딩 */
+    line-height: 1.5;             /* 기본 lg textarea 와 동일한 라인 높이 */
+}
