@@ -1,0 +1,185 @@
+/* /statics/styles/sb.css */
+
+/* === 커스텀 셀렉트 박스 (SB) 스타일 === */
+
+.sb-wrapper {
+    position: relative; /* 화살표, 옵션 목록 위치 기준 */
+}
+
+/* 표시 영역 기본 스타일 (form-control 과 유사하게) */
+.sb-display {
+    display: block;
+    width: 100%;
+    /* 패딩: 기본(상하 15px, 좌 1rem) + 오른쪽 화살표 공간(1rem + 20px + 0.8rem) */
+    padding: 15px 2.8rem 15px 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    box-sizing: border-box;
+    text-align: left;
+    cursor: pointer;
+    height: 56px; /* 기본 높이 고정 (input과 동일하게) */
+    line-height: calc(56px - 30px - 2px); /* 높이 고정 시 필요 */
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    appearance: none; /* 버튼 기본 스타일 제거 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* 포커스 상태 (표준/플로팅 공통) */
+.sb-wrapper:focus-within .sb-display,
+.sb-display:focus,
+.sb-display.is-focused { /* JS 제어 */
+    border-color: #000;
+    outline: 0;
+    /* box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.15); */
+}
+
+/* 값/플레이스홀더 표시 영역 */
+.sb-display .selected-value,
+.sb-display .placeholder {
+    display: inline; /* 기본값 */
+}
+
+.sb-display .placeholder {
+    color: #999;
+}
+
+/* 값이 없을 때/있을 때 표시 제어 (JS 클래스 기반) */
+.sb-display:not(.has-value) .selected-value {
+    display: none;
+}
+.sb-display.has-value .placeholder {
+    display: none;
+}
+
+/* --- 플로팅 라벨 버전 스타일 --- */
+/* form-floating 클래스는 inp.css 에 정의된 것을 사용 */
+/* sb-display 버튼의 패딩을 플로팅에 맞게 조정 */
+.form-floating .sb-display {
+    padding-top: 1.625rem;  /* 26px */
+    padding-bottom: 0.625rem; /* 10px */
+    /* 높이는 56px 유지, line-height 재계산 필요 없음 */
+    /* line-height: 1.25; */ /* 필요시 조정 */
+}
+
+/* 플로팅 라벨 스타일은 inp.css 의 .form-floating > label 사용 */
+
+/* 플로팅 라벨 상태 변경 (JS 클래스 기반) */
+.form-floating.has-value > label,
+.form-floating.is-open > label {
+    opacity: 1;
+    transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+    height: auto;
+    color: #999; /* 필요시 포커스 시 색상 변경은 inp.css 수정 또는 여기에 추가 */
+    /* 포커스 시 색상 변경 예시 */
+    /* .form-floating.is-open > label { color: #000; } */
+}
+/* --- 플로팅 라벨 버전 끝 --- */
+
+/* 화살표 아이콘 */
+.sb-arrow {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px; /* 크기 살짝 조정 */
+    pointer-events: none;
+    transition: transform 0.2s ease;
+}
+
+/* 드롭다운 열렸을 때 옵션 목록 표시 (JS 클래스 기반) */
+.sb-wrapper.is-open .sb-options {
+    display: block; /* <<< .is-open 클래스가 있을 때 보이도록 */
+}
+
+/* 드롭다운 열렸을 때 화살표 회전 (JS 클래스 기반) */
+.sb-wrapper.is-open .sb-arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* 옵션 목록 컨테이너 */
+.sb-options {
+    position: absolute;
+    top: calc(100% + 4px); /* 표시 영역 바로 아래 */
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    display: none;
+    /* display: none; 기본은 HTML 인라인 스타일로 제어 */
+}
+
+/* 옵션 항목 */
+.sb-option {
+    padding: 0.75rem 2.5rem 0.75rem 1rem; /* 체크 아이콘 공간 고려 */
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1rem; /* 기본 폰트 크기 */
+    line-height: 1.5; /* 기본 라인 높이 */
+    color: #000; /* 기본 텍스트 색상 */
+}
+
+/* 옵션 호버 */
+.sb-option:hover {
+    background-color: #f0f0f0;
+}
+
+/* 옵션 활성(클릭) */
+.sb-option:active,
+.sb-option.is-pressed {
+    background-color: #e0e0e0;
+}
+
+/* 옵션 선택됨 */
+.sb-option.is-selected {
+    font-weight: 500;
+    /* background-color: #f8f8f8; */ /* 배경색 제거 또는 연하게 */
+}
+
+/* 옵션 선택됨 체크 아이콘 */
+.sb-option.is-selected::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23198754'%3E%3Cpath d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* 옵션 목록 스크롤바 스타일 */
+.sb-options::-webkit-scrollbar { width: 6px; background-color: transparent; }
+.sb-options::-webkit-scrollbar-track { background: transparent; margin: 2px 0;}
+.sb-options::-webkit-scrollbar-thumb { background-color: #bbb; border-radius: 3px; border: none; }
+.sb-options::-webkit-scrollbar-thumb:hover { background-color: #999; }
+.sb-options { scrollbar-width: thin; scrollbar-color: #bbb transparent; }

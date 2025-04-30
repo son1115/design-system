@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/statics/styles/style.css">
+    <link rel="stylesheet" href="/statics/styles/inp.css">
+</head>
+<body class="page-input-fields">
+    <aside>
+        <ul class="menu">
+            <li><a href="/index.html" class="menu-btn">홈</a></li>
+            <li><a href="/btn.html" class="menu-btn">버튼</a></li>
+            <li><a href="/sel.html" class="menu-btn">셀렉션 컨트롤</a></li>
+            <li><a href="/inp.html" class="menu-btn">입력 필드</a></li>
+            <li><a href="#" class="menu-btn active">드롭다운</a></li>
+            <li><a href="#" class="menu-btn">탭</a></li>
+            <li><a href="#" class="menu-btn">칩</a></li>
+            <li><a href="#" class="menu-btn">뱃지</a></li>
+            <li><a href="#" class="menu-btn">페이지네이션</a></li>
+            <li><a href="#" class="menu-btn">썸네일</a></li>
+            <li><a href="#" class="menu-btn">모달</a></li>
+        </ul>
+    </aside>
+    <main>
+        <div class="component-header">
+            <h1>드롭다운</h1>
+            <p>사용자에게 여러 옵션 중에서 선택할 수 있는 옵션 목록을 제공합니다.</p>
+        </div>
+
+        <h1 class="section-title">Select Box</h1>
+
+        <div class="component-examples input-examples"> <div class="input-variant">
+     
+            <div class="form-floating sb-wrapper">
+                <button type="button" class="form-control sb-display" id="floating-sb" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="selected-value"></span>
+                    <span class="placeholder">선택해주세요</span>
+                </button>
+                <label for="floating-sb" id="floating-sb-label">라벨</label>
+                <span class="sb-arrow" aria-hidden="true"></span>
+
+                <ul class="sb-options" role="listbox" aria-labelledby="floating-sb-label">
+                    <li class="sb-options" role="option" data-value="option1">옵션 1</li>
+                    <li class="sb-options" role="option" data-value="option2">옵션 2</li>
+                    <li class="sb-options" role="option" data-value="option3">옵션 3</li>
+                    <li class="sb-options" role="option" data-value="option4">옵션 4</li>
+                    <li class="sb-options" role="option" data-value="option5">옵션 5</li>
+                </ul>
+            </div>
+            <span class="button-label">Floating Select Box</span>
+            <input type="hidden" name="floating-sb-value" id="floating-sb-value">
+        </div>
+
+        <div class="input-variant">
+            <div class="sb-wrapper"> <button type="button" class="form-control sb-display" id="sb" aria-haspopup="listbox" aria-expanded="false" aria-label="Select Box">
+                <span class="selected-value"></span>
+                <span class="placeholder">선택해주세요</span>
+            </button>
+            <span class="sb-arrow" aria-hidden="true"></span>
+
+            <ui class="sb-options" role="listbox" aria-labelledby="sb">
+                <li class="sb-options" role="option" data-value="s_option1">옵션 1</li>
+                <li class="sb-options" role="option" data-value="s_option2">옵션 2</li>
+                <li class="sb-options" role="option" data-value="s_option3">옵션 3</li>
+                <li class="sb-options" role="option" data-value="s_option4">옵션 4</li>
+                <li class="sb-options" role="option" data-value="s_option5">옵션 5</li>
+            </ui>
+            </div>
+            <span class="button-label">Select Box</span>
+            <input type="hidden" name="sb-value" id="sb-value">
+        </div>
+        </div>
+    </main>
+    <script src="/statics/scripts/script.js"></script> 
+</body>

@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: column; /* 라벨과 입력 필드를 수직으로 배치 */
     width: calc(50% - 1.5rem); /* 예시 컨테이너 내에서 약 절반 너비 (gap 고려) */
+    height: auto;
     /* 필요에 따라 최소/최대 너비 설정 가능 */
     /* min-width: 250px; */
 }
@@ -28,8 +29,7 @@
 .form-control {
     display: block; /* 너비 100% 차지 */
     width: 100%;
-    height: 56px;
-    padding: 15px 2.8rem 15px 1rem; /* 내부 여백 (12px 16px) */
+    padding: 15px 1rem;
     font-size: 1rem; /* 폰트 크기 (16px) */
     font-weight: 400;
     color: #000; /* 텍스트 색상 */
@@ -40,6 +40,13 @@
     border-radius: 8px; /* 모서리 둥글게 (스크린샷 참고) */
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* 부드러운 전환 효과 */
     box-sizing: border-box;
+}
+
+/* 기본 input 높이/패딩 설정 */
+input.form-control {
+    height: 56px;
+    padding-right: 2.8rem; /* 아이콘 공간 추가 */
+    line-height: calc(56px - 30px - 2px); /* 상하패딩 15px*2 기준 */
 }
 
 /* 플레이스홀더 텍스트 스타일 */
@@ -56,18 +63,6 @@
     outline: 0;
     /* 필요시 box-shadow 추가 */
     /* box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); */
-}
-
-/* 글자 수 등 보조 텍스트 스타일 */
-.form-text {
-    margin-top: 0.25rem; /* 입력 필드 아래 여백 (4px) */
-    font-size: 0.875em; /* 폰트 크기 (상대 단위) */
-    color: #6c757d; /* 보조 텍스트 색상 */
-}
-
-/* 텍스트 오른쪽 정렬 헬퍼 클래스 */
-.text-end {
-    text-align: right !important; /* 오른쪽 정렬 강제 (필요시) */
 }
 
 /* === 플로팅 라벨 스타일 === */
@@ -142,21 +137,6 @@
 .form-floating > .form-control::placeholder {
      color: transparent;
 }
-/* 라벨이 올라갔을때만 플레이스홀더가 보이게 하려면 위 CSS 제거 후 아래 사용 */
-/*
-.form-floating > .form-control:focus::placeholder {
-    color: #6c757d;
-}
-.form-floating > .form-control:not(:placeholder-shown)::placeholder {
-     color: transparent;
-}
-*/
-
-/* (기존 .form-label, .form-text, .text-end 등은 필요시 유지 또는 수정) */
-/* 플로팅 구조에서는 .form-label 클래스를 직접 사용하지 않으므로 제거해도 무방 */
-/*
-.form-label { ... }
-*/
 
 /* 입력 필드와 아이콘을 감싸는 래퍼 */
 .input-wrapper {
@@ -200,24 +180,17 @@
     padding-right: 2.8rem; /* 아이콘 너비(20px) + 좌우여백(1rem+0.3rem 정도) */
 }
 
-/* 플로팅 라벨의 오른쪽 패딩도 동일하게 조정 */
-.form-floating .form-control {
-    padding-right: 2.8rem;
-    /* 기존 padding-top, padding-bottom 은 유지 */
-    padding-top: 1.625rem;
-    padding-bottom: 0.625rem;
-}
-
 /* 라지 사이즈 입력 필드 기본 스타일 */
-.form-control-lg {
+input.form-control-lg {
     height: 64px; /* 높이 64px */
     font-size: 1rem; /* 기본 폰트 크기 유지 (원하면 1.125rem 등으로 키울 수 있음) */
-    padding: 19px 2.8rem 19px 1rem;
+    padding: 19px 1rem;
 }
 
 /* 라지 사이즈 input 수직 정렬 (선택 사항) */
 input.form-control-lg {
-     line-height: calc(64px - 38px - 2px); /* 높이 - 상하패딩 - 상하테두리 */
+    padding-right: 2.8rem;
+    line-height: calc(64px - 38px - 2px); /* 높이 - 상하패딩 - 상하테두리 */
 }
 
 /* === 라지(lg) 사이즈 플로팅 라벨 스타일 === */
@@ -272,7 +245,6 @@ input.form-control-lg {
      /* color: #adb5bd; */ /* 보이게 하려면 */
 }
 
-
 /* Success 상태 */
 .form-control.is-success {
     border-color: #198754; /* 초록색 테두리 */
@@ -308,42 +280,61 @@ input.form-control-lg {
 
 textarea.form-control {
     height: auto;         /* 내용에 따라 높이 자동 조절 */
-    min-height: 100px;    /* 최소 높이 지정 (예: 4~5줄 분량) */
     max-height: 250px;    /* 최대 높이 지정 (이 이상은 스크롤) */
     resize: vertical;     /* 세로 크기 조절 허용 (또는 none) */
     /* 기존 패딩, 폰트 등 스타일 유지 */
-    padding: 15px 2.8rem 15px 1rem; /* 아이콘 공간 고려 */
-    line-height: 1.5;
-}
-
-/* 라지 사이즈 Textarea */
-textarea.form-control-lg {
-    height: auto;
-    min-height: 120px;    /* 라지 최소 높이 */
-    max-height: 300px;    /* 라지 최대 높이 */
-    /* 기존 패딩, 폰트 등 스타일 유지 */
-    padding: 19px 2.8rem 19px 1rem; /* 아이콘 공간 고려 */
+    padding: 15px 1rem;
     line-height: 1.5;
 }
 
 /* Medium 사이즈 Textarea in Floating Label */
 .form-floating textarea.form-control {
     /* 기본 textarea.form-control 에서 값 가져옴 */
-    height: auto;
-    min-height: 100px;
-    max-height: 250px;
-    resize: vertical;
-    padding: 1.625rem 2.8rem 0.625px 1rem; /* 기본 textarea 와 동일한 패딩 */
+    min-height: 128px;
+    max-height: none;
+    overflow-y: hidden;
+    resize: none;
+    padding: 1.625rem 1rem 0.625rem 1rem ; /* 기본 textarea 와 동일한 패딩 */
     line-height: 1.5;             /* 기본 textarea 와 동일한 라인 높이 */
 }
 
-/* Large 사이즈 Textarea in Floating Label */
-.form-floating textarea.form-control-lg {
-    /* 기본 textarea.form-control-lg 에서 값 가져옴 */
-    height: auto;
-    min-height: 120px;
-    max-height: 300px;
-    resize: vertical;
-    padding: 1.875rem 2.8rem 0.875rem 1rem; /* 기본 lg textarea 와 동일한 패딩 */
-    line-height: 1.5;             /* 기본 lg textarea 와 동일한 라인 높이 */
+/* === Textarea 커스텀 스크롤바 스타일 (개선된 디자인) === */
+
+/* --- WebKit 브라우저 (Chrome, Edge, Safari 등) --- */
+
+/* 스크롤바 전체 영역: 너비 줄이고 배경 투명 */
+textarea.form-control::-webkit-scrollbar,
+textarea.form-control-lg::-webkit-scrollbar {
+    width: 6px; /* 스크롤바 너비 더 얇게 (예: 6px) */
+    background-color: transparent; /* 배경 투명 */
+}
+
+/* 스크롤바 트랙 (배경): 투명하게 */
+textarea.form-control::-webkit-scrollbar-track,
+textarea.form-control-lg::-webkit-scrollbar-track {
+    background: transparent; /* 트랙 배경 투명 */
+    margin: 2px 0; /* 위아래 약간의 여백 (선택 사항) */
+}
+
+/* 스크롤바 썸 (움직이는 막대): 어둡고 둥글게 */
+textarea.form-control::-webkit-scrollbar-thumb,
+textarea.form-control-lg::-webkit-scrollbar-thumb {
+    background-color: #bbb; /* 썸 색상 (이전보다 약간 어둡게) */
+    border-radius: 3px; /* 너비(6px)의 절반으로 완전 둥글게 */
+    border: none; /* 테두리 제거 */
+}
+
+/* 스크롤바 썸에 마우스 올렸을 때: 더 어둡게 (선택 사항) */
+textarea.form-control::-webkit-scrollbar-thumb:hover,
+textarea.form-control-lg::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
+}
+
+/* --- Firefox 브라우저 --- */
+
+textarea.form-control,
+textarea.form-control-lg {
+    scrollbar-width: thin; /* 스크롤바 얇게 */
+    /* 썸 색상, 트랙 색상 (트랙 투명하게) */
+    scrollbar-color: #ccc transparent;
 }

@@ -14,7 +14,7 @@
             <li><a href="/btn.html" class="menu-btn">버튼</a></li>
             <li><a href="/sel.html" class="menu-btn">셀렉션 컨트롤</a></li>
             <li><a href="#" class="menu-btn active">입력 필드</a></li>
-            <li><a href="#" class="menu-btn">드롭다운</a></li>
+            <li><a href="/dd.html" class="menu-btn">드롭다운</a></li>
             <li><a href="#" class="menu-btn">탭</a></li>
             <li><a href="#" class="menu-btn">칩</a></li>
             <li><a href="#" class="menu-btn">뱃지</a></li>
@@ -37,7 +37,7 @@
                 <input type="text" class="form-control" id="tf-floating" placeholder="라벨">
                 <label for="tf-floating">라벨</label>
                 <button type="button" class="btn-clear" aria-label="입력 내용 지우기"></button>
-                <span class="button-label">Floating text Fields</span>
+                <span class="button-label">Floating Text Fields</span>
             </div>
 
             <div class="input-variant input-wrapper">
@@ -292,14 +292,143 @@
 
         <div class="component-examples input-examples">
             <div class="form-floating input-variant input-wrapper">
-                <textarea class="form-control" id="floating-textarea" placeholder="라벨" rows="4"></textarea>
+                <textarea class="form-control auto-resize" id="floating-textarea" placeholder="라벨" ></textarea>
                 <label for="floating-textarea">라벨</label>
+                <span class="button-label">Floating Text Area</span>
             </div>
     
             <div class="input-variant input-wrapper">
                 <textarea class="form-control" id="textarea" placeholder="플레이스홀더" rows="4"></textarea>
+                <span class="button-label">Text Area</span>
             </div>
         </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="form-floating input-variant input-wrapper"&gt;
+    &lt;textarea class="form-control" id="floating-textarea" placeholder="라벨"&gt;&lt;/textarea&gt;
+    &lt;label for="floating-textarea"&gt;라벨&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant input-wrapper"&gt;
+    &lt;textarea class="form-control" id="textarea" placeholder="플레이스홀더" rows="4"&gt;&lt;/textarea&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+        <h2 class="section-title">Floating Text Area State</h2>
+
+        <div class="component-examples input-examples">
+            <div class="form-floating input-variant input-wrapper static-state">
+                <textarea class="form-control auto-resize" id="fta-default" placeholder="라벨"></textarea>
+                <label for="fta-default">라벨</label>
+                <span class="button-label">Default</span>
+            </div>
+
+            <div class="form-floating input-variant input-wrapper static-state">
+                <textarea class="form-control is-focused auto-resize" id="fta-focus" placeholder="라벨">active (focus)</textarea>
+                <label for="floating-textarea">라벨</label>
+                <span class="button-label">Active (Focus)</span>
+            </div>
+
+            <div class="form-floating input-variant input-wrapper static-state">
+                <textarea class="form-control auto-resize" id="fta-completed" placeholder="라벨">completed</textarea>
+                <label for="floating-textarea">라벨</label>
+                <span class="button-label">Completed</span>
+            </div>
+        </div>
+
+        <div class="component-examples input-examples">
+            <div class="form-floating input-variant input-wrapper static-state">
+                <textarea class="form-control is-error auto-resize" id="fta-error" placeholder="라벨">error</textarea>
+                <label for="fta-error">라벨</label>
+                <span class="button-label">Error</span>
+            </div>
+
+            <div class="form-floating input-variant input-wrapper static-state">
+                <textarea class="form-control auto-resize" id="fta-disabled" placeholder="라벨" disabled></textarea>
+                <label for="fta-default">라벨</label>
+                <span class="button-label">Disabled</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="form-floating input-variant input-wrapper static-state"&gt;
+    &lt;textarea class="form-control auto-resize" id="fta-default" placeholder="라벨"&gt;&lt;/textarea&gt;
+    &lt;label for="fta-default"&gt;라벨&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="form-floating input-variant input-wrapper static-state"&gt;
+    &lt;textarea class="form-control is-focused auto-resize" id="fta-focus" placeholder="라벨"&gt;active (focus)&lt;/textarea&gt;
+    &lt;label for="fta-default"&gt;라벨&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="form-floating input-variant input-wrapper static-state"&gt;
+    &lt;textarea class="form-control auto-resize" id="fta-completed" placeholder="라벨"&gt;completed&lt;/textarea&gt;
+    &lt;label for="fta-completed"&gt;라벨&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="form-floating input-variant input-wrapper static-state"&gt;
+    &lt;textarea class="form-control is-error auto-resize" id="fta-error" placeholder="라벨"&gt;error&lt;/textarea&gt;
+    &lt;label for="fta-error"&gt;라벨&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="form-floating input-variant input-wrapper static-state"&gt;
+    &lt;textarea class="form-control auto-resize" id="fta-disabled" placeholder="라벨" disabled&gt;&lt;/textarea&gt;
+    &lt;label for="fta-default"&gt;라벨&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+        <h2 class="section-title">Text Area State</h2>
+
+        <div class="component-examples input-examples">
+            <div class="input-variant input-wrapper">
+                <textarea class="form-control" id="textarea" placeholder="플레이스홀더" rows="4"></textarea>
+                <span class="button-label">Default</span>
+            </div>
+       
+            <div class="input-variant input-wrapper">
+                <textarea class="form-control is-focused" id="ta-focus" placeholder="플레이스홀더" rows="4">active (focus)</textarea>
+                <span class="button-label">Active (Focus)</span>
+            </div>
+
+            <div class="input-variant input-wrapper">
+                <textarea class="form-control" id="ta-completed" placeholder="플레이스홀더" rows="4">completed</textarea>
+                <span class="button-label">Completed</span>
+            </div>
+        </div>
+
+        <div class="component-examples input-examples">
+            <div class="input-variant input-wrapper static-state">
+                <textarea class="form-control is-error" id="ta-error" placeholder="플레이스홀더" rows="4">error</textarea>
+                <span class="button-label">Error</span>
+            </div>
+
+            <div class="input-variant input-wrapper">
+                <textarea class="form-control" id="ta-disabled" placeholder="플레이스홀더" rows="4" disabled></textarea>
+                <span class="button-label">Disabled</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="input-variant input-wrapper"&gt;
+    &lt;textarea class="form-control" id="textarea" placeholder="플레이스홀더" row="4"&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant input-wrapper"&gt;
+    &lt;textarea class="form-control is-focused" id="ta-focus" placeholder="플레이스홀더" rows="4"&gt;active (focus)&lt;/textarea&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant input-wrappe"&gt;
+    &lt;textarea class="form-control" id="ta-completed" placeholder="플레이스홀더" row="4"&gt;completed&lt;/textarea&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant input-wrapper"&gt;
+    &lt;textarea class="form-control is-error" id="ta-error" placeholder="플레이스홀더" row="4"&gt;error&lt;/textarea&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant input-wrapper"&gt;
+    &lt;textarea class="form-control" id="ta-disabled" placeholder="플레이스홀더" row="4" disabled&gt;&lt;/textarea&gt;
+&lt;/div&gt;</code></pre>
+</div>
 
     </main>
     <script src="/statics/scripts/script.js"></script> 
