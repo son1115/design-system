@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/statics/styles/style.css">
-    <link rel="stylesheet" href="/statics/styles/inp.css">
+    <link rel="stylesheet" href="/statics/styles/dd.css">
 </head>
 <body class="page-input-fields">
     <aside>
@@ -15,7 +15,7 @@
             <li><a href="/sel.html" class="menu-btn">셀렉션 컨트롤</a></li>
             <li><a href="/inp.html" class="menu-btn">입력 필드</a></li>
             <li><a href="#" class="menu-btn active">드롭다운</a></li>
-            <li><a href="#" class="menu-btn">탭</a></li>
+            <li><a href="/tab.html" class="menu-btn">탭</a></li>
             <li><a href="#" class="menu-btn">칩</a></li>
             <li><a href="#" class="menu-btn">뱃지</a></li>
             <li><a href="#" class="menu-btn">페이지네이션</a></li>
@@ -31,47 +31,376 @@
 
         <h1 class="section-title">Select Box</h1>
 
-        <div class="component-examples input-examples"> <div class="input-variant">
-     
-            <div class="form-floating sb-wrapper">
-                <button type="button" class="form-control sb-display" id="floating-sb" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="selected-value"></span>
-                    <span class="placeholder">선택해주세요</span>
-                </button>
-                <label for="floating-sb" id="floating-sb-label">라벨</label>
-                <span class="sb-arrow" aria-hidden="true"></span>
-
-                <ul class="sb-options" role="listbox" aria-labelledby="floating-sb-label">
-                    <li class="sb-options" role="option" data-value="option1">옵션 1</li>
-                    <li class="sb-options" role="option" data-value="option2">옵션 2</li>
-                    <li class="sb-options" role="option" data-value="option3">옵션 3</li>
-                    <li class="sb-options" role="option" data-value="option4">옵션 4</li>
-                    <li class="sb-options" role="option" data-value="option5">옵션 5</li>
-                </ul>
+        <div class="component-examples input-examples">
+            
+            <div class="input-variant">
+                 <div class="form-floating sb-wrapper"> <select class="form-control" id="floating-sb-native" name="floating_select_value" required>
+                        <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                        <option value="option1">옵션 1</option>
+                        <option value="option2">옵션 2</option>
+                    </select>
+                    <label for="floating-sb-native">라벨</label>
+                </div>
+                <span class="button-label">Floating Select Box</span>
             </div>
-            <span class="button-label">Floating Select Box</span>
-            <input type="hidden" name="floating-sb-value" id="floating-sb-value">
-        </div>
 
-        <div class="input-variant">
-            <div class="sb-wrapper"> <button type="button" class="form-control sb-display" id="sb" aria-haspopup="listbox" aria-expanded="false" aria-label="Select Box">
-                <span class="selected-value"></span>
-                <span class="placeholder">선택해주세요</span>
-            </button>
-            <span class="sb-arrow" aria-hidden="true"></span>
-
-            <ui class="sb-options" role="listbox" aria-labelledby="sb">
-                <li class="sb-options" role="option" data-value="s_option1">옵션 1</li>
-                <li class="sb-options" role="option" data-value="s_option2">옵션 2</li>
-                <li class="sb-options" role="option" data-value="s_option3">옵션 3</li>
-                <li class="sb-options" role="option" data-value="s_option4">옵션 4</li>
-                <li class="sb-options" role="option" data-value="s_option5">옵션 5</li>
-            </ui>
+            <div class="input-variant">
+                <div class="sb-wrapper"> <select class="form-control" id="sb-native" name="standard_select_value" required>
+                        <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                        <option value="option1">옵션 A</option>
+                        <option value="option2">옵션 B</option>
+                    </select>
+                </div>
+                <span class="button-label">Select Box</span>
             </div>
-            <span class="button-label">Select Box</span>
-            <input type="hidden" name="sb-value" id="sb-value">
         </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="input-variant"&gt;
+    &lt;div class="form-floating sb-wrapper"&gt;
+        &lt;select class="form-control" id="floating-sb-native" name="floating_select_value" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="option1"&gt;옵션 1&lt;/option&gt;
+            &lt;option value="option2"&gt;옵션 2&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;label for="floating-sb-native"&gt;라벨&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant"&gt;
+    &lt;div class="sb-wrapper"&gt;
+        &lt;select class="form-control" id="sb-native" name="standard_select_value" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="s_option1"&gt;옵션 A&lt;/option&gt;
+            &lt;option value="s_option2"&gt;옵션 B&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
         </div>
+
+        <h2 class="section-title">Select Box Size</h2>
+
+        <div class="component-examples input-examples">
+
+            <div class="input-variant">
+                <div class="form-floating sb-wrapper"> <select class="form-control form-control-lg" id="floating-sb-lg" name="floating_select_lg" required>
+                       <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                       <option value="option1">옵션 1</option>
+                       <option value="option2">옵션 2</option>
+                   </select>
+                   <label for="floating-sb-native">라벨</label>
+               </div>
+               <span class="button-label">Large</span>
+           </div>
+
+           <div class="input-variant">
+                <div class="form-floating sb-wrapper"> <select class="form-control" id="floating-sb-native" name="floating_select_value" required>
+                        <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                        <option value="option1">옵션 1</option>
+                        <option value="option2">옵션 2</option>
+                    </select>
+                    <label for="floating-sb-native">라벨</label>
+                </div>
+                <span class="button-label">Medium</span>
+            </div>
+        </div>
+
+       <div class="component-examples input-examples">
+
+            <div class="input-variant">
+                <div class="sb-wrapper"> <select class="form-control form-control-lg" id="sb-lg" name="standard_select_lg" required>
+                        <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                        <option value="option1">옵션 A</option>
+                        <option value="option2">옵션 B</option>
+                    </select>
+                </div>
+                <span class="button-label">Large</span>
+            </div>
+
+            <div class="input-variant">
+                <div class="sb-wrapper"> <select class="form-control" id="sb-native" name="standard_select_value" required>
+                        <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                        <option value="option1">옵션 A</option>
+                        <option value="option2">옵션 B</option>
+                    </select>
+                </div>
+                <span class="button-label">Medium</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="input-variant"&gt;
+    &lt;div class="form-floating sb-wrapper"&gt;
+        &lt;select class="form-control form-control-lg" id="floating-sb-lg" name="floating_select_lg" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="option1"&gt;옵션 1&lt;/option&gt;
+            &lt;option value="option2"&gt;옵션 2&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;label for="floating-sb-native"&gt;라벨&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant"&gt;
+    &lt;div class="form-floating sb-wrapper"&gt;
+        &lt;select class="form-control" id="floating-sb-native" name="floating_select_value" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="s_option1"&gt;옵션 1&lt;/option&gt;
+            &lt;option value="s_option2"&gt;옵션 2&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant"&gt;
+    &lt;div class="sb-wrapper"&gt;
+        &lt;select class="form-control form-control-lg" id="sb-lg" name="standard_select_lg" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="s_option1"&gt;옵션 A&lt;/option&gt;
+            &lt;option value="s_option2"&gt;옵션 B&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant"&gt;
+    &lt;div class="sb-wrapper"&gt;
+        &lt;select class="form-control" id="sb-native" name="standard_select_value" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="s_option1"&gt;옵션 A&lt;/option&gt;
+            &lt;option value="s_option2"&gt;옵션 B&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h2 class="section-title">Floating Select Box State</h2>
+
+        <div class="component-examples input-examples">
+
+            <div class="input-variant">
+                <div class="form-floating sb-wrapper static-state"> <select class="form-control" id="select-state-default" name="select_state_default" required>
+                       <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                       <option value="option1">옵션 1</option>
+                       <option value="option2">옵션 2</option>
+                   </select>
+                   <label for="select-state-default">라벨</label>
+               </div>
+               <span class="button-label">Default</span>
+           </div>
+
+           <div class="input-variant">
+                <div class="form-floating sb-wrapper static-state"> <select class="form-control is-focused" id="select-state-active" name="select_state_active" required>
+                        <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                        <option value="option1">옵션 1</option>
+                        <option value="option2">옵션 2</option>
+                    </select>
+                    <label for="select-state-active">라벨</label>
+                </div>
+                <span class="button-label">Active (Focus)</span>
+            </div>
+
+            <div class="input-variant">
+                <div class="form-floating sb-wrapper static-state"> <select class="form-control" id="select-state-completed" name="select_state_completed" required>
+                        <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                        <option value="opt_completed" selected>옵션 1</option>
+                        <option value="option2">옵션 2</option>
+                    </select>
+                    <label for="select-state-completed">라벨</label>
+                </div>
+                <span class="button-label">Completed</span>
+            </div>
+        </div>
+
+        <div class="component-examples input-examples">
+
+            <div class="input-variant">
+                <div class="form-floating sb-wrapper static-state"> <select class="form-control is-error" id="select-state-error" name="select_state_error" required>
+                       <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                       <option value="option1">옵션 1</option>
+                       <option value="option2">옵션 2</option>
+                   </select>
+                   <label for="select-state-error">라벨</label>
+               </div>
+               <span class="button-label">Error</span>
+           </div>
+
+           <div class="input-variant">
+                <div class="form-floating sb-wrapper"> <select class="form-control" id="select-state-disabled" name="select_state_disabled" disabled>
+                        <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                        <option value="option1" selected>옵션 1</option>
+                        <option value="option2">옵션 2</option>
+                    </select>
+                    <label for="floating-sb-native">라벨</label>
+                </div>
+                <span class="button-label">Disabled</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="input-variant"&gt;
+    &lt;div class="form-floating sb-wrapper static-state"&gt;
+        &lt;select class="form-control" id="select-state-default" name="select_state_default" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="option1"&gt;옵션 1&lt;/option&gt;
+            &lt;option value="option2"&gt;옵션 2&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;label for="select-state-default"&gt;라벨&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant"&gt;
+    &lt;div class="form-floating sb-wrapper static-state"&gt;
+        &lt;select class="form-control is-focused" id="select-state-active" name="select_state_active" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="s_option1"&gt;옵션 1&lt;/option&gt;
+            &lt;option value="s_option2"&gt;옵션 2&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;label for="select-state-active"&gt;라벨&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant"&gt;
+    &lt;div class="form-floationg sb-wrapper static-state"&gt;
+        &lt;select class="form-control" id="select-state-completed" name="select_state_completed" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="s_option1"&gt;옵션 1&lt;/option&gt;
+            &lt;option value="s_option2"&gt;옵션 2&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;label for="select-state-completed"&gt;라벨&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant"&gt;
+    &lt;div class="form-floating sb-wrapper static-state"&gt;
+        &lt;select class="form-control is-error" id="select-state-error" name="select_state_error" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="s_option1"&gt;옵션 1&lt;/option&gt;
+            &lt;option value="s_option2"&gt;옵션 2&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;label for="select-state-error"&gt;라벨&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant"&gt;
+    &lt;div class="form-floationg sb-wrapper"&gt;
+        &lt;select class="form-control" id="select-state-disabled" name="select_state_disabled" disabled&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="s_option1 selected"&gt;옵션 1&lt;/option&gt;
+            &lt;option value="s_option2"&gt;옵션 2&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;label for="select-state-disabled"&gt;라벨&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h2 class="section-title">Select Box State</h2>
+
+        <div class="component-examples input-examples">
+
+            <div class="input-variant">
+                <div class="sb-wrapper static-state"> <select class="form-control" id="sb-state-default" name="sb_state_default" required>
+                       <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                       <option value="option1">옵션 A</option>
+                       <option value="option2">옵션 B</option>
+                   </select>
+               </div>
+               <span class="button-label">Default</span>
+           </div>
+
+           <div class="input-variant">
+                <div class="sb-wrapper static-state"> <select class="form-control is-focused" id="sb-state-active" name="sb_state_active" required>
+                        <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                        <option value="option1">옵션 A</option>
+                        <option value="option2">옵션 B</option>
+                    </select>
+                </div>
+                <span class="button-label">Active (Focus)</span>
+            </div>
+
+            <div class="input-variant">
+                <div class="sb-wrapper static-state"> <select class="form-control" id="sb-state-completed" name="sb_state_completed" required>
+                        <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                        <option value="opt_completed" selected>옵션 A</option>
+                        <option value="option2">옵션 B</option>
+                    </select>
+                </div>
+                <span class="button-label">Completed</span>
+            </div>
+        </div>
+
+        <div class="component-examples input-examples">
+
+            <div class="input-variant">
+                <div class="sb-wrapper static-state"> <select class="form-control is-error" id="sb-state-error" name="sb_state_error" required>
+                       <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                       <option value="option1">옵션 A</option>
+                       <option value="option2">옵션 B</option>
+                   </select>
+               </div>
+               <span class="button-label">Error</span>
+           </div>
+
+           <div class="input-variant">
+                <div class="sb-wrapper"> <select class="form-control" id="sb-state-disabled" name="sb_state_disabled" disabled>
+                        <option value="" disabled selected hidden class="placeholder-opticon">선택해주세요</option>
+                        <option value="option1" selected>옵션 A</option>
+                        <option value="option2">옵션 B</option>
+                    </select>
+                </div>
+                <span class="button-label">Disabled</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="input-variant"&gt;
+    &lt;div class="sb-wrapper static-state"&gt;
+        &lt;select class="form-control" id="sb-state-default" name="sb_state_default" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="option1"&gt;옵션 A&lt;/option&gt;
+            &lt;option value="option2"&gt;옵션 B&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant"&gt;
+    &lt;div class="sb-wrapper static-state"&gt;
+        &lt;select class="form-control is-focused" id="sb-state-active" name="sb_state_active" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="s_option1"&gt;옵션 A&lt;/option&gt;
+            &lt;option value="s_option2"&gt;옵션 B&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant"&gt;
+    &lt;div class="sb-wrapper static-state"&gt;
+        &lt;select class="form-control" id="sb-state-completed" name="sb_state_completed" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="s_option1"&gt;옵션 A&lt;/option&gt;
+            &lt;option value="s_option2"&gt;옵션 B&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant"&gt;
+    &lt;div class="sb-wrapper static-state"&gt;
+        &lt;select class="form-control is-error" id="sb-state-error" name="sb_state_error" required&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="s_option1"&gt;옵션 A&lt;/option&gt;
+            &lt;option value="s_option2"&gt;옵션 B&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="input-variant"&gt;
+    &lt;div class="sb-wrapper"&gt;
+        &lt;select class="form-control" id="sb-state-disabled" name="sb_state_disabled" disabled&gt;
+            &lt;option value="" disabled selected hidden class="placeholder-option"&gt;선택해주세요&lt;/option&gt;
+            &lt;option value="s_option1 selected"&gt;옵션 A&lt;/option&gt;
+            &lt;option value="s_option2"&gt;옵션 B&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
     </main>
     <script src="/statics/scripts/script.js"></script> 
 </body>

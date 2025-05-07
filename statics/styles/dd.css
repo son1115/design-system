@@ -1,185 +1,209 @@
-/* /statics/styles/sb.css */
+/* dd.css - Select Box Floating Label Styles */
 
-/* === 커스텀 셀렉트 박스 (SB) 스타일 === */
-
-.sb-wrapper {
-    position: relative; /* 화살표, 옵션 목록 위치 기준 */
-}
-
-/* 표시 영역 기본 스타일 (form-control 과 유사하게) */
-.sb-display {
+/* === Select 기본 스타일 === */
+select.form-control {
     display: block;
     width: 100%;
-    /* 패딩: 기본(상하 15px, 좌 1rem) + 오른쪽 화살표 공간(1rem + 20px + 0.8rem) */
-    padding: 15px 2.8rem 15px 1rem;
+    height: 56px; /* input과 유사한 높이로 고정 */
+    padding: 15px 1rem; /* 기본 패딩 (플로팅 시 padding-top/bottom 재정의됨) */
     font-size: 1rem;
     font-weight: 400;
-    color: #000;
+    line-height: 1.5; /* 기본 line-height */
+    color: #555; /* 선택된 값의 텍스트 색상 */
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ccc;
     border-radius: 8px;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     box-sizing: border-box;
-    text-align: left;
-    cursor: pointer;
-    height: 56px; /* 기본 높이 고정 (input과 동일하게) */
-    line-height: calc(56px - 30px - 2px); /* 높이 고정 시 필요 */
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    appearance: none; /* 버튼 기본 스타일 제거 */
+    appearance: none; /* 브라우저 기본 화살표 제거 */
     -webkit-appearance: none;
     -moz-appearance: none;
+
+    /* 커스텀 화살표 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 16px 12px;
+    padding-right: 2.8rem; /* 화살표 공간 확보 */
 }
 
-/* 포커스 상태 (표준/플로팅 공통) */
-.sb-wrapper:focus-within .sb-display,
-.sb-display:focus,
-.sb-display.is-focused { /* JS 제어 */
+/* 3. 유효한 옵션 선택 시 색상 변경 규칙 추가 */
+/* (HTML select 태그에 required 속성이 있어야 합니다) */
+select.form-control:valid {
+    color: #000; /* 옵션 선택 후 진한 텍스트 색상 */
+}
+
+/* Select 플레이스홀더 옵션 (선택된 값이 없을 때) */
+select.form-control:invalid, /* required 와 함께 사용시 */
+select.form-control option[value=""][disabled],
+select.form-control option:first-child[value=""][disabled] { /* 첫번째 옵션이 플레이스홀더일 경우 */
+    color: #555; /* 플레이스홀더 텍스트 색상 */
+}
+/* 실제 선택 가능한 옵션 텍스트 색상 */
+select.form-control option {
+    color: #000;
+}
+
+/* Select 포커스 상태 스타일 */
+select.form-control:focus {
+    background-color: #fff;
+    border-color: #000; /* 포커스 시 테두리 색상 */
+    outline: 0;
+    /* box-shadow: 0 0 0 0.2rem rgba(0,0,0,.15); /* 필요시 사용 */
+}
+
+.form-floating select.form-control.is-focused { /* 또는 .pseudo-focus */
+    /* color: #000; <-- 여기도 제거하거나, 실제 :focus 와 동일한 로직으로 변경 */
+    background-color: #fff;
     border-color: #000;
     outline: 0;
-    /* box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.15); */
 }
 
-/* 값/플레이스홀더 표시 영역 */
-.sb-display .selected-value,
-.sb-display .placeholder {
-    display: inline; /* 기본값 */
+/* === 플로팅 라벨 컨테이너 (Select용) === */
+.form-floating {
+    position: relative;
 }
 
-.sb-display .placeholder {
+/* --- SELECT 용 플로팅 라벨 (항상 위로 고정) --- */
+
+/* 플로팅 라벨 내부의 select.form-control 패딩 조정 */
+.form-floating select.form-control {
+    /* 높이는 select.form-control 기본(56px) 따름 */
+    /* 레이블이 항상 위에 떠 있을 공간 + "선택해주세요" 텍스트 공간 확보 */
+    /* input의 padding-top (1.625rem)과 동일하게 설정 */
+    padding-top: 1.625rem;
+    padding-bottom: 0.625rem; /* input의 padding-bottom (0.625rem)과 동일하게 */
+    line-height: 1.25; /* input 플로팅과 동일한 line-height (값과 레이블 간 간격 조절에 영향) */
+}
+
+/* select 요소에 대한 플로팅 라벨 스타일 */
+/* (input에서 텍스트 입력/포커스 시의 label 스타일을 초기 상태로 적용) */
+.form-floating > select.form-control + label {
+    position: absolute;
+    top: 0; /* transform translateY 로 위치 조절하므로 기준점 */
+    left: 0; /* transform translateX 로 위치 조절하므로 기준점 */
+    /* 초기 패딩은 transform 전 기준으로 input label과 유사하게 설정 */
+    /* (input label 참고: padding: 1rem 1rem;) */
+    padding: 1rem 1rem;
+
+    font-size: 1rem; /* transform scale 이전의 폰트 크기 */
+    color: #999; /* 초기 및 비포커스 시 라벨 색상 */
+    line-height: 1.5; /* 초기 라인 높이 (select의 기본 line-height와 일치) */
+
+    pointer-events: none; /* 라벨이 select 클릭 방해하지 않도록 */
+    border: 1px solid transparent; /* 레이아웃 일관성 (input label 참고) */
+    transform-origin: 0 0; /* input label 참고 */
+
+    /* 항상 input의 "텍스트 입력 후 올라간 레이블" 스타일로 고정 */
+    opacity: 1;
+    /* input 활성화 시 transform 값: scale(0.85) translateY(-0.5rem) translateX(0.15rem) */
+    transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+    height: auto; /* 내용에 맞게 높이 자동 조정 */
+    width: auto; /* 내용에 맞게 너비 자동 조정 */
+
+    /* 테두리 위에 자연스럽게 보이도록 배경색 (input label 참고) */
+    /* 필요시 padding 추가 (input label 참고: padding: 0.1rem 0.3rem;) */
+    /* 현재 transform translateX(0.15rem)이 좌측 여백을 만들고 있음 */
+    /* 좀 더 명확한 제어를 위해 레이블 자체 패딩을 줄 수도 있습니다. */
+    /* 예: padding: 0 0.25rem; /* 상하는 0, 좌우는 약간 */
+
+    transition: color 0.1s ease-in-out; /* 포커스 시 색상 변경 트랜지션 */
+}
+
+/* === Select 크기 변형 (LG) - 필요시 사용 === */
+select.form-control-lg {
+    height: 64px; /* LG 사이즈 높이 */
+    font-size: 1rem; /* LG 폰트 크기 (필요시 1.125rem 등으로 변경) */
+    padding-top: 19px;  /* LG 기본 패딩 (플로팅 아닐 시) */
+    padding-bottom: 19px;/* LG 기본 패딩 (플로팅 아닐 시) */
+    padding-left: 1rem;
+    padding-right: 2.8rem; /* 화살표 공간 */
+    /* line-height: calc(64px - 38px - 2px); */ /* LG 패딩 기반 line-height */
+    line-height: 1.5; /* 기본값 우선 */
+    color: #555;
+}
+/* select lg 화살표 위치/크기 조정 필요시 */
+select.form-control-lg {
+    background-position: right 1rem center; /* 기본 유지 또는 미세 조정 */
+}
+
+select.form-control-lg:valid {
+    color: #000; /* LG도 :valid 시 #000 */
+}
+select.form-control-lg:focus {
+    /* color: #000; <-- LG도 포커스 시 color 변경 제거 */
+    background-color: #fff;
+    border-color: #000;
+    outline: 0;
+}
+/* 라지 사이즈 플로팅 Select 내부 패딩 조정 */
+.form-floating select.form-control-lg {
+    /* 높이는 .form-control-lg(64px) 따름 */
+    padding-top: 1.875rem;    /* 30px (라벨 공간 - input lg 참고) */
+    padding-bottom: 0.875rem; /* 14px (값 공간 - input lg 참고) */
+    line-height: 1.25; /* 일반 플로팅 select와 동일하게 */
+}
+
+/* 라지 사이즈 Select 플로팅 라벨 스타일 (항상 위로 고정) */
+.form-floating > select.form-control-lg + label {
+    /* 기본 스타일은 일반 select 플로팅 라벨(.form-floating > select.form-control + label)과 동일하게 가져감 */
+    padding: 19px 1rem; /* LG 사이즈 초기 패딩 (transform 전 기준) */
+    font-size: 1rem; /* transform 전 폰트 크기 (필요시 LG에 맞게 조절) */
+    /* line-height는 기본 LG select의 line-height와 일치 */
+    /* line-height: calc(64px - 38px - 2px); 또는 1.5 */
+    line-height: 1.5;
+
+
+    /* 항상 input lg의 "텍스트 입력 후 올라간 레이블" 스타일로 고정 */
+    /* input lg 활성화 시 transform 값: scale(0.85) translateY(-0.75rem) translateX(0.15rem) */
+    transform: scale(0.85) translateY(-0.75rem) translateX(0.15rem);
+    opacity: 1;
+    height: auto;
+    width: auto;
+    color: #999; /* 비포커스 시 색상 */
+    transition: color 0.1s ease-in-out;
+}
+
+/* === Select 상태 스타일 === */
+/* Disabled 상태 */
+select.form-control:disabled,
+select.form-control[disabled] {
+    background-color: #ccc;
+    border-color: #ccc;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+/* Disabled 상태의 플로팅 라벨 (Select용) */
+.form-floating > select.form-control:disabled + label,
+.form-floating > select.form-control[disabled] + label {
     color: #999;
 }
 
-/* 값이 없을 때/있을 때 표시 제어 (JS 클래스 기반) */
-.sb-display:not(.has-value) .selected-value {
-    display: none;
+/* Error 상태 */
+select.form-control.is-error {
+    border-color: #dc3545;
 }
-.sb-display.has-value .placeholder {
-    display: none;
+select.form-control.is-error:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
-
-/* --- 플로팅 라벨 버전 스타일 --- */
-/* form-floating 클래스는 inp.css 에 정의된 것을 사용 */
-/* sb-display 버튼의 패딩을 플로팅에 맞게 조정 */
-.form-floating .sb-display {
-    padding-top: 1.625rem;  /* 26px */
-    padding-bottom: 0.625rem; /* 10px */
-    /* 높이는 56px 유지, line-height 재계산 필요 없음 */
-    /* line-height: 1.25; */ /* 필요시 조정 */
+/* Error 상태 플로팅 라벨 (Select용) */
+.form-floating > select.form-control.is-error + label {
+    color: #dc3545;
 }
-
-/* 플로팅 라벨 스타일은 inp.css 의 .form-floating > label 사용 */
-
-/* 플로팅 라벨 상태 변경 (JS 클래스 기반) */
-.form-floating.has-value > label,
-.form-floating.is-open > label {
-    opacity: 1;
-    transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
-    height: auto;
-    color: #999; /* 필요시 포커스 시 색상 변경은 inp.css 수정 또는 여기에 추가 */
-    /* 포커스 시 색상 변경 예시 */
-    /* .form-floating.is-open > label { color: #000; } */
+/* Error 상태이고 포커스 되었을 때도 라벨 색상 유지 */
+/*
+.form-floating > select.form-control.is-error:focus + label {
+    color: #dc3545;
 }
-/* --- 플로팅 라벨 버전 끝 --- */
+*/
 
-/* 화살표 아이콘 */
-.sb-arrow {
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 16px; /* 크기 살짝 조정 */
-    pointer-events: none;
-    transition: transform 0.2s ease;
-}
-
-/* 드롭다운 열렸을 때 옵션 목록 표시 (JS 클래스 기반) */
-.sb-wrapper.is-open .sb-options {
-    display: block; /* <<< .is-open 클래스가 있을 때 보이도록 */
-}
-
-/* 드롭다운 열렸을 때 화살표 회전 (JS 클래스 기반) */
-.sb-wrapper.is-open .sb-arrow {
-    transform: translateY(-50%) rotate(180deg);
-}
-
-/* 옵션 목록 컨테이너 */
-.sb-options {
-    position: absolute;
-    top: calc(100% + 4px); /* 표시 영역 바로 아래 */
-    left: 0;
-    right: 0;
+/* 데모용 포커스 스타일 */
+.form-floating select.form-control.is-focused, /* 또는 .pseudo-focus */
+.form-floating select.form-control:focus { /* 기존 :focus 와 동일하게 적용 */
     background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 10;
-    list-style: none;
-    padding: 0.5rem 0;
-    margin: 0;
-    display: none;
-    /* display: none; 기본은 HTML 인라인 스타일로 제어 */
+    border-color: #000; /* 포커스 시 테두리 색상 */
+    outline: 0;
+    /* box-shadow: 0 0 0 0.2rem rgba(0,0,0,.15); */
 }
-
-/* 옵션 항목 */
-.sb-option {
-    padding: 0.75rem 2.5rem 0.75rem 1rem; /* 체크 아이콘 공간 고려 */
-    cursor: pointer;
-    user-select: none;
-    position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 1rem; /* 기본 폰트 크기 */
-    line-height: 1.5; /* 기본 라인 높이 */
-    color: #000; /* 기본 텍스트 색상 */
-}
-
-/* 옵션 호버 */
-.sb-option:hover {
-    background-color: #f0f0f0;
-}
-
-/* 옵션 활성(클릭) */
-.sb-option:active,
-.sb-option.is-pressed {
-    background-color: #e0e0e0;
-}
-
-/* 옵션 선택됨 */
-.sb-option.is-selected {
-    font-weight: 500;
-    /* background-color: #f8f8f8; */ /* 배경색 제거 또는 연하게 */
-}
-
-/* 옵션 선택됨 체크 아이콘 */
-.sb-option.is-selected::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23198754'%3E%3Cpath d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-}
-
-/* 옵션 목록 스크롤바 스타일 */
-.sb-options::-webkit-scrollbar { width: 6px; background-color: transparent; }
-.sb-options::-webkit-scrollbar-track { background: transparent; margin: 2px 0;}
-.sb-options::-webkit-scrollbar-thumb { background-color: #bbb; border-radius: 3px; border: none; }
-.sb-options::-webkit-scrollbar-thumb:hover { background-color: #999; }
-.sb-options { scrollbar-width: thin; scrollbar-color: #bbb transparent; }

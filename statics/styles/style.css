@@ -133,7 +133,7 @@ main > p { margin-bottom: 16px; color: #495057; }
 .component-examples {
     display: flex; /* 가로 배치 */
     flex-wrap: wrap; /* 자동 줄바꿈 */
-    gap: 1rem 2rem; /* 행 간격, 열 간격 */
+    gap: 2rem 3rem; /* 행 간격, 열 간격 */
     padding: 1.25rem 0; /* 위아래 패딩 (20px) */
     margin-bottom: 1.25rem; /* 아래쪽 마진 */
     align-items: center; /* 수직 중앙 정렬 */
@@ -166,4 +166,19 @@ main > p { margin-bottom: 16px; color: #495057; }
 
 .form-control.is-focused {
     border-color: #000;
+}
+
+/* inp.css */
+.input-variant {
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 1.5rem);
+    height: auto;
+    align-items: center; /* <<< 이 속성이 .input-variant의 모든 자식(sb-wrapper, button-label 등)을 가운데 정렬시킵니다 */
+    /* min-width: 250px; */
+}
+
+.sb-wrapper {
+    position: relative; /* 기존 스타일 */
+    width: 100%;      /* <<< 이 줄을 추가하세요 */
 }

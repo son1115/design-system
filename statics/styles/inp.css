@@ -1,30 +1,5 @@
 /* === 입력 필드 스타일 (inp.css 또는 style.css에 추가) === */
 
-/* 입력 필드 예시 컨테이너 레이아웃 조정 */
-.component-examples.input-examples {
-    gap: 2rem 3rem; /* 행/열 간격 조정 (기존 .component-examples 와 동일하거나 다르게 설정 가능) */
-    align-items: flex-start; /* 상단 정렬 (라벨 유무에 따라 높이가 다를 수 있음) */
-}
-
-/* 각 입력 필드(라벨 포함) 묶음 */
-.input-variant {
-    display: flex;
-    flex-direction: column; /* 라벨과 입력 필드를 수직으로 배치 */
-    width: calc(50% - 1.5rem); /* 예시 컨테이너 내에서 약 절반 너비 (gap 고려) */
-    height: auto;
-    /* 필요에 따라 최소/최대 너비 설정 가능 */
-    /* min-width: 250px; */
-}
-
-/* 폼 라벨 스타일 */
-.form-label {
-    display: inline-block; /* 너비/높이, 마진 적용 가능하도록 */
-    margin-bottom: 0.5rem; /* 라벨 아래 여백 (8px) */
-    font-size: 0.875rem; /* 라벨 폰트 크기 (14px) */
-    color: #555; /* 라벨 색상 */
-    font-weight: 500; /* 라벨 굵기 (선택 사항) */
-}
-
 /* 입력 필드 (input, textarea) 공통 스타일 */
 .form-control {
     display: block; /* 너비 100% 차지 */
