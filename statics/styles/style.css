@@ -182,3 +182,4 @@ main > p { margin-bottom: 16px; color: #495057; }
     position: relative; /* 기존 스타일 */
     width: 100%;      /* <<< 이 줄을 추가하세요 */
 }
+

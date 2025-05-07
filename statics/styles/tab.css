@@ -1,0 +1,246 @@
+/* tab.css */
+
+/* === TABS 공통 기본 스타일 === */
+.tabs-container {
+    width: 100%; /* 부모(.input-variant)의 너비를 100% 사용 */
+}
+
+.tab-list {
+    list-style: none; /* li 기본 글머리 기호 제거 */
+    padding: 0;       /* ul 기본 패딩 제거 */
+    margin: 0;        /* ul 기본 마진 제거 */
+    display: flex;    /* 자식 li들을 가로로 배열하고 flex 속성 적용 */
+    width: 100%;      /* 부모 .tabs-container 의 너비를 100% 사용 */
+}
+
+.tab-item { /* li 요소 */
+    margin: 0;        /* li 기본 마진 제거 */
+    padding: 0;       /* li 기본 패딩 제거 */
+    flex-grow: 1;   /* 중요: 각 탭 아이템(li)이 사용 가능한 공간을 균등하게 차지 */
+    display: flex;    /* 내부 button이 li의 높이/너비를 100% 사용하도록 */
+}
+
+.tab-item button[role="tab"] {
+    display: flex; /* 내부 텍스트를 수직/수평 중앙 정렬하기 위함 */
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;      /* 중요: 부모 .tab-item(li)의 너비를 100% 사용 */
+    height: 48px;     /* 기본(미디움) 탭 버튼 높이 고정 */
+
+    border: none;     /* 기본 테두리 제거 (타입별로 다시 정의) */
+    background-color: transparent; /* 기본 배경 투명 */
+
+    padding: 0 1rem;  /* 좌우 패딩 (16px), 상하 패딩은 flex 정렬로 대체 */
+                      /* 또는 이전 값: padding: 0 16px; */
+                      /* 또는 이전 값 유지: padding: 0 0.8125rem 0 1rem; (상0 우13 하0 좌16) */
+
+
+    font-size: 1rem; /* 16px (이전 값 유지) */
+    font-weight: 500;
+    color: #333;       /* 비활성 탭 기본 텍스트 색상 */
+    text-align: center; /* justify-content: center와 함께 사용 */
+    cursor: pointer;
+    border-radius: 0;   /* 기본적으로 각지지 않게 (타입별, 위치별로 재정의) */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* line-height: 1.4; /* display:flex, align-items:center 사용 시 불필요할 수 있음 */
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    box-sizing: border-box; /* 패딩과 테두리를 width/height에 포함 */
+}
+
+/* 포커스 스타일 */
+.tab-item button[role="tab"]:focus-visible {
+    outline: 2px solid dodgerblue;
+    outline-offset: -2px;
+}
+
+/* 비활성화 공통 스타일 */
+.tab-item button[role="tab"][disabled] {
+    color: #adb5bd !important; /* 다른 상태 덮어쓰도록 */
+    cursor: not-allowed !important;
+    background-color: transparent !important; /* 박스탭 배경색 등 덮어쓰기 */
+}
+
+.tab-panels {
+    /* padding: 1.5rem; /* 이전 값 */
+    /* border: 1px solid #e0e0e0; */ /* 타입별로 다를 수 있음 */
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+    padding: 1.5rem; /* 활성 패널에만 패딩 적용 */
+}
+
+
+/* === 박스 탭 (Box Tabs) === */
+.tabs-box .tab-list {
+    height: 48px;
+    /* width: 100%; 이미 공통 .tab-list에 있음 */
+    /* display: flex; 이미 공통 .tab-list에 있음 */
+    /* height: 48px; /* 직접 설정 또는 내부 버튼 높이에 따름 (버튼 높이로 제어) */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px; /* 전체 컨테이너 둥근 모서리 */
+    overflow: hidden;   /* 내부 버튼이 둥근 모서리 넘치지 않도록 */
+    background-color: #fff;
+    /* padding: 0; 이미 공통 .tab-list에 있음 */
+    /* margin: 0; 이미 공통 .tab-list에 있음 */
+    box-sizing: border-box; /* 테두리를 높이에 포함 */
+}
+
+/* .tabs-box .tab-item 은 공통 .tab-item (flex-grow:1, display:flex) 상속 */
+
+.tabs-box .tab-item button[role="tab"] {
+    /* width: 100%; height: 100%; (또는 고정 높이) 공통 button 스타일 상속 */
+    /* height: 100%; /* 부모 li(.tab-item)의 높이를 따름 (li는 tab-list 높이를 따름) */
+    /* 즉, tab-list에 height가 설정되어 있다면 그 내부 높이를 따름 */
+    /* tab-list의 border 1px씩 제외한 내부 높이: 48px - 1px - 1px = 46px */
+    /* 버튼에 직접 height를 주거나, li에 height를 주고 button이 100% 차지 */
+    /* 여기서는 공통 버튼에 height: 48px; box-sizing: border-box; 를 주고,
+       tab-list의 테두리가 버튼 위에 그려지도록 z-index 등으로 조정하거나,
+       버튼 높이를 46px로 하거나, tab-list 높이를 50px로 해야 함.
+       가장 깔끔한 것은 tab-list에 height 48px, box-sizing: border-box 주고,
+       버튼은 height: 100% (부모 li도 height 100%)
+    */
+    height: 100%; /* 부모 li의 높이를 100% 사용 (li는 tab-list 내부 높이) */
+                               /* tab-list의 border-box로 인해 내부 가용 높이가 46px */
+                               /* 이 버튼은 테두리가 없으므로 100% 사용 */
+    background-color: #fff;
+    color: #333;
+    border-right: 1px solid #e0e0e0;
+    /* border-radius는 아래에서 조건부로 */
+    /* padding은 공통 버튼 스타일 상속 (좌우 1rem) */
+}
+
+.tabs-box .tab-item:last-child button[role="tab"] {
+    border-right: none;
+}
+
+.tabs-box .tab-item button[role="tab"]:not([disabled]):not([aria-selected="true"]):hover {
+    background-color: #E7F9E9; /* 이전 값 유지 */
+}
+
+.tabs-box .tab-item button[role="tab"][aria-selected="true"] {
+    background-color: #00C853;
+    color: #fff;
+    border-right-color: #00C853; /* 활성 탭 오른쪽 테두리도 배경색과 동일하게 */
+}
+
+/* 박스 탭 모서리 처리 (활성 탭이 컨테이너 가장자리에 있을 때) */
+.tabs-box .tab-item:first-child button[role="tab"] { /* 비활성 포함 첫번째 탭 */
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+.tabs-box .tab-item:last-child button[role="tab"] { /* 비활성 포함 마지막 탭 */
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+/* 활성 탭이 첫번째일 때, 오른쪽은 각지게 */
+.tabs-box .tab-item:first-child button[role="tab"][aria-selected="true"] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+/* 활성 탭이 마지막일 때, 왼쪽은 각지게 */
+.tabs-box .tab-item:last-child button[role="tab"][aria-selected="true"] {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+/* 활성 탭이 중간에 있을 때는 모든 모서리 각지게 */
+.tabs-box .tab-item:not(:first-child):not(:last-child) button[role="tab"][aria-selected="true"] {
+    border-radius: 0;
+}
+/* 탭이 하나만 있고 그게 활성일 때 */
+.tabs-box .tab-item:first-child:last-child button[role="tab"][aria-selected="true"] {
+    border-radius: 7px; /* 모든 모서리 둥글게 */
+}
+
+
+.tabs-box .tab-item button[role="tab"][disabled] {
+    background-color: #f8f9fa !important; /* 다른 배경색 덮어쓰도록 */
+    color: #adb5bd !important;
+    border-right-color: #e0e0e0 !important; /* 테두리 색상도 유지 */
+}
+.tabs-box .tab-item:last-child button[role="tab"][disabled] {
+    border-right: none !important;
+}
+
+.tabs-box .tab-panels {
+    border: 1px solid #e0e0e0;
+    border-top: none; /* 탭 리스트와 겹치는 상단 테두리 제거 */
+    /* padding: 1.5rem; /* .tab-panel.active 에 적용 */
+}
+
+
+/* === 라인 탭 (Line Tabs) === */
+.tabs-line .tab-list {
+    /* width: 100%; display:flex; 이미 공통 .tab-list에 있음 */
+    position: relative; /* ::after 가상요소 기준점 */
+    /* margin-bottom: -1px; /* ::after 위치에 따라 조정 */
+}
+
+.tabs-line .tab-list::after { /* 전체 하단 회색선 */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e0e0e0;
+    z-index: 1;
+}
+
+/* .tabs-line .tab-item 은 공통 .tab-item (flex-grow:1, display:flex) 상속 */
+
+.tabs-line .tab-item button[role="tab"] {
+    /* width: 100%; height: 48px; 공통 button 스타일 상속 */
+    color: #333;
+    border-bottom: 3px solid transparent; /* 활성 시 색상 변경될 두꺼운 밑줄 공간 */
+    margin-bottom: -1px; /* tab-list의 전체 하단선(::after)과의 위치 및 두께 조절 */
+    position: relative;
+    z-index: 2; /* tab-list::after 보다 위에 오도록 */
+    /* padding은 공통 버튼 스타일 상속 (좌우 1rem, 상하 flex 정렬) */
+    /* font-size, line-height 등 공통 스타일 상속 */
+}
+
+.tabs-line .tab-item button[role="tab"]:not([disabled]):not([aria-selected="true"]):hover {
+    color: #00C853; /* 이전 #5cb85c 에서 변경 */
+}
+
+.tabs-line .tab-item button[role="tab"][aria-selected="true"] {
+    color: #00C853; /* 이전 #5cb85c 에서 변경 */
+    border-bottom-color: #00C853;
+    font-weight: 600;
+}
+
+.tabs-line .tab-item button[role="tab"][disabled] {
+    color: #adb5bd !important;
+    border-bottom-color: transparent !important;
+}
+
+.tabs-line .tab-panels {
+    /* padding: 1.5rem; /* .tab-panel.active 에 적용 */
+    border: none;
+}
+
+/* === 크기 변형 (LG) - 기본 탭 버튼 스타일을 기반으로 패딩, 폰트 크기 등 조정 === */
+.tab-item button[role="tab"].form-control-lg { /* 버튼에 직접 .form-control-lg 적용 */
+    height: 64px;
+    /* padding: 0 1.25rem; /* LG용 좌우 패딩 */
+    /* font-size: 1.125rem; /* LG용 폰트 크기 */
+    /* 라인 탭 LG의 경우 border-bottom 두께도 고려해야 함 */
+}
+
+/* 박스 탭 LG */
+.tabs-box .tab-list.form-control-lg-container { /* tab-list에 클래스 추가 방식 */
+    height: 64px;
+    /* border-radius 등 조정 */
+}
+/* 또는 .tabs-box.tabs-lg .tab-list 와 같이 부모에 클래스 */
+
+/* 라인 탭 LG */
+/* ... 유사하게 버튼 또는 tab-list에 LG 스타일 적용 ... */

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/statics/styles/style.css">
-    <link rel="stylesheet" href="/statics/styles/btn.css">
+    <link rel="stylesheet" href="/statics/styles/tab.css">
 </head>
 <body>
     <aside>
@@ -31,138 +31,72 @@
 
         <h2 class="section-title">Type</h2>
 
-        <div class="button-examples">
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary">버튼</button>
-                <span class="button-label">Primary</span>
+        <div class="component-examples input-examples tap-type-showcass"> 
+            
+            <div class="input-variant">
+                <div class="tabs-container tabs-box">
+                    <ul class="tab-list" role="tablist">
+                        <li class="tab-item active" role="presentation">
+                            <button type="button" role="tab" aria-selected="true" aria-controls="panel-box-1" id="tab-box-1">Label</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-box-2" id="tab-box-2" tabindex="-1">Label</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-box-3" id="tab-box-3" tabindex="-1">Label</button>
+                        </li>
+                    </ul>
+                </div>
+                <span class="button-label">Box Tab</span>
             </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-secondary">버튼</button>
-                <span class="button-label">Secondary</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-assistive">버튼</button>
-                <span class="button-label">Assistive</span>
-            </div>
-
-        </div>
-        <div class="code-snippet-wrapper full-width-code"> 
-            <pre><code class="language-html">&lt;button type="button" class="btn btn-primary"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-secondary"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-assistive"&gt;버튼&lt;/button&gt;</code></pre>
-        </div>
-
-        <h2 class="section-title">Size</h2>
-
-        <div class="button-examples">
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary btn-xl">버튼</button>
-                <span class="button-label">XLarge(64)</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary btn-lg">버튼</button>
-                <span class="button-label">Large(56)</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary btn-md">버튼</button>
-                <span class="button-label">Medium(48)</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary btn-sm">버튼</button>
-                <span class="button-label">Small(40)</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary btn-xs">버튼</button>
-                <span class="button-label">XSmall(36)</span>
+          
+            <div class="input-variant">
+                <div class="tabs-container tabs-line">
+                    <ul class="tab-list" role="tablist">
+                        <li class="tab-item active" role="presentation">
+                            <button type="button" role="tab" aria-selected="true" aria-controls="panel-line-1" id="tab-line-1">Label</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-line-2" id="tab-line-2" tabindex="-1">Label</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-line-2" id="tab-line-2" tabindex="-1">Label</button>
+                        </li>
+                    </ul>
+                </div>
+                <span class="button-label"> Line Tab</span>
             </div>
         </div>
-        <div class="code-snippet-wrapper full-width-code"> 
-            <pre><code class="language-html">&lt;button type="button" class="btn btn-primary btn-xl"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary btn-lg"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary btn-sm"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary btn-xs"&gt;버튼&lt;/button&gt;</code></pre>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="tabs-container tabs-box"&gt;
+    &lt;ul class="tab-list" role="tablist"&gt;
+        &lt;li class="tab-item active" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="true" aria-controls="panel-box-example-1" id="tab-box-example-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" aria-controls="panel-box-example-2" id="tab-box-example-2" tabindex="-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" aria-controls="panel-box-example-3" id="tab-box-example-3" tabindex="-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="tabs-container tabs-line"&gt;
+    &lt;ul class="tab-list" role="tablist"&gt;
+        &lt;li class="tab-item active" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="true" aria-controls="panel-line-example-1" id="tab-line-example-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" aria-controls="panel-line-example-2" id="tab-line-example-2" tabindex="-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" aria-controls="panel-line-example-3" id="tab-line-example-3" tabindex="-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
         </div>
-
-        <h2 class="section-title">State</h2>
-
-        <div class="button-examples">
-            <div class="button-variant static-state">
-                <button type="button" class="btn btn-primary">버튼</button>
-                <span class="button-label">Default</span>
-            </div>
-            <div class="button-variant static-state">
-                <button type="button" class="btn btn-primary hover-state">버튼</button>
-                <span class="button-label">Hover</span>
-            </div>
-            <div class="button-variant static-state">
-                <button type="button" class="btn btn-primary active-state">버튼</button>
-                <span class="button-label">Active</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-primary" disabled>버튼</button>
-                <span class="button-label">Disabled</span>
-            </div>  
-        </div>
-
-        <div class="button-examples">
-            <div class="button-variant static-state">
-                <button type="button" class="btn btn-secondary">버튼</button>
-                <span class="button-label">Default</span>
-            </div>
-            <div class="button-variant static-state">
-                <button type="button" class="btn btn-secondary hover-state">버튼</button>
-                <span class="button-label">Hover</span>
-            </div>
-            <div class="button-variant static-state">
-                <button type="button" class="btn btn-secondary active-state">버튼</button>
-                <span class="button-label">Active</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-secondary" disabled>버튼</button>
-                <span class="button-label">Disabled</span>
-            </div>      
-        </div>
-
-        <div class="button-examples">
-            <div class="button-variant static-state">
-                <button type="button" class="btn btn-assistive">버튼</button>
-                <span class="button-label">Default</span>
-            </div>
-            <div class="button-variant static-state">
-                <button type="button" class="btn btn-assistive hover-state">버튼</button>
-                <span class="button-label">Hover</span>
-            </div>         
-            <div class="button-variant static-state">
-                <button type="button" class="btn btn-assistive active-state">버튼</button>
-                <span class="button-label">Active</span>
-            </div>
-            <div class="button-variant">
-                <button type="button" class="btn btn-assistive" disabled>버튼</button>
-                <span class="button-label">Disabled</span>
-            </div>  
-        </div>
-
-        <div class="code-snippet-wrapper full-width-code"> 
-            <pre><code class="language-html">&lt;button type="button" class="btn btn-primary"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary hover-state"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary active-state"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-primary disabled"&gt;버튼&lt;/button&gt;
-
-&lt;button type="button" class="btn btn-secondary"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-secondary hover-state"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-secondary active-state"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-secondary disabled"&gt;버튼&lt;/button&gt;
-
-&lt;button type="button" class="btn btn-assistive"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-assistive hover-state"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-assistive active-state"&gt;버튼&lt;/button&gt;
-&lt;button type="button" class="btn btn-assistive disabled"&gt;버튼&lt;/button&gt;</code></pre>
-
-        </div>
-        <p class="styleguide-note">
-            <strong>참고:</strong> 예시 코드의 상태 클래스(.hover-state 등)는 데모용입니다. 실제 구현에는 :hover, :active 가상 클래스와 disabled 속성을 사용하세요.
-        </p>
     </main>
     <script src="/statics/scripts/script.js"></script> 
 </body>
