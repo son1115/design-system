@@ -16,7 +16,7 @@
             <li><a href="inp.html" class="menu-btn">입력 필드</a></li>
             <li><a href="dd.html" class="menu-btn">드롭다운</a></li>
             <li><a href="#" class="menu-btn active">탭</a></li>
-            <li><a href="#" class="menu-btn">칩</a></li>
+            <li><a href="chip.html" class="menu-btn">칩</a></li>
             <li><a href="#" class="menu-btn">뱃지</a></li>
             <li><a href="#" class="menu-btn">페이지네이션</a></li>
             <li><a href="#" class="menu-btn">썸네일</a></li>
@@ -29,7 +29,7 @@
             <p>동일한 페이지에서 유사한 정보를 그룹화하여 콘텐츠를 구성하는 데 사용합니다.</p>
         </div>
 
-        <h2 class="section-title">Type</h2>
+        <h1 class="section-title">Type</h1>
 
         <div class="component-examples input-examples tap-type-showcass"> 
             
@@ -60,11 +60,11 @@
                             <button type="button" role="tab" aria-selected="false" aria-controls="panel-line-2" id="tab-line-2" tabindex="-1">Label</button>
                         </li>
                         <li class="tab-item" role="presentation">
-                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-line-2" id="tab-line-2" tabindex="-1">Label</button>
+                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-line-3" id="tab-line-3" tabindex="-1">Label</button>
                         </li>
                     </ul>
                 </div>
-                <span class="button-label"> Line Tab</span>
+                <span class="button-label">Line Tab</span>
             </div>
         </div>
 
@@ -97,6 +97,222 @@
     &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
         </div>
+
+        <h1 class="section-title">Tab Size</h1>
+
+        <div class="component-examples input-examples tap-type-showcass"> 
+            
+            <div class="input-variant">
+                <div class="tabs-container tabs-box tabs-lg">
+                    <ul class="tab-list" role="tablist">
+                        <li class="tab-item active" role="presentation">
+                            <button type="button" role="tab" aria-selected="true" aria-controls="panel-box-lg-1" id="tab-box-lg-1">Label</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-box-lg-2" id="tab-box-lg-2" tabindex="-1">Label</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-box-lg-3" id="tab-box-lg-3" tabindex="-1">Label</button>
+                        </li>
+                    </ul>
+                </div>
+                <span class="button-label">Large</span>
+            </div>
+
+            <div class="input-variant">
+                <div class="tabs-container tabs-box">
+                    <ul class="tab-list" role="tablist">
+                        <li class="tab-item active" role="presentation">
+                            <button type="button" role="tab" aria-selected="true" aria-controls="panel-box-1" id="tab-box-1">Label</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-box-2" id="tab-box-2" tabindex="-1">Label</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-box-3" id="tab-box-3" tabindex="-1">Label</button>
+                        </li>
+                    </ul>
+                </div>
+                <span class="button-label">Medium</span>
+            </div>
+        </div>
+
+        <div class="component-examples input-examples tap-type-showcass"> 
+
+            <div class="input-variant">
+                <div class="tabs-container tabs-line tabs-lg">
+                    <ul class="tab-list" role="tablist">
+                        <li class="tab-item active" role="presentation">
+                            <button type="button" role="tab" aria-selected="true" aria-controls="panel-line-lg-1" id="tab-line-lg-1">Label</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-line-lg-2" id="tab-line-lg-2" tabindex="-1">Label</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-line-lg-3" id="tab-line-lg-3" tabindex="-1">Label</button>
+                        </li>
+                    </ul>
+                </div>
+                <span class="button-label">Large</span>
+            </div>
+
+            <div class="input-variant">
+                <div class="tabs-container tabs-line">
+                    <ul class="tab-list" role="tablist">
+                        <li class="tab-item active" role="presentation">
+                            <button type="button" role="tab" aria-selected="true" aria-controls="panel-line-1" id="tab-line-1">Label</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-line-2" id="tab-line-2" tabindex="-1">Label</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" aria-controls="panel-line-3" id="tab-line-3" tabindex="-1">Label</button>
+                        </li>
+                    </ul>
+                </div>
+                <span class="button-label">Medium</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="tabs-container tabs-box tabs-lg"&gt;
+    &lt;ul class="tab-list" role="tablist"&gt;
+        &lt;li class="tab-item active" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="true" aria-controls="panel-box-lg-1" id="tab-box-lg-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" aria-controls="panel-box-lg-2" id="tab-box-lg-2" tabindex="-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" aria-controls="panel-box-lg-3" id="tab-box-lg-3" tabindex="-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="tabs-container tabs-box"&gt;
+    &lt;ul class="tab-list" role="tablist"&gt;
+        &lt;li class="tab-item active" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="true" aria-controls="panel-box-1" id="tab-box-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" aria-controls="panel-box-2" id="tab-box-2" tabindex="-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" aria-controls="panel-box-3" id="tab-box-3" tabindex="-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="tabs-container tabs-line tabs-lg"&gt;
+    &lt;ul class="tab-list" role="tablist"&gt;
+        &lt;li class="tab-item active" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="true" aria-controls="panel-line-lg-1" id="tab-line-lg-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" aria-controls="panel-line-lg-2" id="tab-line-lg-2" tabindex="-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" aria-controls="panel-line-lg-3" id="tab-line-lg-3" tabindex="-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="tabs-container tabs-line"&gt;
+    &lt;ul class="tab-list" role="tablist"&gt;
+        &lt;li class="tab-item active" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="true" aria-controls="panel-line-1" id="tab-line-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" aria-controls="panel-line-2" id="tab-line-2" tabindex="-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" aria-controls="panel-line-3" id="tab-line-3" tabindex="-1"&gt;Label&lt;/button&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h1 class="section-title">Tab State</h1>
+
+        <div class="component-examples input-examples tap-type-showcass"> 
+            
+            <div class="input-variant">
+                <div class="tabs-container tabs-box static-state">
+                    <ul class="tab-list" role="tablist">
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" id="box-state-default">Default</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" class="is-hover" aria-selected="false" id="box-state-hover">Hover</button>
+                        </li>
+                        <li class="tab-item active" role="presentation">
+                            <button type="button" role="tab" aria-selected="true" id="box-state-active">Active</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" id="box-state-disabled" disabled>Disabled</button>
+                        </li>
+                    </ul>
+                </div>
+                <span class="button-label">Box Tab</span>
+            </div>
+          
+            <div class="input-variant">
+                <div class="tabs-container tabs-line static-state">
+                    <ul class="tab-list" role="tablist">
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" id="line-state-default">Default</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" class="is-hover" aria-selected="false" id="line-state-hover">Hover</button>
+                        </li>
+                        <li class="tab-item active" role="presentation">
+                            <button type="button" role="tab" aria-selected="true" id="line-state-active">Active</button>
+                        </li>
+                        <li class="tab-item" role="presentation">
+                            <button type="button" role="tab" aria-selected="false" id="line-state-disabled" disabled>Disabled</button>
+                        </li>
+                    </ul>
+                </div>
+                <span class="button-label">Line Tab</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="tabs-container tabs-box static-state"&gt;
+    &lt;ul class="tab-list" role="tablist"&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" id="box-state-default"&gt;Default&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" class="is-hover" aria-selected="false" id="box-state-hover"&gt;Hover&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item active" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="true" id="box-state-active"&gt;Active&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" id="box-state-disabled" disabled&gt;Disabled&lt;/button&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="tabs-container tabs-line static-state"&gt;
+    &lt;ul class="tab-list" role="tablist"&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" id="line-state-default"&gt;Default&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" class="is-hover" aria-selected="false" id="line-state-hover"&gt;Hover&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item active" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="true" id="line-state-active"&gt;Active&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="tab-item" role="presentation"&gt;
+            &lt;button type="button" role="tab" aria-selected="false" id="line-state-disabled" disabled&gt;Disabled&lt;/button&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
     </main>
     <script src="statics/scripts/script.js"></script> 
 </body>

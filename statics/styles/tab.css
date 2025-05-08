@@ -58,14 +58,9 @@
 
 /* 비활성화 공통 스타일 */
 .tab-item button[role="tab"][disabled] {
-    color: #adb5bd !important; /* 다른 상태 덮어쓰도록 */
-    cursor: not-allowed !important;
-    background-color: transparent !important; /* 박스탭 배경색 등 덮어쓰기 */
-}
-
-.tab-panels {
-    /* padding: 1.5rem; /* 이전 값 */
-    /* border: 1px solid #e0e0e0; */ /* 타입별로 다를 수 있음 */
+    color: #999 ; /* 다른 상태 덮어쓰도록 */
+    cursor: not-allowed ;
+    background-color: transparent; /* 박스탭 배경색 등 덮어쓰기 */
 }
 
 .tab-panel {
@@ -84,7 +79,7 @@
     /* width: 100%; 이미 공통 .tab-list에 있음 */
     /* display: flex; 이미 공통 .tab-list에 있음 */
     /* height: 48px; /* 직접 설정 또는 내부 버튼 높이에 따름 (버튼 높이로 제어) */
-    border: 1px solid #e0e0e0;
+    border: 1px solid #ccc;
     border-radius: 8px; /* 전체 컨테이너 둥근 모서리 */
     overflow: hidden;   /* 내부 버튼이 둥근 모서리 넘치지 않도록 */
     background-color: #fff;
@@ -112,7 +107,7 @@
                                /* 이 버튼은 테두리가 없으므로 100% 사용 */
     background-color: #fff;
     color: #333;
-    border-right: 1px solid #e0e0e0;
+    border-right: 1px solid #ccc;
     /* border-radius는 아래에서 조건부로 */
     /* padding은 공통 버튼 스타일 상속 (좌우 1rem) */
 }
@@ -121,7 +116,8 @@
     border-right: none;
 }
 
-.tabs-box .tab-item button[role="tab"]:not([disabled]):not([aria-selected="true"]):hover {
+.tabs-box .tab-item button[role="tab"]:not([disabled]):not([aria-selected="true"]):hover,
+.tabs-box .tab-item button[role="tab"].is-hover {
     background-color: #E7F9E9; /* 이전 값 유지 */
 }
 
@@ -129,6 +125,7 @@
     background-color: #00C853;
     color: #fff;
     border-right-color: #00C853; /* 활성 탭 오른쪽 테두리도 배경색과 동일하게 */
+    font-weight: 600;
 }
 
 /* 박스 탭 모서리 처리 (활성 탭이 컨테이너 가장자리에 있을 때) */
@@ -161,16 +158,16 @@
 
 
 .tabs-box .tab-item button[role="tab"][disabled] {
-    background-color: #f8f9fa !important; /* 다른 배경색 덮어쓰도록 */
-    color: #adb5bd !important;
-    border-right-color: #e0e0e0 !important; /* 테두리 색상도 유지 */
+    background-color: #ccc; /* 다른 배경색 덮어쓰도록 */
+    color: #999;
+    border-right-color: #ccc; /* 테두리 색상도 유지 */
 }
 .tabs-box .tab-item:last-child button[role="tab"][disabled] {
-    border-right: none !important;
+    border-right: none ;
 }
 
 .tabs-box .tab-panels {
-    border: 1px solid #e0e0e0;
+    border: 1px solid #ccc;
     border-top: none; /* 탭 리스트와 겹치는 상단 테두리 제거 */
     /* padding: 1.5rem; /* .tab-panel.active 에 적용 */
 }
@@ -190,7 +187,7 @@
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: #e0e0e0;
+    background-color: #ccc;
     z-index: 1;
 }
 
@@ -200,14 +197,14 @@
     /* width: 100%; height: 48px; 공통 button 스타일 상속 */
     color: #333;
     border-bottom: 3px solid transparent; /* 활성 시 색상 변경될 두꺼운 밑줄 공간 */
-    margin-bottom: -1px; /* tab-list의 전체 하단선(::after)과의 위치 및 두께 조절 */
     position: relative;
     z-index: 2; /* tab-list::after 보다 위에 오도록 */
     /* padding은 공통 버튼 스타일 상속 (좌우 1rem, 상하 flex 정렬) */
     /* font-size, line-height 등 공통 스타일 상속 */
 }
 
-.tabs-line .tab-item button[role="tab"]:not([disabled]):not([aria-selected="true"]):hover {
+.tabs-line .tab-item button[role="tab"]:not([disabled]):not([aria-selected="true"]):hover,
+.tabs-line .tab-item button[role="tab"].is-hover {
     color: #00C853; /* 이전 #5cb85c 에서 변경 */
 }
 
@@ -218,8 +215,8 @@
 }
 
 .tabs-line .tab-item button[role="tab"][disabled] {
-    color: #adb5bd !important;
-    border-bottom-color: transparent !important;
+    color: #999;
+    border-bottom-color: transparent;
 }
 
 .tabs-line .tab-panels {
@@ -227,20 +224,70 @@
     border: none;
 }
 
-/* === 크기 변형 (LG) - 기본 탭 버튼 스타일을 기반으로 패딩, 폰트 크기 등 조정 === */
-.tab-item button[role="tab"].form-control-lg { /* 버튼에 직접 .form-control-lg 적용 */
-    height: 64px;
-    /* padding: 0 1.25rem; /* LG용 좌우 패딩 */
-    /* font-size: 1.125rem; /* LG용 폰트 크기 */
-    /* 라인 탭 LG의 경우 border-bottom 두께도 고려해야 함 */
+/* ======================================== */
+/* === 크기 변형 (LG) 스타일 추가 === */
+/* ======================================== */
+
+/* 박스 탭 LG: 컨테이너 높이 설정 */
+.tabs-lg .tab-list {
+    height: 54px; /* ★ 라지 탭 리스트 높이 */
+    /* border-radius 등은 기본값 유지 또는 필요시 재정의 */
 }
 
-/* 박스 탭 LG */
-.tabs-box .tab-list.form-control-lg-container { /* tab-list에 클래스 추가 방식 */
-    height: 64px;
-    /* border-radius 등 조정 */
+/* 박스 탭 LG: 버튼 스타일 조정 */
+.tabs-lg .tab-item button[role="tab"] {
+    /* height: 100%; /* 부모 li 높이(tab-list 내부 52px) 따름 */
+    font-size: 1.25rem; /* ★ 라지 탭 글씨 크기 (20px) */
+    /* 라지 사이즈에 맞는 좌우 패딩 (선택적 조정) */
+    height: 100%;
+    padding: 0 1.25rem; /* 예시: 20px */
+    /* line-height는 flex 정렬 사용 시 큰 영향 없으나, 필요시 조정 */
+    /* font-weight 등은 기본 스타일 상속 */
 }
-/* 또는 .tabs-box.tabs-lg .tab-list 와 같이 부모에 클래스 */
 
-/* 라인 탭 LG */
-/* ... 유사하게 버튼 또는 tab-list에 LG 스타일 적용 ... */
+/* 박스 탭 LG: 모서리 처리 (tab-list의 radius와 border 고려하여 값은 동일하게 7px) */
+.tabs-box.tabs-lg .tab-item:first-child button[role="tab"] {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+.tabs-box.tabs-lg .tab-item:last-child button[role="tab"] {
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+/* 중첩되는 radius 초기화 */
+.tabs-box.tabs-lg .tab-item:not(:first-child) button[role="tab"] {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.tabs-box.tabs-lg .tab-item:not(:last-child) button[role="tab"] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+/* 활성 탭일 때도 위 규칙이 적용됨. 만약 활성 탭만 다른 radius를 갖게 하려면 aria-selected 추가 */
+.tabs-box.tabs-lg .tab-item:first-child button[role="tab"][aria-selected="true"]{
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.tabs-box.tabs-lg .tab-item:last-child button[role="tab"][aria-selected="true"]{
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.tabs-box.tabs-lg .tab-item:not(:first-child):not(:last-child) button[role="tab"][aria-selected="true"]{
+    border-radius: 0;
+}
+.tabs-box.tabs-lg .tab-item:first-child:last-child button[role="tab"][aria-selected="true"]{
+    border-radius: 7px;
+}
+
+/* --- ★ 라인 탭 LG 스타일 추가 ★ --- */
+
+/* 라인 탭 LG: 버튼 스타일 조정 */
+.tabs-line.tabs-lg .tab-item button[role="tab"] {
+    height: 54px;
+    /* font-size: 1.25rem; 공통 LG 버튼 스타일 상속 */
+    /* margin-bottom 등 라인 탭 고유 속성 유지 */
+}
