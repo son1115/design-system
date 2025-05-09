@@ -183,3 +183,14 @@ main > p { margin-bottom: 16px; color: #495057; }
     width: 100%;      /* <<< 이 줄을 추가하세요 */
 }
 
+/* 각 칩 크기 단위 (라벨+칩) */
+.tag-variant {
+    display: flex;
+    flex-direction: column; /* 자식 요소들을 세로로 배치 */
+    align-items: center;    /* 가로축 중앙 정렬 (기존 .button-variant 와 동일하게) */
+}
+
+.tag-variant .button-label {
+    margin-top: 8px; /* 예시 간격, 필요에 따라 조절 */
+    /* 기존 .button-label의 다른 속성들은 유지됩니다. */
+}

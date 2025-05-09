@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="statics/styles/style.css">
+    <link rel="stylesheet" href="statics/styles/tag.css">
+</head>
+<body>
+    <aside>
+        <ul class="menu">
+            <li><a href="index.html" class="menu-btn">홈</a></li>
+            <li><a href="btn.html" class="menu-btn">버튼</a></li>
+            <li><a href="sel.html" class="menu-btn">셀렉션 컨트롤</a></li>
+            <li><a href="inp.html" class="menu-btn">입력 필드</a></li>
+            <li><a href="dd.html" class="menu-btn">드롭다운</a></li>
+            <li><a href="tab.html" class="menu-btn">탭</a></li>
+            <li><a href="#" class="menu-btn active">태그</a></li>
+            <li><a href="#" class="menu-btn">뱃지</a></li>
+            <li><a href="#" class="menu-btn">페이지네이션</a></li>
+            <li><a href="#" class="menu-btn">썸네일</a></li>
+            <li><a href="#" class="menu-btn">모달</a></li>
+        </ul>
+    </aside>
+    <main>
+        <div class="component-header">
+            <h1>태그</h1>
+            <p>항목을 분류하거나 구성할 때 사용되며, 키워드를 통해 정보를 명확하게 표시합니다.</p>
+        </div>
+
+        <h1 class="section-title">Type</h1>
+
+        <div class="component-examples tag-examples">
+            <div class="tag-variant">
+                    <button type="button" class="tag">Label</button>
+                <span class="button-label">Default Tag</span>
+            </div>
+            
+            <div class="tag-variant">
+                    <button type="button" class="tag tag-icon">Label</button>
+                <span class="button-label">Icon Tag</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;button type="button" class="tag"&gt;Label&lt;/button&gt;
+       
+&lt;button type="button" class="tag tag-icon"&gt;Label&lt;/button&gt;</code></pre>
+        </div>
+
+        <h1 class="section-title">Tag State</h1>
+
+        <div class="component-examples tag-examples">
+            <div class="tag-variant static-state">
+                <button type="button" class="tag">Label</button>
+                <span class="button-label">Default</span>
+            </div>
+            <div class="tag-variant static-state">
+                <button type="button" class="tag hover-state">Label</button>
+                <span class="button-label">Hover</span>
+            </div>
+            <div class="tag-variant static-state">
+                <button type="button" class="tag active-state">Label</button>
+                <span class="button-label">Active</span>
+            </div>
+            <div class="tag-variant">
+                <button type="button" class="tag" disabled>Label</button>
+                <span class="button-label">Disabled</span>
+            </div>
+        </div>
+
+        <div class="component-examples tag-examples">
+            <div class="tag-variant static-state">
+                <button type="button" class="tag tag-icon">Label</button>
+                <span class="button-label">Default</span>
+            </div>
+            <div class="tag-variant static-state">
+                <button type="button" class="tag tag-icon hover-state">Label</button>
+                <span class="button-label">Hover</span>
+            </div>
+            <div class="tag-variant static-state">
+                <button type="button" class="tag tag-icon active-state">Label</button>
+                <span class="button-label">Active</span>
+            </div>
+            <div class="tag-variant">
+                <button type="button" class="tag tag-icon" disabled>Label</button>
+                <span class="button-label">Disabled</span>
+            </div>
+        </div>
+
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;button type="button" class="tag"&gt;Label&lt;/button&gt;
+&lt;button type="button" class="tag hover-state"&gt;Label&lt;/button&gt;
+&lt;button type="button" class="tag active-state"&gt;Label&lt;/button&gt;
+&lt;button type="button" class="tag" disabled&gt;Label&lt;/button&gt;
+       
+&lt;button type="button" class="tag tag-icon"&gt;Label&lt;/button&gt;
+&lt;button type="button" class="tag tag-icon hover-state"&gt;Label&lt;/button&gt;
+&lt;button type="button" class="tag tag-icon active-state"&gt;Label&lt;/button&gt;
+&lt;button type="button" class="tag tag-icon" disabled&gt;Label&lt;/button&gt;</code></pre>
+        </div>
+
+        <h1 class="section-title">Tag Spacing</h1>
+
+        <div class="component-examples tag-examples">
+            <div class="tag-variant">
+                <div class="tags">
+                    <button type="button" class="tag">Label</button>
+                    <button type="button" class="tag">Label</button>
+                    <button type="button" class="tag">Label</button>
+                    <button type="button" class="tag">Label</button>
+                    <button type="button" class="tag">Label</button>
+                </div>
+                <span class="button-label">Default Tag</span>
+            </div>
+            
+            <div class="tag-variant">
+                <div class="tags">
+                    <button type="button" class="tag tag-icon">Label</button>
+                    <button type="button" class="tag tag-icon">Label</button>
+                    <button type="button" class="tag tag-icon">Label</button>
+                    <button type="button" class="tag tag-icon">Label</button>
+                    <button type="button" class="tag tag-icon">Label</button>
+                </div>
+                <span class="button-label">Icon Tag</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="tags"&gt;
+    &lt;button type="button" class="tag"&gt;Label&lt;/button&gt;
+    &lt;button type="button" class="tag"&gt;Label&lt;/button&gt;
+    &lt;button type="button" class="tag"&gt;Label&lt;/button&gt;
+    &lt;button type="button" class="tag"&gt;Label&lt;/button&gt;
+    &lt;button type="button" class="tag"&gt;Label&lt;/button&gt;
+&lt;/div&gt;    
+
+&lt;div class="tags"&gt;
+    &lt;button type="button" class="tag tag-icon"&gt;Label&lt;/button&gt;
+    &lt;button type="button" class="tag tag-icon"&gt;Label&lt;/button&gt;
+    &lt;button type="button" class="tag tag-icon"&gt;Label&lt;/button&gt;
+    &lt;button type="button" class="tag tag-icon"&gt;Label&lt;/button&gt;
+    &lt;button type="button" class="tag tag-icon"&gt;Label&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+    </main>
+    <script src="statics/scripts/script.js"></script> 
+</body>
+</html>

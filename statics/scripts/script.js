@@ -154,7 +154,45 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         // console.warn("탭 UI 컨테이너(.tabs-container)를 찾지 못했습니다.");
     }
-    // === 탭(Tabs) 관련 스크립트 끝 ===
+
     // ==============================================
+    // === 태그(Tag) 선택 기능 스크립트 시작 ===
+    // ==============================================
+    console.log('태그 선택 기능 스크립트 시작.');
+
+    const tags = document.querySelectorAll('.tag'); // 모든 .tag 클래스 요소 선택
+
+    if (tags.length > 0) {
+        tags.forEach(tag => { // 변수명을 ctag에서 tag로 수정
+            tag.addEventListener('click', function() {
+                // 현재 클릭된 태그의 .tag-active 클래스를 토글합니다.
+                this.classList.toggle('tag-active');
+
+                // 만약 그룹 내에서 하나만 선택되도록 하려면 (라디오 버튼처럼)
+                // 다음 주석 처리된 부분을 활성화하고, 태그들이 동일 그룹에 속하는지 식별할 방법이 필요합니다.
+                // (예: data-group 속성 또는 부모 요소를 기준으로)
+
+                /*
+                // 1. 동일 그룹 내 다른 태그들의 active 상태 제거 (선택 사항)
+                const parentGroup = this.closest('.tag-group'); // 또는 다른 그룹 식별자
+                if (parentGroup) {
+                    const otherTagsInGroup = parentGroup.querySelectorAll('.tag');
+                    otherTagsInGroup.forEach(otherTag => {
+                        if (otherTag !== this) { // 현재 클릭된 태그가 아니면
+                            otherTag.classList.remove('tag-active');
+                        }
+                    });
+                }
+                // 2. 현재 클릭된 태그는 항상 active 상태로 (토글 대신)
+                // this.classList.add('tag-active');
+                */
+
+                // console.log('Tag clicked:', this.textContent.trim(), 'Active:', this.classList.contains('tag-active'));
+            });
+        });
+        console.log(`태그 선택 기능이 ${tags.length}개의 태그에 설정되었습니다.`); // 변수명을 tag에서 tags로 수정
+    } else {
+        console.log('선택 가능한 태그(.tag)를 찾지 못했습니다.');
+    }
 
 }); // DOMContentLoaded 끝
