@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="statics/styles/style.css">
+    <link rel="stylesheet" href="statics/styles/pager.css">
+</head>
+<body>
+    <aside>
+        <ul class="menu">
+            <li><a href="index.html" class="menu-btn">홈</a></li>
+            <li><a href="btn.html" class="menu-btn">버튼</a></li>
+            <li><a href="sel.html" class="menu-btn">셀렉션 컨트롤</a></li>
+            <li><a href="inp.html" class="menu-btn">입력 필드</a></li>
+            <li><a href="dd.html" class="menu-btn">드롭다운</a></li>
+            <li><a href="tab.html" class="menu-btn">탭</a></li>
+            <li><a href="tag.html" class="menu-btn">태그</a></li>
+            <li><a href="badge.html" class="menu-btn">뱃지</a></li>
+            <li><a href="#" class="menu-btn active">페이지네이션</a></li>
+            <li><a href="#" class="menu-btn">썸네일</a></li>
+            <li><a href="#" class="menu-btn">모달</a></li>
+        </ul>
+    </aside>
+    <main>
+        <div class="component-header">
+            <h1>페이지네이션</h1>
+            <p>콘텐츠 또는 데이터를 여러 페이지로 분할하고 다음 또는 이전 페이지로 이동하기 위해 사용합니다.</p>
+        </div>
+
+        <h1 class="section-title">Type</h1>
+
+        <h2 class="section-title">Dot</h2>
+
+        <div class="component-examples badge-examples">
+            <div class="badge-variant">
+                <span class="badge badge-dot badge-dot-green"></span>
+                <span class="badge-label">Dot Green</span>
+            </div>
+            
+            <div class="badge-variant">
+                <span class="badge badge-dot badge-dot-red"></span>
+                <span class="badge-label">Dot Red</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;span class="badge badge-dot badge-dot-green&gt;&lt;/span&gt;
+       
+&lt;span class="badge badge-dot badge-dot-red&gt;&lt;/span&gt;</code></pre>
+        </div>
+
+        <h2 class="section-title">Number</h2>
+
+        <div class="component-examples badge-examples">
+            <div class="badge-variant">
+                <span class="badge badge-number badge-number-green">5</span>
+                <span class="badge-label">Number Green</span>
+            </div>
+
+            <div class="badge-variant">
+                <span class="badge badge-number badge-number-green">+99</span>
+                <span class="badge-label">Number Green (최대)</span>
+            </div>
+
+            <div class="badge-variant">
+                <span class="badge badge-number badge-number-red">5</span>
+                <span class="badge-label">Number Red</span>
+            </div>
+            
+            <div class="badge-variant">
+                <span class="badge badge-number badge-number-red">+99</span>
+                <span class="badge-label">Number Red (최대)</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;span class="badge badge-number badge-number-green&gt;5&lt;/span&gt;
+       
+&lt;span class="badge badge-number badge-number-green&gt;+99&lt;/span&gt;
+
+&lt;span class="badge badge-number badge-number-red&gt;5&lt;/span&gt;
+
+&lt;span class="badge badge-number badge-number-red&gt;+99&lt;/span&gt;</code></pre>
+        </div>
+
+        <h2 class="section-title">Text</h2>
+
+        <div class="component-examples badge-examples">
+            <div class="badge-variant">
+                <span class="badge badge-text badge-text-green">내용을 입력해주세요</span>
+                <span class="badge-label">Text Green</span>
+            </div>
+
+            <div class="badge-variant">
+                <span class="badge badge-text badge-text-red">내용을 입력해주세요</span>
+                <span class="badge-label">Text Red</span>
+            </div>
+
+            <div class="badge-variant">
+                <span class="badge badge-text badge-text-gray">내용을 입력해주세요</span>
+                <span class="badge-label">Text Gray</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;span class="badge badge-text badge-text-green&gt;내용을 입력해주세요&lt;/span&gt;
+       
+&lt;span class="badge badge-text badge-text-red&gt;내용을 입력해주세요&lt;/span&gt;
+
+&lt;span class="badge badge-text badge-text-gray&gt;내용을 입력해주세요&lt;/span&gt;</code></pre>
+        </div>
+
+        <h1 class="section-title">Examples</h1>
+
+        <h2 class="section-title">Dot</h2>
+
+        <div class="component-examples badge-examples">
+            <div class="text-with-dot">
+                <span>접속 중</span>
+                <span class="badge badge-dot badge-dot-green badge-dot-positioned" aria-label="활성 상태"></span>
+            </div>
+            
+            <div class="text-with-dot">
+                <span>오류 발생</span>
+                <span class="badge badge-dot badge-dot-red badge-dot-positioned" aria-label="오류 상태"></span>
+            </div>
+        </div>
+
+        <div calss="styleguide-notes-group">
+            <p class="styleguide-note">
+                <strong>Dot Green:</strong> 정상 상태, 활성화, 온라인 상태와 같이 "정상"을 의미합니다.
+            </p>
+            <p class="styleguide-note">
+                <strong>Dot Red:</strong> 중요한 알림이나, 경고, 오류 등 확인이 필요한 상태를 의미합니다.
+            </p>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="text-with-dot"&gt;
+    &lt;span&gt;접속 중&lt;/span&gt;
+    &lt;span class="badge badge-dot badge-dot-green badge-dot-positioned" aria-label="활성 상태"&gt;&lt;/span&gt;
+&lt;/div&gt;
+       
+&lt;div class="text-with-dot"&gt;
+    &lt;span&gt;오류 상태&lt;/span&gt;
+    &lt;span class="badge badge-dot badge-dot-red badge-dot-positioned" aria-label="오류 상태"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h2 class="section-title">Number</h2>
+
+        <div class="component-examples badge-examples icon-badge-examples">
+            <div class="icon-with-badge">
+                <img src="statics/imgs/icon.svg" alt="문서 아이콘" class="icon-image">
+                <span class="badge badge-number badge-number-green badge-on-icon">5</span>
+            </div>
+            
+            <div class="icon-with-badge">
+                <img src="statics/imgs/icon.svg" alt="문서 아이콘" class="icon-image">
+                <span class="badge badge-number badge-number-green badge-on-icon">+99</span>
+            </div>
+
+            <div class="icon-with-badge">
+                <img src="statics/imgs/icon.svg" alt="문서 아이콘" class="icon-image">
+                <span class="badge badge-number badge-number-red badge-on-icon">5</span>
+            </div>
+            
+            <div class="icon-with-badge">
+                <img src="statics/imgs/icon.svg" alt="문서 아이콘" class="icon-image">
+                <span class="badge badge-number badge-number-red badge-on-icon">+99</span>
+            </div>
+        </div>
+
+        <div calss="styleguide-notes-group">
+            <p class="styleguide-note">
+                <strong>Number Green:</strong> 정상 상태, 활성화, 완료된 항목, 긍정적인 알림 등과 관련된 숫자를 나타냅니다.
+            <p class="styleguide-note">
+                <strong>Number Red:</strong> 중요한 알림, 경고, 오류, 미확인 등 즉각적인 주의나 확인이 필요한 상태와 관련된 숫자를 나타냅니다.
+            </p>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="icon-with-badge"&gt;
+    &lt;img src="statics/img/icon.svg" alt="문서 아이콘" class="icon-image"&gt;
+    &lt;span class="badge badge-number badge-numer-green badge-on-icon">5&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="icon-with-badge"&gt;
+    &lt;img src="statics/img/icon.svg" alt="문서 아이콘" class="icon-image"&gt;
+    &lt;span class="badge badge-number badge-numer-green badge-on-icon">+99&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="icon-with-badge"&gt;
+    &lt;img src="statics/img/icon.svg" alt="문서 아이콘" class="icon-image"&gt;
+    &lt;span class="badge badge-number badge-numer-red badge-on-icon">5&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="icon-with-badge"&gt;
+    &lt;img src="statics/img/icon.svg" alt="문서 아이콘" class="icon-image"&gt;
+    &lt;span class="badge badge-number badge-numer-red badge-on-icon">+99&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h2 class="section-title">Text</h2>
+
+        <div class="component-examples badge-examples">
+            <div class="text-with-badge">
+                <span class="menu-text">텍스트</span>
+                <span class="badge badge-text badge-text-green">정상처리</span>
+            </div>
+
+            <div class="text-with-badge">
+                <span class="menu-text">텍스트</span>
+                <span class="badge badge-text badge-text-red">오류발생</span>
+            </div>
+
+            <div class="text-with-badge">
+                <span class="menu-text">텍스트</span>
+                <span class="badge badge-text badge-text-gray">비활성화</span>
+            </div>
+        </div>
+
+        <div calss="styleguide-notes-group">
+            <p class="styleguide-note">
+                <strong>Text Green:</strong> 긍정적이거나, 안정적인 상태, 성공, 완료, 승인, 활성 등을 나타내는 텍스트에 사용합니다.
+            <p class="styleguide-note">
+                <strong>Text Red:</strong> 중요한 알림, 주의가 필요한 정보, 오류, 실패, 긴급 상황 등을 나타내는 텍스트에 사용합니다.
+            <p class="styleguide-note">
+                <strong>Text Gray:</strong> 중립적이거나 부가적인 정보, 비활성 상태 등을 나타내는 텍스트에 사용합니다.
+            </p>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="text-with-badge"&gt;
+    &lt;span calss="menu-text"&gt;텍스트&lt;/span&gt;
+    &lt;span class="badge badge-text badge-text-green">정상처리&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="text-with-badge"&gt;
+    &lt;span calss="menu-text"&gt;텍스트&lt;/span&gt;
+    &lt;span class="badge badge-text badge-text-red">오류발생&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="text-with-badge"&gt;
+    &lt;span calss="menu-text"&gt;텍스트&lt;/span&gt;
+    &lt;span class="badge badge-text badge-text-gray">비활성화&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+    </main>
+    <script src="statics/scripts/script.js"></script> 
+</body>
+</html>

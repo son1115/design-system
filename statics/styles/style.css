@@ -140,11 +140,20 @@ main > p { margin-bottom: 16px; color: #495057; }
 }
 
 /* 스타일 가이드 노트 여백 및 스타일 */
+.styleguide-notes-group {
+    margin-top: 1.5rem; /* 그룹 전체의 상단 여백 (기존 .styleguide-note의 margin-top과 동일하게 시작) */
+    margin-bottom: 1.5rem; /* 그룹 전체와 다음 요소(코드 스니펫) 사이의 간격 (원하는 만큼 조절) */
+}
+
 .styleguide-note {
-    margin-top: 1.5rem; /* 위쪽 여백 (값은 원하는 만큼 조절하세요. 1.5rem = 24px 가정) */
     font-size: 0.875rem; /* 기본 폰트보다 약간 작게 (선택 사항) */
     color: #555; /* 약간 연한 텍스트 색상 (선택 사항) */
+    margin-bottom: 0.5rem;
     /* 필요한 다른 스타일 추가 */
+}
+
+.styleguide-notes-group .styleguide-note:last-child {
+    margin-bottom: 0; /* 그룹 내 마지막 노트의 아래 간격 제거 */
 }
 
 /* 라디오 버튼 상태 예시 컨테이너 가로 정렬 */
