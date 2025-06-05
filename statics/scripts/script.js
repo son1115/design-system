@@ -71,128 +71,250 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // ==============================================
-    // === 탭(Tabs) 관련 스크립트 시작 (패널 제어 없이 버튼 상태만 변경) ===
+    // === 탭(Tabs) 관련 스크립트 시작 (기존 유지) ===
     // ==============================================
-    console.log('탭 UI (버튼 상태 전용) 스크립트 시작.');
-
+    // console.log('탭 UI (버튼 상태 전용) 스크립트 시작.'); // 중복 로그 제거 또는 유지
     const allTabsContainers = document.querySelectorAll('.tabs-container');
-
     allTabsContainers.forEach(tabsContainer => {
         const tabList = tabsContainer.querySelector('.tab-list');
-        if (!tabList) {
-            // console.warn('Tab list not found in a tabsContainer:', tabsContainer);
-            return;
-        }
-
+        if (!tabList) return;
         const tabs = Array.from(tabList.querySelectorAll('button[role="tab"]'));
-
-        if (tabs.length === 0) {
-            // console.warn('No tab buttons found in a tab list:', tabList);
-            return;
-        }
+        if (tabs.length === 0) return;
         
-        // 초기 활성 탭은 HTML에서 class="active" 및 aria-selected="true"로 설정된 것을 따름
-
         tabList.addEventListener('click', (event) => {
             const clickedTabButton = event.target.closest('button[role="tab"]');
-
-            // 클릭된 요소가 탭 버튼이 아니거나, 이미 활성화된 탭이거나, 비활성화된 탭이면 아무것도 하지 않음
             if (!clickedTabButton || clickedTabButton.getAttribute('aria-selected') === 'true' || clickedTabButton.disabled) {
                 return;
             }
-
-            // 1. 모든 탭 버튼 비활성화 (aria-selected, tabindex, .active 클래스)
             tabs.forEach(tab => {
                 tab.setAttribute('aria-selected', 'false');
                 tab.setAttribute('tabindex', '-1');
-                if (tab.parentElement.classList.contains('tab-item')) { // li에 active 클래스 적용 시
+                if (tab.parentElement.classList.contains('tab-item')) {
                     tab.parentElement.classList.remove('active');
                 }
-                // 만약 버튼 자체에 active 클래스를 적용한다면:
-                // tab.classList.remove('active'); 
             });
-
-            // 2. 클릭된 탭 버튼 활성화
             clickedTabButton.setAttribute('aria-selected', 'true');
             clickedTabButton.setAttribute('tabindex', '0');
-            if (clickedTabButton.parentElement.classList.contains('tab-item')) { // li에 active 클래스 적용 시
+            if (clickedTabButton.parentElement.classList.contains('tab-item')) {
                 clickedTabButton.parentElement.classList.add('active');
             }
-            // 만약 버튼 자체에 active 클래스를 적용한다면:
-            // clickedTabButton.classList.add('active');
-
-            clickedTabButton.focus(); // 클릭된 탭으로 포커스 이동 (접근성)
+            clickedTabButton.focus();
         });
 
-        // 키보드 네비게이션 (방향키, Home, End)
         tabList.addEventListener('keydown', (event) => {
             const currentTab = event.target.closest('button[role="tab"]');
             if (!currentTab) return;
-
             let newTabIndex;
             const currentIndex = tabs.indexOf(currentTab);
-
-            if (event.key === 'ArrowRight') {
-                newTabIndex = (currentIndex + 1) % tabs.length;
-            } else if (event.key === 'ArrowLeft') {
-                newTabIndex = (currentIndex - 1 + tabs.length) % tabs.length;
-            } else if (event.key === 'Home') {
-                newTabIndex = 0;
-            } else if (event.key === 'End') {
-                newTabIndex = tabs.length - 1;
-            } else {
-                return; // 다른 키는 무시
-            }
-
-            event.preventDefault(); // 기본 동작(예: 페이지 스크롤) 방지
-            tabs[newTabIndex].click(); // 해당 탭을 클릭한 것처럼 동작 (위의 click 이벤트 핸들러 호출)
+            if (event.key === 'ArrowRight') newTabIndex = (currentIndex + 1) % tabs.length;
+            else if (event.key === 'ArrowLeft') newTabIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+            else if (event.key === 'Home') newTabIndex = 0;
+            else if (event.key === 'End') newTabIndex = tabs.length - 1;
+            else return;
+            event.preventDefault();
+            tabs[newTabIndex].click();
         });
     });
-
-    if (allTabsContainers.length > 0) {
-        console.log(`탭 UI (버튼 상태 전용) 스크립트 ${allTabsContainers.length}개 컨테이너에 설정 완료.`);
-    } else {
-        // console.warn("탭 UI 컨테이너(.tabs-container)를 찾지 못했습니다.");
-    }
+    // if (allTabsContainers.length > 0) { // 중복 로그 제거 또는 유지
+    //     console.log(`탭 UI (버튼 상태 전용) 스크립트 ${allTabsContainers.length}개 컨테이너에 설정 완료.`);
+    // }
+    // === 탭(Tabs) 관련 스크립트 끝 ===
 
     // ==============================================
-    // === 태그(Tag) 선택 기능 스크립트 시작 ===
+    // === 태그(Tag) 선택 기능 스크립트 시작 (기존 유지) ===
     // ==============================================
-    console.log('태그 선택 기능 스크립트 시작.');
-
-    const tags = document.querySelectorAll('.tag'); // 모든 .tag 클래스 요소 선택
-
+    // console.log('태그 선택 기능 스크립트 시작.'); // 중복 로그 제거 또는 유지
+    const tags = document.querySelectorAll('.tag');
     if (tags.length > 0) {
-        tags.forEach(tag => { // 변수명을 ctag에서 tag로 수정
+        tags.forEach(tag => {
             tag.addEventListener('click', function() {
-                // 현재 클릭된 태그의 .tag-active 클래스를 토글합니다.
                 this.classList.toggle('tag-active');
-
-                // 만약 그룹 내에서 하나만 선택되도록 하려면 (라디오 버튼처럼)
-                // 다음 주석 처리된 부분을 활성화하고, 태그들이 동일 그룹에 속하는지 식별할 방법이 필요합니다.
-                // (예: data-group 속성 또는 부모 요소를 기준으로)
-
-                /*
-                // 1. 동일 그룹 내 다른 태그들의 active 상태 제거 (선택 사항)
-                const parentGroup = this.closest('.tag-group'); // 또는 다른 그룹 식별자
-                if (parentGroup) {
-                    const otherTagsInGroup = parentGroup.querySelectorAll('.tag');
-                    otherTagsInGroup.forEach(otherTag => {
-                        if (otherTag !== this) { // 현재 클릭된 태그가 아니면
-                            otherTag.classList.remove('tag-active');
-                        }
-                    });
-                }
-                // 2. 현재 클릭된 태그는 항상 active 상태로 (토글 대신)
-                // this.classList.add('tag-active');
-                */
-
-                // console.log('Tag clicked:', this.textContent.trim(), 'Active:', this.classList.contains('tag-active'));
             });
         });
-        console.log(`태그 선택 기능이 ${tags.length}개의 태그에 설정되었습니다.`); // 변수명을 tag에서 tags로 수정
-    } else {
-        console.log('선택 가능한 태그(.tag)를 찾지 못했습니다.');
+        // console.log(`태그 선택 기능이 ${tags.length}개의 태그에 설정되었습니다.`); // 중복 로그 제거 또는 유지
     }
+    // === 태그(Tag) 선택 기능 스크립트 끝 ===
+
+    // ============================================================
+    // === 테이블형 페이지네이션 로직 (기존 유지) ===
+    // ============================================================
+    const paginationContainer = document.getElementById('tablePagination');
+    if (paginationContainer) { // tablePagination이 있을 때만 실행
+        const pageNumbersContainer = paginationContainer.querySelector('.page-numbers-container');
+        const prevButtonLi = paginationContainer.querySelector('.prev');
+        const nextButtonLi = paginationContainer.querySelector('.next');
+        const firstButtonLi = paginationContainer.querySelector('.first');
+        const lastButtonLi = paginationContainer.querySelector('.last');
+
+        let currentPage = 1;
+        const totalPages = 30;
+        const pagesPerGroup = 5;
+
+        function renderPageNumbers() {
+            if (!pageNumbersContainer) return;
+            pageNumbersContainer.innerHTML = '';
+            const currentGroup = Math.ceil(currentPage / pagesPerGroup);
+            let startPage = (currentGroup - 1) * pagesPerGroup + 1;
+            let endPage = Math.min(startPage + pagesPerGroup - 1, totalPages);
+
+            for (let i = startPage; i <= endPage; i++) {
+                const pageLink = document.createElement('a');
+                pageLink.href = '#';
+                pageLink.textContent = i;
+                pageLink.dataset.page = i;
+                if (i === currentPage) {
+                    pageLink.classList.add('active');
+                    pageLink.setAttribute('aria-current', 'page');
+                }
+                pageLink.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    currentPage = parseInt(this.dataset.page);
+                    renderAll();
+                });
+                pageNumbersContainer.appendChild(pageLink);
+            }
+        }
+
+        function updateButtonStates() {
+            if (prevButtonLi) prevButtonLi.classList.toggle('disabled', currentPage === 1);
+            if (firstButtonLi) firstButtonLi.classList.toggle('disabled', currentPage === 1);
+            if (nextButtonLi) nextButtonLi.classList.toggle('disabled', currentPage === totalPages);
+            if (lastButtonLi) lastButtonLi.classList.toggle('disabled', currentPage === totalPages);
+        }
+
+        function renderAll() {
+            renderPageNumbers();
+            updateButtonStates();
+        }
+
+        prevButtonLi?.querySelector('a')?.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (currentPage > 1) {
+                const currentGroupFirstPage = (Math.ceil(currentPage / pagesPerGroup) - 1) * pagesPerGroup + 1;
+                if (currentPage === currentGroupFirstPage && currentPage > 1) {
+                    currentPage = Math.max(1, currentGroupFirstPage - 1);
+                } else {
+                    currentPage--;
+                }
+                renderAll();
+            }
+        });
+        nextButtonLi?.querySelector('a')?.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (currentPage < totalPages) {
+                const currentGroup = Math.ceil(currentPage / pagesPerGroup);
+                const currentGroupLastPage = Math.min(currentGroup * pagesPerGroup, totalPages);
+                if (currentPage === currentGroupLastPage && currentPage < totalPages) {
+                    currentPage = Math.min(totalPages, currentGroupLastPage + 1);
+                } else {
+                    currentPage++;
+                }
+                renderAll();
+            }
+        });
+        firstButtonLi?.querySelector('a')?.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (currentPage !== 1) { currentPage = 1; renderAll(); }
+        });
+        lastButtonLi?.querySelector('a')?.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (currentPage !== totalPages) { currentPage = totalPages; renderAll(); }
+        });
+
+        if (pageNumbersContainer && prevButtonLi && nextButtonLi && firstButtonLi && lastButtonLi) {
+            renderAll();
+        } else {
+            // console.warn('One or more pagination control elements are missing for tablePagination.');
+        }
+    } else {
+        // console.warn('Pagination container #tablePagination not found.');
+    }
+    // === 테이블형 페이지네이션 로직 끝 ===
+
+
+    // ============================================================
+    // === 카드형 페이지네이션 초기화 함수 정의 및 호출 ===
+    // ============================================================
+    function initializeCardPagination(containerId, totalPages, initialCurrentPage) {
+        // console.log(`[${containerId}] Initializing card pagination...`);
+        const container = document.getElementById(containerId);
+
+        if (!container) {
+            // console.error(`[${containerId}] Pagination container NOT FOUND!`);
+            return;
+        }
+
+        const prevBtn = container.querySelector('.pagination-card-btn.prev');
+        const nextBtn = container.querySelector('.pagination-card-btn.next');
+        const pageInfoContainer = container.querySelector('.pagination-card-page-info');
+        const currentPageSpan = pageInfoContainer?.querySelector('.current-page');
+        const totalPagesIndicatorSpan = pageInfoContainer?.querySelector('.total-pages-indicator');
+
+        if (!prevBtn) console.warn(`[${containerId}] Previous button (.pagination-card-btn.prev) NOT FOUND.`);
+        if (!nextBtn) console.warn(`[${containerId}] Next button (.pagination-card-btn.next) NOT FOUND.`);
+        if (!pageInfoContainer) console.warn(`[${containerId}] Page info container (.pagination-card-page-info) NOT FOUND.`);
+        if (!currentPageSpan) console.warn(`[${containerId}] Current page span (.current-page) NOT FOUND.`);
+        if (!totalPagesIndicatorSpan) console.warn(`[${containerId}] Total pages indicator span (.total-pages-indicator) NOT FOUND.`);
+
+        let currentPage = initialCurrentPage;
+
+        function updateUI() {
+            // console.log(`[${containerId}] updateUI called. Current page: ${currentPage}`);
+
+            if (currentPageSpan && totalPagesIndicatorSpan) {
+                currentPageSpan.textContent = currentPage;
+                totalPagesIndicatorSpan.textContent = ` / ${totalPages}`;
+            } else {
+                if (pageInfoContainer) {
+                    pageInfoContainer.textContent = `${currentPage} / ${totalPages}`;
+                    // console.warn(`[${containerId}] Using fallback for page info text because inner spans are missing.`);
+                }
+            }
+
+            if (prevBtn) {
+                prevBtn.disabled = (currentPage === 1);
+            }
+            if (nextBtn) {
+                nextBtn.disabled = (currentPage === totalPages);
+            }
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                // console.log(`[${containerId}] Previous button clicked.`);
+                if (currentPage > 1) {
+                    currentPage--;
+                    updateUI();
+                }
+            });
+            // console.log(`[${containerId}] Event listener ADDED for Previous button.`);
+        } else {
+            // console.warn(`[${containerId}] Event listener NOT ADDED for Previous button (button not found).`);
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                // console.log(`[${containerId}] Next button clicked.`);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    updateUI();
+                }
+            });
+            // console.log(`[${containerId}] Event listener ADDED for Next button.`);
+        } else {
+            // console.warn(`[${containerId}] Event listener NOT ADDED for Next button (button not found).`);
+        }
+        
+        if (pageInfoContainer && prevBtn && nextBtn) {
+            updateUI();
+            // console.log(`[${containerId}] Initial UI update complete.`);
+        } else {
+            // console.error(`[${containerId}] Essential elements for card pagination are missing. Full initialization failed.`);
+        }
+    }
+
+    // 카드형 페이지네이션 호출
+    initializeCardPagination('cardPagination', 15, 1);
+    // === 카드형 페이지네이션 초기화 함수 정의 및 호출 끝 ===
 
 }); // DOMContentLoaded 끝

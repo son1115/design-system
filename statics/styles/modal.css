@@ -1,0 +1,162 @@
+/* === Modal Overlay === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    display: none; /* 기본적으로 숨김 */
+    align-items: center; /* PC 모달 중앙 정렬용 */
+    justify-content: center; /* PC 모달 중앙 정렬용 */
+    z-index: 1000; /* 다른 요소들 위에 표시 */
+}
+
+.modal-overlay.is-open {
+    display: flex; /* 활성화 시 flex로 변경 (PC 모달 중앙 정렬 및 모바일 모달 배치에 활용) */
+}
+
+/* === Modal Dialog (공통 스타일 및 PC 기본) === */
+.modal-dialog {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; /* 화면 높이의 90%를 넘지 않도록 */
+}
+
+/* PC 버전 모달 스타일 */
+.modal-dialog--pc {
+    width: 500px; /* PC 모달 기본 너비, 필요에 따라 조절 */
+    max-width: 90%; /* 화면 너비의 90%를 넘지 않도록 */
+    /* 중앙 정렬은 .modal-overlay의 flex 속성으로 처리 */
+}
+
+/* 모바일 버전 (Bottom Sheet) 모달 스타일 */
+.modal-dialog--mobile-bottom {
+    width: 100%;
+    max-width: 100%; /* 모바일에서는 화면 전체 너비 사용 */
+    position: fixed; /* 화면 하단 고정 */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 16px 16px 0 0; /* 상단 모서리만 둥글게 */
+    max-height: 75vh; /* 모바일에서는 화면 높이의 75% 정도 (조절 가능) */
+    animation: modalSlideUp 0.3s ease-out;
+}
+
+@keyframes modalSlideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* === Modal Header === */
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0; /* 헤더 크기 고정 */
+}
+
+.modal-title {
+    font-size: 1.125rem; /* 18px */
+    font-weight: 600;
+    margin: 0; /* h1,h2 기본 마진 제거 */
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem; /* 24px */
+    line-height: 1;
+    color: #888;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem; /* 클릭 영역 확보 */
+}
+.btn-close:hover {
+    color: #333;
+}
+
+/* === Modal Content === */
+.modal-content {
+    padding: 20px;
+    flex-grow: 1; /* 남은 공간을 모두 차지 */
+    line-height: 1.6;
+}
+
+.modal-content--scrollable {
+    overflow-y: auto; /* 내용이 많을 경우 스크롤 생성 */
+}
+
+/* === Modal Footer === */
+.modal-footer {
+    padding: 16px 20px;
+    border-top: 1px solid #eee;
+    flex-shrink: 0; /* 푸터 크기 고정 */
+    display: flex;
+    gap: 8px; /* 버튼 사이 간격 */
+}
+
+.modal-footer--pc {
+    justify-content: flex-end; /* PC에서는 버튼을 오른쪽으로 정렬 */
+}
+
+.modal-footer--mobile {
+    flex-direction: column-reverse; /* 모바일에서는 버튼을 세로로 배치 (확인 버튼이 위로 가도록) */
+}
+
+/* 버튼 스타일 (기존 btn.css 의 스타일을 활용하거나 아래에 정의) */
+/* 예시: 기본 버튼 스타일이 이미 있다면, 여기서는 필요한 경우에만 오버라이드 */
+/* .btn, .btn-primary, .btn-secondary 등은 style.css 또는 btn.css 에 정의되어 있다고 가정합니다. */
+/* 만약 없다면, 여기에 버튼 스타일을 추가해야 합니다. */
+/* 예시 버튼 스타일 (btn.css가 없다고 가정하고 간단히 추가) */
+.btn {
+    padding: 0.625rem 1rem; /* 10px 16px */
+    font-size: 0.875rem; /* 14px */
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid transparent;
+    font-weight: 500;
+}
+.btn-primary {
+    background-color: #007bff; /* 예시 기본 파란색 */
+    color: white;
+    border-color: #007bff;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+.btn-secondary {
+    background-color: #f8f9fa;
+    color: #333;
+    border-color: #ccc;
+}
+.btn-secondary:hover {
+    background-color: #e2e6ea;
+}
+/* 모바일용 전체 너비 버튼 */
+.btn-full-width {
+    width: 100%;
+    display: block; /* 너비 100% 적용 위해 */
+}
+
+/* 이미지에서 녹색 버튼이 보여서 녹색 primary 버튼 예시 추가 */
+.btn-primary.btn-green { /* 추가적인 클래스로 색상 변경 */
+    background-color: #28a745; /* 예시 녹색 */
+    border-color: #28a745;
+}
+.btn-primary.btn-green:hover {
+    background-color: #1e7e34;
+}
+
+/* 실제 사용 시, 버튼 스타일은 btn.css 또는 공통 스타일에 정의된 것을 사용하는 것이 좋습니다. */
+/* 예시에서는 .btn-primary에 .btn-green 클래스를 추가하여 녹색 버튼을 표현할 수 있습니다. */
+/* 예: <button type="button" class="btn btn-primary btn-green">확인</button> */

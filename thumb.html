@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="statics/styles/style.css">
+    <link rel="stylesheet" href="statics/styles/thumb.css">
+</head>
+<body>
+    <aside>
+        <ul class="menu">
+            <li><a href="index.html" class="menu-btn">홈</a></li>
+            <li><a href="btn.html" class="menu-btn">버튼</a></li>
+            <li><a href="sel.html" class="menu-btn">셀렉션 컨트롤</a></li>
+            <li><a href="inp.html" class="menu-btn">입력 필드</a></li>
+            <li><a href="dd.html" class="menu-btn">드롭다운</a></li>
+            <li><a href="tab.html" class="menu-btn">탭</a></li>
+            <li><a href="tag.html" class="menu-btn">태그</a></li>
+            <li><a href="badge.html" class="menu-btn">뱃지</a></li>
+            <li><a href="pager.html" class="menu-btn">페이지네이션</a></li>
+            <li><a href="#" class="menu-btn active">썸네일</a></li>
+            <li><a href="modal.html" class="menu-btn">모달</a></li>
+        </ul>
+    </aside>
+    <main>
+        <div class="component-header">
+            <h1>썸네일</h1>
+            <p>사용자에게 일관된 이미지 크기와 비율을 제공하기 위해 사용합니다.</p>
+        </div>
+
+        <h1 class="section-title">Type</h1>
+
+        <div class="component-examples thumb-examples">
+            <div class="thumb-variant">
+                <div class="thumb thumb-1x1">
+                    <img src="statics/imgs/icon-image.svg" alt="이미지 아이콘" class="img-icon">
+                </div>
+                <span class="button-label">1:1 비율</span>
+            </div>
+
+            <div class="thumb-variant">
+                <div class="thumb thumb-4x3">
+                    <img src="statics/imgs/icon-image.svg" alt="이미지 아이콘" class="img-icon">
+                </div>
+                <span class="button-label">4:3 비율</span>
+            </div>
+
+            <div class="thumb-variant">
+                <div class="thumb thumb-16x9">
+                    <img src="statics/imgs/icon-image.svg" alt="이미지 아이콘" class="img-icon">
+                </div>
+                <span class="button-label">16:9 비율</span>
+            </div>
+        </div>
+            
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="thumb thumb-1x1"&gt;
+    &lt;img src="이미지 경로" alt="설명"&gt;
+&lt;/div&gt;
+
+&lt;div class="thumb thumb-4x3"&gt;
+    &lt;img src="이미지 경로" alt="설명"&gt;
+&lt;/div&gt;
+
+&lt;div class="thumb thumb-16x9"&gt;
+    &lt;img src="이미지 경로" alt="설명"&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h2 class="section-title">테두리 옵션</h2>
+
+        <div class="component-examples thumb-examples">
+            <div class="thumb-variant">
+                <div class="thumb thumb-1x1 thumb-bordered">
+                    <img src="statics/imgs/icon-image.svg" alt="이미지 아이콘" class="img-icon">
+                </div>
+                <span class="button-label">1:1 비율</span>
+            </div>
+
+            <div class="thumb-variant">
+                <div class="thumb thumb-4x3 thumb-bordered">
+                    <img src="statics/imgs/icon-image.svg" alt="이미지 아이콘" class="img-icon">
+                </div>
+                <span class="button-label">4:3 비율</span>
+            </div>
+
+            <div class="thumb-variant">
+                <div class="thumb thumb-16x9 thumb-bordered">
+                    <img src="statics/imgs/icon-image.svg" alt="이미지 아이콘" class="img-icon">
+                </div>
+                <span class="button-label">16:9 비율</span>
+            </div>
+        </div>
+
+        <div class="code-snippet-wrapper full-width-code">
+            <pre><code class="language-html">&lt;div class="thumb thumb-1x1 thumb-bordered"&gt;
+    &lt;img src="이미지 경로" alt="설명"&gt;
+&lt;/div&gt;
+
+&lt;div class="thumb thumb-4x3 thumb-bordered"&gt;
+    &lt;img src="이미지 경로" alt="설명"&gt;
+&lt;/div&gt;
+
+&lt;div class="thumb thumb-16x9 thumb-bordered"&gt;
+    &lt;img src="이미지 경로" alt="설명"&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+    </div>
+
+    <h2 class="section-title">그림자 옵션</h2>
+
+    <div class="component-examples thumb-examples">
+        <div class="thumb-variant">
+            <div class="thumb thumb-1x1 thumb-shadowed">
+                <img src="statics/imgs/icon-image.svg" alt="이미지 아이콘" class="img-icon">
+            </div>
+            <span class="button-label">1:1 비율</span>
+        </div>
+
+        <div class="thumb-variant">
+            <div class="thumb thumb-4x3 thumb-shadowed">
+                <img src="statics/imgs/icon-image.svg" alt="이미지 아이콘" class="img-icon">
+            </div>
+            <span class="button-label">4:3 비율</span>
+        </div>
+
+        <div class="thumb-variant">
+            <div class="thumb thumb-16x9 thumb-shadowed">
+                <img src="statics/imgs/icon-image.svg" alt="이미지 아이콘" class="img-icon">
+            </div>
+            <span class="button-label">16:9 비율</span>
+        </div>
+    </div>
+
+    <div class="code-snippet-wrapper full-width-code">
+        <pre><code class="language-html">&lt;div class="thumb thumb-1x1 thumb-shadowed"&gt;
+&lt;img src="이미지 경로" alt="설명"&gt;
+&lt;/div&gt;
+
+&lt;div class="thumb thumb-4x3 thumb-shadowed"&gt;
+&lt;img src="이미지 경로" alt="설명"&gt;
+&lt;/div&gt;
+
+&lt;div class="thumb thumb-16x9 thumb-shadowed"&gt;
+&lt;img src="이미지 경로" alt="설명"&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    </main>
+    <script src="statics/scripts/script.js"></script> 
+</body>
+</html>

@@ -1,0 +1,263 @@
+/* pager.css */
+
+/* 기본 페이지네이션 컨테이너 */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0.5rem;
+    /* font-weight: 400; /* a 태그에서 개별적으로 관리하는 것이 좋음 */
+}
+
+/* 페이지네이션 아이템 (li) 공통 */
+.pagination-item {
+    display: inline-block; /* ul.pagination이 flex container이므로, 이 속성은 영향이 적을 수 있음 */
+                           /* 필요하다면 제거하거나, ul.pagination의 자식인 li에도 flex 관련 속성 고려 */
+}
+
+/* 페이지네이션 링크/버튼/번호 (a 태그) 공통 스타일 */
+.pagination-item a { /* .pagination-item span 규칙은 현재 페이지 표시용 span이 없다면 제거해도 무방 */
+    display: inline-flex; /* 중요: 내부 아이콘과 텍스트 정렬 위해 flex 사용 */
+    align-items: center;  /* 중요: 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 (text-align 대신 사용 가능) */
+    min-width: 36px;
+    height: 36px;
+    padding: 0 0.5rem; /* 좌우 패딩만 주고, 상하 패딩은 flex 정렬에 맡기거나 최소화 */
+                       /* 또는 기존 padding: 0.5rem 유지 */
+    /* line-height: 1.5; */ /* display:flex 사용 시 line-height 보다 align-items가 주로 작용 */
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 1rem; /* "처음", "이전" 등 텍스트의 기본 폰트 크기 */
+    font-weight: 400; /* 기본 폰트 두께 */
+}
+
+/* 페이지 번호들을 감싸는 컨테이너 (li.page-numbers-container) */
+.pagination-item.page-numbers-container {
+    display: flex; /* 내부 a 태그들을 flex item으로 만듦 */
+    gap: 0.5rem;   /* 페이지 번호(a 태그)들 사이의 간격 */
+    align-items: center;
+}
+
+/* 페이지 번호 자체 (a 태그) - page-numbers-container 내부 */
+.page-numbers-container a {
+    /* .pagination-item a 로부터 스타일 대부분 상속 */
+    /* 필요시 여기서 font-weight, color 등 재정의 */
+    /* 이미 .pagination-item a에 display:inline-flex 등이 적용되어 있으므로, 숫자만 있는 경우엔 조절 가능 */
+    /* min-width, height 등은 유지 */
+    padding: 0.5rem; /* 페이지 번호 버튼용 패딩 유지 */
+}
+
+
+/* 호버 상태 */
+.pagination-item a:hover:not(.disabled):not(.active) {
+    background-color: #f5f5f5;
+    /* border-color: #ccc; */ /* border:none 이므로 필요 없음 */
+}
+
+/* 활성 페이지 (현재 페이지) */
+.pagination-item a.active { /* .pagination-item span.active 제거 또는 필요시 유지 */
+    background-color: #00C853;
+    color: #fff;
+    /* border-color: #00C853; */ /* border:none 이므로 필요 없음 */
+    font-weight: 600; /* 기존 bold 대신 600 사용 */
+    cursor: default;
+}
+
+/* 비활성 버튼 */
+.pagination-item.disabled a { /* .pagination-item a.disabled 제거 또는 필요시 유지 */
+    color: #999;
+    background-color: #fff; /* 또는 transparent */
+    border: none;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* 아이콘('처음', '이전', '다음', '마지막' 버튼 내부) 스타일 */
+.pagination-item a .page-icon {
+    font-size: 1.2em;  /* 아이콘 크기 (a 태그 font-size의 1.2배) */
+    line-height: 1;    /* 아이콘 자체의 줄 간격 (font-size에 맞게) */
+    position: relative;
+    top: -1px;
+    /* display: inline-block; /* 부모 a가 flex이므로 자식 span은 기본 block처럼 동작 */
+}
+
+/* 텍스트 부분 스타일 */
+.pagination-item a .page-text {
+    font-size: 1em; /* 부모 a 태그의 font-size(1rem)를 그대로 사용 */
+    line-height: 1; /* 텍스트 자체의 줄 간격 */
+}
+
+/* 아이콘과 텍스트 사이 간격 수정 */
+.pagination-item.first a .page-icon,
+.pagination-item.prev a .page-icon {
+    margin-right: 4px; /* 간격 줄임 (또는 2px, 3px 등 고정값 사용) */
+}
+
+.pagination-item.next a .page-icon,
+.pagination-item.last a .page-icon {
+    margin-left: 4px; /* 간격 줄임 (또는 2px, 3px 등 고정값 사용) */
+}
+
+
+/* 모바일 대응 */
+@media (max-width: 760px) {
+  .pagination-table .pagination-item.first,
+  .pagination-table .pagination-item.last {
+    display: none;
+  }
+}
+
+/* --- 카드형 페이지네이션 스타일 --- */
+.pagination-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 버튼과 페이지 정보 사이에 공간 배분 */
+    background-color: #fff; /* 배경색 (필요시) */
+    /* border: 1px solid #dee2e6; */ /* 테두리 (디자인 시안에는 없음) */
+    /* border-radius: 8px; */ /* 모서리 둥글게 (디자인 시안에는 없음) */
+    gap: 1rem; /* 버튼과 페이지 정보 사이 최소 간격 */
+    min-width: 320px; /* 최소 너비 (내용에 따라 조절) */
+}
+
+.pagination-card-btn {
+    display: inline-flex;
+    font-family: 'Pretendard';
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: auto;
+    color: #333; /* 다음 버튼 기본 글자색 */
+    background-color: #fff; /* 다음 버튼 기본 배경색 */
+    border: 1px solid #ccc; /* 다음 버튼 기본 테두리 */
+    border-radius: 0.375rem; /* 6px */
+    cursor: pointer;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.pagination-card-btn:hover:not(:disabled) {
+    background-color: #f8f9fa;
+}
+
+.pagination-card-btn:focus-visible { /* 키보드 포커스 시 아웃라인 */
+    outline: 2px solid #0d6efd;
+    outline-offset: 1px;
+}
+
+
+/* 이전 버튼 비활성 시 스타일 (디자인 시안 참고) */
+.pagination-card-btn.prev:disabled {
+    color: #999; /* 비활성 시 글자색 */
+    background-color: #ccc; /* 비활성 시 배경색 */
+    border: 1px solid #ccc;
+    cursor: not-allowed;
+    opacity: 1; /* 기본 비활성 투명도 대신 명시적으로 불투명하게 */
+}
+/* 다음 버튼 비활성 시 스타일 (필요하다면 추가) */
+.pagination-card-btn.next:disabled {
+    color: #999;
+    background-color: #ccc; /* 다음 버튼은 비활성 시 테두리 유지 가능성 */
+    border: 1px solid #ccc;
+    cursor: not-allowed;
+    /* opacity: 0.65; */ /* 부트스트랩 기본값 참고 */
+}
+
+
+.pagination-card-btn .page-icon {
+    font-size: 1.2em; /* 아이콘 크기 */
+    line-height: 1;
+}
+
+.pagination-card-btn.prev .page-icon {
+    margin-right: 0.25em;
+}
+
+.pagination-card-btn.next .page-icon {
+    margin-left: 0.25em;
+}
+
+.pagination-card-page-info {
+    font-size: 1rem; /* 16px, 기본 크기 */
+    text-align: center;
+    white-space: nowrap;
+    flex-grow: 1;
+    /* 기본 색상과 두께는 .total-pages-indicator 기준으로 설정 */
+    color: #999;
+    font-weight: 400;
+}
+
+.pagination-card-page-info .current-page {
+    color: #333;
+    font-weight: 600;
+}
+
+.pagination-card-page-info .total-pages-indicator {
+    color: #999;
+    font-weight: 400;
+    /* margin-left: 0.1em; */ /* 현재 페이지와 전체 페이지 표시 사이 미세 간격 (필요시) */
+}
+
+/* --- 모바일 대응 카드형 페이지네이션 --- */
+@media (max-width: 760px) {
+    .pagination-card {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        max-width: 0px;
+        width: 100%;
+        padding: 0rem;
+        gap: 0.5rem;
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .pagination-card-page-info {
+        order: 1;
+        width: 100%;
+        text-align: center;
+    }
+
+    .pagination-card-btn {
+        flex-grow: 1;     /* 버튼들이 사용 가능한 공간을 나눠 가지도록 함 */
+        flex-shrink: 1;   /* 공간이 부족할 경우 버튼 너비가 줄어들도록 함 */
+        flex-basis: 0;    /* 초기 크기를 0으로 하여 flex-grow 시 균등하게 공간 분배 */
+
+        max-width: 156px; /* (156px, 1rem=16px 기준) - 이것이 버튼의 '최대 너비'이자 '시작 너비'가 됩니다. */
+                          /* 화면이 넓을 때는 이 너비를 넘지 않습니다. */
+
+        /* 패딩은 이전처럼 clamp()를 사용하거나, 이 단계에서는 고정값을 사용할 수 있습니다. */
+        /* 옵션 1: clamp() 유동 패딩 (이전과 동일) */
+        padding-top:    clamp(0.5rem, 2vw, 0.75rem);
+        padding-bottom: clamp(0.5rem, 2vw, 0.75rem);
+        padding-left:   clamp(0.75rem, 3.5vw, 1.25rem);
+        padding-right:  clamp(0.75rem, 3.5vw, 1.25rem);
+        height: auto; /* 유동 패딩 사용 시 높이 자동 */
+
+        /* 옵션 2: 이 화면 크기 범위(760px 이하)를 위한 고정 패딩 (더 간단) */
+        /*
+        padding: 0.75rem 1.25rem;
+        height: 3rem;
+        */
+
+        box-sizing: border-box;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .pagination-card-btn.prev {
+        order: 2;
+    }
+
+    .pagination-card-btn.next {
+        order: 3;
+    }
+}
